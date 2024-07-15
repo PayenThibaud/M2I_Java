@@ -1,5 +1,5 @@
 -- DDL : DATA DEFINITION LANGUAGE
--- Pour faire un commantaire, on utilise deux "-" suivi d'un espace.
+-- Pour faire un commentaire, on utilise deux "-" suivi d'un espace.
 
 -- Choisir le schéma à utiliser.
 SET search_path TO entreprise_demo;
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS salarie (
 	-- On précise NOT NULL, par défaut la valeur peut être null
 	prenom VARCHAR(50) NOT NULL,
 	nom VARCHAR(50) NOT NULL,
-	-- La contrainte check permet d'ajouter un méchanisme de vérification
+	-- La contrainte check permet d'ajouter un mécanisme de vérification
 	"age" INT NOT NULL CHECK("age" > 18 AND "age" < 65),
 	-- La contrainte default permet de définir une valeur par défaut en cas d'absence de valeur renseigné
 	salaire DECIMAL(6,2) DEFAULT 1500,
@@ -58,7 +58,13 @@ CREATE TABLE IF NOT EXISTS salarie (
 ALTER TABLE salaries
 	DROP COLUMN salaire;
 
--- Ajout d'une colonne
-ALTER TABLE salaries
-	ADD COLUMN salaire DECIMAL(6,2) DEFAULT 1500;
+-- Renommer une table
+ALTER TABLE salarie RENAME TO salaries;
+
+-- Nommage de contraintes 
+-- pk_table_id: clé primaire
+-- fk_table_id: clé étrangère
+-- chk_contrainte: check
+-- ux_contrainte: clé unique
+-- idx_contrainte: index
 
