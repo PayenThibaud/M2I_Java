@@ -97,3 +97,6 @@ DELETE FROM
 WHERE
 	date_creation < '2024-01-01';
 
+TRUNCATE 
+	services CASCADE;
+
