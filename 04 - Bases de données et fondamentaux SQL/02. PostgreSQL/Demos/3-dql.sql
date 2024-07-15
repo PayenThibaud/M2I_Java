@@ -184,6 +184,123 @@ SELECT
 FROM
 	salaries;
 
+-- GROUP BY et fonctions d'agrégations
 
+SELECT
+	MAX(salaire) AS salaire_max
+FROM
+	salaries;
+
+SELECT
+	MIN(LENGTH(prenom))
+FROM
+	salaries;
+
+SELECT
+	ROUND(AVG(salaire)) AS salaire_moyen,
+	service_id
+FROM
+	salaries
+GROUP BY
+	service_id
+ORDER BY
+	salaire_moyen DESC;
+
+SELECT
+	ROUND(AVG(salaire)) AS salaire_moyen,
+	service_id
+FROM
+	salaries
+GROUP BY
+	service_id
+HAVING
+	AVG(salaire) > 3000
+ORDER BY
+	salaire_moyen DESC;
+
+-- Sous requête
+-- Une requête peut renvoyer 3 types de résultats
+-- 1. Une valeur scalaire (une unique valeur)
+-- 2. Une liste de valeur (un tableau à une dimension)
+-- 3. Un tableau de valeurs (un tableau à deux dimensions)
+
+-- 1.
+SELECT MAX(salaire) FROM salaries;
+
+-- 2.
+SELECT prenom FROM salaries;
+
+-- 3.
+SELECT prenom, nom FROM salaries;
+
+-- 1.
+SELECT
+	prenom,
+	nom
+FROM
+	salaries
+WHERE
+	service_id = (SELECT service_id FROM services WHERE libelle = 'COMMUNICATION');
+
+-- 2.
+SELECT
+	prenom,
+	nom
+FROM
+	salaries
+WHERE
+	service_id IN (SELECT service_id FROM services WHERE libelle = 'COMMUNICATION' OR date_creation > '2024-01-01');
+
+-- 3.
+SELECT
+	prenom,
+	nom
+FROM
+	(SELECT * FROM salaries WHERE service_id = 10) AS communicant
+WHERE
+	salaire > 1500;
+
+-- Sous requête correlée
+-- Elle utilise un élément dans laquelle est elle définie
+-- Elle est donc dépendante de son contexte
+SELECT
+	prenom,
+	nom,
+	service_id
+FROM
+	salaries
+WHERE
+	service_id IN (SELECT service_id FROM services WHERE LENGTH(nom) >= LENGTH(libelle));
+
+-- JOINTURES
+SELECT
+	prenom,
+	nom,
+	libelle,
+	date_creation
+FROM
+	salaries
+INNER JOIN
+	services ON salaries.service_id = services.service_id;
+
+-- JOIN: INNER JOIN par défaut
+SELECT
+	prenom,
+	nom,
+	libelle
+FROM
+	salaries
+LEFT JOIN
+	services USING(service_id);
+
+-- Jointure naturelle, utilise la colonne similaire entre les deux tables
+SELECT
+	prenom,
+	nom,
+	libelle
+FROM
+	salaries
+NATURAL JOIN
+	services;
 
 
