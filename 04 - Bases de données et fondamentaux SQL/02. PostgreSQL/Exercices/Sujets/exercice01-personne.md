@@ -17,3 +17,6 @@
    afin de pouvoir réinitialiser la base avec quelques entrées.
 4. Modifier les enregistrements pour mettre les noms de familles en majuscule et les prénoms en minuscule
 5. Supprimer un enregistrement de votre choix
+6. Afficher la totalité des personnes présentes dans la table `personne`
+7. Créer une requête permettant d'afficher l'ensemble du jeu de résultat ordonné par titre.
+8. Créer un requête permettant de rechercher une personne par rapport à son adresse email.

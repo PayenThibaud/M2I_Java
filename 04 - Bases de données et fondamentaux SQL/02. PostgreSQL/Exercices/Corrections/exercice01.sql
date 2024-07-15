@@ -44,3 +44,30 @@ DELETE FROM
 	personne
 WHERE
 	personne_id = (SELECT MAX(personne_id) FROM personne);
+
+-- Q6
+SELECT
+	*
+FROM
+	personne;
+
+-- Q7
+SELECT
+	*
+FROM
+	personne
+ORDER BY
+	titre;
+
+-- Q8 
+SELECT
+	prenom,
+	nom,
+	email
+FROM
+	personne
+WHERE
+	email LIKE 'bob%';
+
+
+
