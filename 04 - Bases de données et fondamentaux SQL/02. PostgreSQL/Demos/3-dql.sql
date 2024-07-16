@@ -1,4 +1,4 @@
-SET search_path TO entreprise_demo;
+  SET search_path TO entreprise_demo;
 
 -- Sélectionner toutes les colonnes de la table services
 SELECT * FROM services;
