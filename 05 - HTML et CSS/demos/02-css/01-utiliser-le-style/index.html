@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lier le style</title>
+
+    <!-- Utilisation d'une balise style -->
+     <!-- Priorité 2 -->
+    <style>
+        body {
+            background-color: wheat;
+        }
+        h1 {
+            color: blue;
+        }
+    </style>
+
+    <!-- Utilisation d'un fichier css externe  -->
+     <!-- Priorité 3 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Utilisation de l'attribut style -->
+     <!-- Priorité 1 -->
+    <h1 style="color: red">Je suis un titre</h1>
+    <p>Je suis du texte moche</p>
+</body>
+</html>
