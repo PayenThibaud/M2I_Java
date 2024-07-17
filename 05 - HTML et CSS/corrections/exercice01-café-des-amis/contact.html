@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Le site du café des amis, au coeur d'une expérience inoubliable">
+    <meta name="keywords" content="Café, Amis, Ambiance, Lounge">
+    <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
+    <title>Café des amis - Contact</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <img src="./assets/img/logo.svg" alt="logo" height="48">
+                </li>
+                <li>
+                    <a href="./index.html">Accueil</a>
+                </li>
+                <li>
+                    <a href="./menu.html">Menu</a>
+                </li>
+                <li>
+                    <a href="./contact.html">Contact</a>
+                </li>
+                <li>
+                    <a href="./horaires.html">Horaires</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form action="#" method="get">
+            <h2>Effectuer une réservation</h2>
+            <div>
+                <label for="datetime">Date réservation</label>
+                <input type="datetime-local" name="datetime" id="datetime">
+            </div>
+
+            <div>
+                <label for="personnes">Nombre de personnes</label>
+                <select name="personnes" id="personnes">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required placeholder="email">
+            </div>
+
+            <div><button type="submit">Envoyer</button></div>
+
+        </form>
+    </main>
+    <footer>
+        <nav>
+            <li><a href="mailto:contact@cafedesamis.fr">contact</a></li>
+            <li><a href="https://www.linkedin.com" target="_blank">Linkedin</a></li>
+            <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
+        </nav>
+    </footer>
+</body>
+</html>
