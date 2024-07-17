@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les formulaires</title>
+</head>
+
+<body>
+    <!-- Action: défini l'endroit ou sera envoyé le formulaire -->
+    <!-- Method: méthode http à utiliser, get: paramètres dans l'url, post: paramètres dans la requête -->
+    <form action="#" method="get">
+
+        <!-- regroupement de champs -->
+        <fieldset>
+            <!-- légende du regroupement de champs -->
+            <legend>Informations</legend>
+
+            <!-- libellé du champs lié grâce à son id -->
+            <label for="mr">mr</label>
+            <input type="radio" name="titre" id="mr" value="Mr" checked>
+
+            <label for="mr">mme</label>
+            <input type="radio" name="titre" id="mme" value="Mme">
+
+            <label for="mr">non binaire</label>
+            <input type="radio" name="titre" id="nonbinaire" value="Non binaire">
+
+            <div>
+                <label for="prenom">prénom</label>
+                <input type="text" name="prenom" placeholder="prénom" id="prenom">
+                <label for="nom">nom</label>
+                <input type="text" name="nom" placeholder="nom" id="nom">
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Authentication</legend>
+            <input type="email" name="email" placeholder="email" id="email" value="arthur@toto.fr">
+            <input type="password" name="motdepasse" id="motdepasse">
+        </fieldset>
+
+        <!-- Sélecteur -->
+        <select name="pays" id="pays">
+            <option value="France">France</option>
+            <option value="Italie">Italie</option>
+            <option value="Angleterre">Angleterre</option>
+            <option value="Allemagne">Allemagne</option>
+        </select>
+
+        <div>
+            <label for="terms">Souhaitez vous recevoir la newsletter</label>
+            <input type="checkbox" name="terms" id="terms" checked>
+        </div>
+
+        <textarea name="message" id="message" placeholder="Saisir votre message"></textarea>
+
+        <button type="submit">Envoyer</button>
+    </form>
+
+</body>
+
+</html>
