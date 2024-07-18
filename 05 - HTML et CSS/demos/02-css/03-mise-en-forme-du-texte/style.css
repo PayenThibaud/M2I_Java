@@ -1,0 +1,41 @@
+@import "fonts.css";
+
+/* L'élément root nous permet de définir des variables */
+/* Ces variables seront disponibles dans tous les autres sélecteurs */
+/* Une variable est définir par --<nom>: <valeur> */
+:root {
+    --fs-400: 1em;
+    --fw-400: 400;
+    --clr-primary: #FF00FF;
+}
+
+/* 16px */
+body {
+    font-family: "Raleway";
+}
+
+/* Pour utiliser une variable, on utilise la fonction var() */
+/* La fonction var() prend en paramètre le nom de la variable et une éventuelle valeur par défaut */
+p {
+    font-size: var(--fs-400, 20px);
+    font-weight: var(--fw-400, 700);
+    font-style: italic;
+    color: var(--clr-primary);
+}
+
+/* Classe outils: une classe qui ne fait qu'une seule chose */
+.text-align-center {
+    text-align: center;
+}
+
+.line-through {
+    text-decoration: line-through;
+}
+
+.text-skyblog-shadow {
+    text-shadow: 2px 2px 2px rgb(232, 49, 49);
+}
+
+.word-spacing-far {
+    word-spacing: 3ch;
+}

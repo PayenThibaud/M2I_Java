@@ -1,0 +1,39 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+
+.display-block {
+    display: block;
+}
+
+.display-inline {
+    /* Les éléments inline ne peuvent pas avoir de hauteur et largeur définie */
+    display: inline;
+}
+
+.display-inline-block > li {
+    display: inline-block;
+    height: 100px;
+    background-color: blue;
+}
+
+.box {
+    /* Les éléments de type block peuvent avoir une hauteur et largeur définie */
+    height: 100px;
+    width: 100px;
+    background-color: red;
+    /* marge interne */
+    padding: 2em;
+    /* contour */
+    border: 3px black solid;
+    /* marge externe */
+    margin: 1rem 0;
+
+    /* Permet d'arrondir les angles */
+    border-radius: 15px;
+}
+
+.box[data-sizing="min-content"] {
+    min-width: fit-content;
+    height: max-content;
+}

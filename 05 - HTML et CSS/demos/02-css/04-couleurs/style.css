@@ -1,0 +1,16 @@
+:root {
+    /* En hexadécimal #ROUGE-VERT-BLEU */
+    --clr-red: #FF0000;
+    /* fonction rgb() chaque couleur de 0 à 255 pour leur intensité */
+    --clr-blue: rgb(0, 0, 255);
+    /* Pour gérer la transparence on rajoute le caractère '/' */
+    /* La transparence va de 0 à 1 */
+    --clr-blue-transparent: rgb(0 0 255 / 0.5);
+    --clr-blue-transparent-bis: rgba(0, 0, 255, 50%);
+
+    /* Utilisation de HUE, SATURATION, LIGHTNESS */
+    --clr-green: hsl(130deg, 100, 50);
+    --clr-green: hsl(130 100 50 / 0.3);
+
+    --clr-alice-blue: alice-blue;
+}
