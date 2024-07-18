@@ -1,0 +1,54 @@
+:root {
+    --clr-secondary: #f5f5dc;
+    --clr-primary: #ff0000;
+    --spacing: 1.5rem;
+    --point-size: 50px;
+}
+
+/* Sélection de tous les id qui commencent par dice */
+/* Personnalisation d'un dé par défaut */
+div[id^="dice"] {
+    display: inline-block;
+    position: relative;
+    height: 200px;
+    width: 200px;
+    background: var(--clr-secondary);
+    margin: var(--spacing);
+    border-radius: 25px;
+}
+
+/* Définition d'un point du dé */
+div[id^="dice"] > div {
+    position: absolute;
+    width: var(--point-size);
+    height: var(--point-size);
+    border-radius: 50%;
+    background-color: var(--clr-primary);
+}
+
+/* Définition de l'axe horizontal */
+div[id^="dice"] > div[class^="top"] {
+    top: 10%;
+}
+
+div[id^="dice"] > div[class^="bottom"] {
+    bottom: 10%;
+}
+
+div[id^="dice"] > div[class^="middle"] {
+    top: calc(50% - var(--point-size) / 2);
+}
+
+/* Définir l'axe vertical */
+
+div[id^="dice"] > div[class$="left"] {
+    left: 10%;
+}
+
+div[id^="dice"] > div[class$="right"] {
+    right: 10%;
+}
+
+div[id^="dice"] > div[class$="center"] {
+    left: calc(50% - var(--point-size) / 2);
+}
