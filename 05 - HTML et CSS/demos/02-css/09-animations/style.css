@@ -1,0 +1,21 @@
+body {
+    min-height: 100dvh;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    animation: 3s infinite alternate move-x;
+}
+
+@keyframes move-x {
+    from {
+        transform: translateX(0) rotateZ(0);
+
+    }
+
+    to {
+        transform: translateX(200px) rotateZ(360deg);
+    }
+}

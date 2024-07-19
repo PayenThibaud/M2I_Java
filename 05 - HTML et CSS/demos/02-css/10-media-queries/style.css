@@ -1,0 +1,45 @@
+body {
+    min-height: 100vh;
+    background-color: aqua;
+}
+
+
+/* @media <type> and (feature) */
+/* @media print  */
+/* @media screen */
+/* @media all */
+
+@media screen and (orientation: paysage) {
+
+}
+
+/* > 768px display desktop */
+@media screen and (min-width: 768px) {
+    body {
+        background-color: red;
+    }
+}
+
+
+/* jusqu'à 767px c'est de la tablette */
+@media screen and (max-width: 767px) {
+    body {
+        background-color: salmon;
+    }
+}
+
+/* taille mobile */
+@media screen and (max-width: 425px) {
+    body {
+        background-color: sienna;
+    }
+}
+
+/* @media print {
+    body {
+        background-color: blueviolet;
+    }
+    p {
+        color: yellow;
+    }
+} */
