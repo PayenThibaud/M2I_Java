@@ -1,0 +1,46 @@
+:root {
+    --gutter: 1rem;
+    --spacing: 1rem;
+}
+
+body {
+    min-height: 100dvh;
+}
+
+/* Flexbox sous forme de ligne */
+.container {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+    /* flex-flow: row wrap */
+}
+
+/* Flexbox sous forme de colonnes */
+.column {
+    display: flex;
+    flex-flow: column wrap;
+    gap: var(--spacing);
+    align-items: flex-end;
+}
+
+.box {
+    height: 100px;
+    width: 100px;
+    background-color: red;
+    color: white;
+    text-align: center;;
+}
+
+.box:first-child {
+    /* Les enfants d'une flexbox ont un order qui a une valeur de 0 */
+    order: 1;
+}
+
+.box:last-child {
+    /* Une valeur négative permet de positionner l'élément en première position */
+    order: -1;
+}
