@@ -18,7 +18,7 @@ div[id^="dice"] {
 }
 
 /* Définition d'un point du dé */
-div[id^="dice"] > div {
+div[id^="dice"]>div {
     position: absolute;
     width: var(--point-size);
     height: var(--point-size);
@@ -27,28 +27,28 @@ div[id^="dice"] > div {
 }
 
 /* Définition de l'axe horizontal */
-div[id^="dice"] > div[class^="top"] {
+div[id^="dice"]>div[class^="top"] {
     top: 10%;
 }
 
-div[id^="dice"] > div[class^="bottom"] {
+div[id^="dice"]>div[class^="bottom"] {
     bottom: 10%;
 }
 
-div[id^="dice"] > div[class^="middle"] {
+div[id^="dice"]>div[class^="middle"] {
     top: calc(50% - var(--point-size) / 2);
 }
 
 /* Définir l'axe vertical */
 
-div[id^="dice"] > div[class$="left"] {
+div[id^="dice"]>div[class$="left"] {
     left: 10%;
 }
 
-div[id^="dice"] > div[class$="right"] {
+div[id^="dice"]>div[class$="right"] {
     right: 10%;
 }
 
-div[id^="dice"] > div[class$="center"] {
+div[id^="dice"]>div[class$="center"] {
     left: calc(50% - var(--point-size) / 2);
 }

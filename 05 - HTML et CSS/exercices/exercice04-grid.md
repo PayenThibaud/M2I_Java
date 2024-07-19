@@ -4,7 +4,7 @@
 
 A partir du code ci-dessous, tentez de récréer la même grille que sur la photo.
 
-![](./assets/exercice03-grid.png)
+![](./assets/exercice04-grid.png)
 
 ```css
 body {
@@ -65,7 +65,7 @@ body {
 
 A partir du code ci-dessous, tentez de récréer la même grille que sur la photo.
 
-![](./assets/exercice03-2-grid.png)
+![](./assets/exercice04-2-grid.png)
 
 ```html
 <div class="container">
