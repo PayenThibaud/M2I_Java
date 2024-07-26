@@ -1,0 +1,28 @@
+
+.row {
+    display: flex;
+    width: 100%;
+}
+
+.column {
+    padding: 1vw;
+    width: 100%;
+}
+
+.carre {
+    background: #eed585;
+    border-radius: 15%;
+    width: 20vw;
+    height: 20vw;
+    border: 2px solid #679403; 
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cercle {
+    background: #fd4a4a;
+    border-radius: 50%;
+    width: 4vw;
+    height: 4vw;
+    border: 0.1vw solid #e4727b; 
+}

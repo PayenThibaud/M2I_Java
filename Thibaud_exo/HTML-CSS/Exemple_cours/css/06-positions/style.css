@@ -1,0 +1,64 @@
+body {
+    /* 200% de la page visible */
+    height: 200dvh;
+}
+
+.box {
+    height: 100px;
+    width: 100px;
+}
+
+.box[data-color="red"] {
+    background-color: red;
+}
+
+.box[data-color="blue"] {
+    background-color: blue;
+}
+
+.box[data-color="green"] {
+    background-color: green;
+}
+
+.box[data-color="yellow"] {
+    background-color: yellow;
+}
+
+.box[data-color="purple"] {
+    background-color: purple;
+}
+
+/* On peut utiliser les propriétés top, left, right, bottom pour déplacer un élément */
+#second {
+    /* Permet de déplacer un élément par rapport à son origine sans casser le flux de la page */
+    position: relative;
+    left: 40px;
+    top: -20px;
+    /* Position des calques */
+    /* On peut positionner les éléments devant ou derrière les autres */
+    z-index: -1;
+}
+
+/* En sticky, l'élément est positionné par rapport au flux normal de la page */
+/* Au scroll, il reste visible à l'écran si l'une des propriétés top, left ... est définie */
+#third {
+    position: sticky;
+    top: 0;
+}
+
+/* Par défaut l'élément garde sa position */
+/* Cependant si on utilise une des propriétés top, left ..., l'élément se positionne par rapport à l'élément relatif le plus proche */
+/* Par défaut c'est l'élément root: html */
+#fourth {
+    position: absolute;
+    top: 0;
+    left: 200px;
+}
+
+/* L'élément sort du flux global de la page */
+/* Il reste visible à 'écran tout le temps */
+#fifth {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}

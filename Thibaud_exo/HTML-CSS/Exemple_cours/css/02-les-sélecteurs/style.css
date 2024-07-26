@@ -1,0 +1,97 @@
+/* Sélecteur d'élément HTML */
+/* Ou sélecteur simple */
+h1 {
+    font-size: 2rem;
+}
+
+p {
+    color: grey;
+}
+
+/* Sélectionner tous les éléments HTML */
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Sélecteur de classe */
+.fs-400 {
+    font-size: 1;
+}
+
+.bg-red {
+    background-color: red;
+}
+
+/* Sélecteur d'ID */
+#prenom {
+    font-weight: 700;
+}
+
+/* Sélecteur d'attributs */
+[data-user-id] {
+    color: hsl(30deg 80% 43%);
+}
+
+[href="https://www.google.com"] {
+    color: blueviolet;
+}
+
+/* Sélecteur de regroupement */
+h1,
+h2 {
+    transform: rotate(180deg);
+}
+
+/* pseudo classes */
+/* :pseudo-classe */
+a:hover {
+    color: yellow;
+    text-decoration: none;
+}
+
+a:visited {
+    color: brown;
+}
+
+/* pseudo élément */
+h1::before {
+    content: '=====';
+}
+
+h1::after {
+    content: '=====';
+}
+
+/* Combinateur descendant */
+.parent p {
+    font-weight: 700;
+}
+
+/* Combinateur descendant d'enfant direct */
+.parent > p {
+    background-color: antiquewhite;
+}
+
+/* Combinateur d'élément voisin direct */
+.parent + p {
+    color: purple
+}
+
+/* Combinateur d'élément voisin */
+.parent ~ .voisin {
+    color: blue;
+}
+
+/* Nesting selector */
+.card {
+    & img {
+        max-width: 100%;
+        max-height: fit-content;
+    }
+
+    & h2 {
+        text-align: center;
+        transform: rotate(0deg);
+        color: brown;
+    }
+}

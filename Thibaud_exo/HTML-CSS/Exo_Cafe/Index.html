@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="fr">  
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>☕ Cafe des Amis ☕</title>
+        <meta name="description" content="Cafe des amis, fermer pour le moment D=">
+        <meta name="mots-clé" content="café, pâtisserie, boisson, dessert">
+        <link rel="icon" href="../image/CafeIco.ico" type="image/x-icon">
+        <link rel="stylesheet" href="styleAcceuil.css">
+        <link rel="stylesheet" href="styleHeadFooter.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+    
+                <div class="headLogo">
+                    <img src="../image/logo-removebg-preview.png" alt="cafe logo">
+                </div>
+    
+                <div class="headLien">
+                    <a href="Index.html">Accueil</a>
+                    <a href="Menu.html">Le Menu</a>
+                    <a href="Contact.html">Contact</a>
+                    <a href="Horaires.html">Horaires</a>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <body>
+                <div class="formulaire">
+                <!-- Action: défini l'endroit ou sera envoyé le formulaire -->
+                <!-- Method: méthode http à utiliser, get: paramètres dans l'url, post: paramètres dans la requête -->
+                <form action="#" method="post">
+            
+                    <!-- regroupement de champs -->
+                    <fieldset>
+                        <!-- légende du regroupement de champs -->
+                        <legend>Identification</legend>
+            
+                        <!-- libellé du champs lié grâce à son id -->
+                        <label for="mr">Mr</label>
+                        <input type="radio" name="titre" id="mr" value="Mr" checked>
+            
+                        <label for="mr">Mme</label>
+                        <input type="radio" name="titre" id="mme" value="Mme">
+            
+                        <label for="mr">Licorne</label>
+                        <input type="radio" name="titre" id="licorne" value="Licorne">
+            
+                        <div>
+                            <label for="prenom">Prénom</label>
+                            <input type="text" name="prenom" placeholder="Prénom" id="prenom">
+                            <label for="nom">Nom</label>
+                            <input type="text" name="nom" placeholder="Nom" id="nom">
+                            <label for="tel">Tel</label>
+                            <input type="text" name="tel" placeholder="Tel" id="tel">
+                        </div>
+            
+                    </fieldset>
+
+                    <fieldset>
+
+                        <legend>Reservation</legend>
+            
+                        <select name="emplacement" id="emplacement">
+                        <option value="dehors">Dehors</option>
+                        <option value="interieur">Interieur</option>
+                        </select>
+
+                     <div>
+                        <label for="nombre de personne">Nombre De Personne</label>
+                        <input type="number" id="guests" name="guests" required min="1">
+                     </div>
+                     
+                    </fieldset>
+            
+                    <fieldset>
+
+                        <legend>Une information a transmettre ?</legend>
+            
+                    <textarea name="message" id="message" placeholder="Saisir votre message"></textarea>
+                    </fieldset>
+
+                    <button type="submit">Envoyer</button>
+                </form>
+            </div>
+            </body>
+        </main>
+
+        <footer>
+            <p>Coucou, je suis <em>Thibaud Payen</em>, venez prendre une petite pause dans mon <strong>cafe des amis</strong>. 😏</p>
+            <p>Me contacter :</p>
+            <div>
+                <a href="mailto:titi@gmail.com">titi@gmail.com</a>
+            </div>
+            <div>
+                <a href="tel:+3361234567">numéro</a>
+            </div>
+        </footer>
+    </body>
+</html>
