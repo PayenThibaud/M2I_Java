@@ -8,13 +8,15 @@ public class Main {
 //        MaClasse monObjet = new MaClasse();
 
         Voiture maVoiture = new Voiture("modele","rouge",63,755);
-
+        Voiture voiture = new Voiture();
         maVoiture.setModel("Fiat");
 
 
         maVoiture.afficher();
         maVoiture.demarrer();
         maVoiture.demarrer();
+
+        System.out.println("nombre de voiture : "+Voiture.getNombreVoiture());
 
     }
 }
