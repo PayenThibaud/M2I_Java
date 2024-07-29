@@ -9,10 +9,12 @@ public class Main {
 
         Voiture maVoiture = new Voiture("modele","rouge",63,755);
 
-        maVoiture.model = "Fiat";
-        maVoiture.couleur = "Bleu";
+        maVoiture.setModel("Fiat");
+
 
         maVoiture.afficher();
+        maVoiture.demarrer();
+        maVoiture.demarrer();
 
     }
 }
