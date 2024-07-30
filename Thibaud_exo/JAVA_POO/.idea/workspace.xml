@@ -1,8 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8b3f2acf-035c-4591-a9c6-63219078bcb5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Java_exo_POO/src/main/java/ExoChaise/chaise.java" afterDir="false" />
+    <list default="true" id="c9bd050e-cab3-4ebd-82ca-6afd413ebc69" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Java_POO_exo/src/main/java/org/example/Exo2/Joueur.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_POO_exo/src/main/java/org/example/Exo3/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_POO_exo/src/main/java/org/example/Exo3/WaterTank.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_POO_exo/src/main/java/org/example/ExoRecette/Categorie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_POO_exo/src/main/java/org/example/ExoRecette/Commentaire.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_POO_exo/src/main/java/org/example/ExoRecette/Etape.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_POO_exo/src/main/java/org/example/ExoRecette/Ingredient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_POO_exo/src/main/java/org/example/ExoRecette/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_POO_exo/src/main/java/org/example/ExoRecette/Recette.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_POO_exo/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_POO_exo/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_POO_exo/src/main/resources/META-INF/maven/archetype.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_POO_exo/src/main/resources/archetype-resources/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_POO_exo/src/main/resources/archetype-resources/src/main/java/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_POO_exo/src/main/resources/archetype-resources/src/test/java/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_exo_POO/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_exo_POO/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_exo_POO/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_exo_POO/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_exo_POO/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_exo_POO/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_exo_POO/src/main/java/org/ExoChaise/ExoChaise/Chaise.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_exo_POO/src/main/java/org/ExoChaise/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_exo_POO/src/main/java/org/ExoJoueur/Class/Joueur.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_exo_POO/src/main/java/org/ExoJoueur/main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/src/main/java/org/example/main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-client/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-client/src/main/java/org/example/untitled1/client/flyway/FlywaySetupEjb.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-client/src/main/java/org/example/untitled1/client/package-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-client/src/main/resources/META-INF/beans.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-client/src/main/resources/ValidationMessages_pt_BR.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-client/src/main/resources/bundle/bundle_pt_BR.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-client/src/main/resources/db/migration/V00000000000000__Script_Inicial.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-job/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-job/src/main/java/org/example/untitled1/job/ProcessJob.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-job/src/main/resources/META-INF/persistence.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-job/src/main/webapp/WEB-INF/beans.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-job/src/main/webapp/WEB-INF/jboss-web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-job/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-web/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-web/src/main/java/org/example/untitled1/web/delegate/BaseDelegate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-web/src/main/java/org/example/untitled1/web/delegate/SampleDelegate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-web/src/main/java/org/example/untitled1/web/listener/ApplicationListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-web/src/main/java/org/example/untitled1/web/listener/SessionExpiredJsfListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-web/src/main/java/org/example/untitled1/web/listener/SessionListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-web/src/main/java/org/example/untitled1/web/login/BemVindoController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-web/src/main/java/org/example/untitled1/web/login/LoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-web/src/main/java/org/example/untitled1/web/login/MenuController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-web/src/main/java/org/example/untitled1/web/parameter/package-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-web/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-web/src/main/resources/META-INF/persistence.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-web/src/main/resources/META-INF/processes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-web/src/main/webapp/WEB-INF/beans.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-web/src/main/webapp/WEB-INF/faces-config.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-web/src/main/webapp/WEB-INF/jboss-web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-web/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-web/src/main/webapp/paginas/login/bemVindo.xhtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-web/src/main/webapp/resources/css/bemVindo.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-web/src/main/webapp/resources/css/local.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-web/src/main/webapp/resources/images/logo-login.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-web/src/main/webapp/resources/images/logo-menu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-web/src/main/webapp/resources/js/local.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-ws/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-ws/src/main/java/org/example/untitled1/ws/jaxrs/BaseRest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-ws/src/main/java/org/example/untitled1/ws/jaxrs/ContainerRequestFilterProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-ws/src/main/java/org/example/untitled1/ws/jaxrs/ContainerResponseFilterProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-ws/src/main/java/org/example/untitled1/ws/jaxrs/RestApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-ws/src/main/java/org/example/untitled1/ws/jaxrs/SampleRest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-ws/src/main/java/org/example/untitled1/ws/jaxws/SampleSoap.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-ws/src/main/resources/META-INF/persistence.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-ws/src/main/webapp/WEB-INF/beans.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-ws/src/main/webapp/WEB-INF/jboss-web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1/untitled1-ws/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,10 +87,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
-  <component name="ProjectId" id="2jui5EpBcHCmrmLFP3STCSdlfus" />
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2jv5LWekvyQeSLGlcbRODPXWd6S" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -25,6 +101,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Thiba/Desktop/M2I_Java/M2I_Java/Thibaud_exo/JAVA_POO/Java_POO_exo",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -40,12 +117,13 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8b3f2acf-035c-4591-a9c6-63219078bcb5" name="Changes" comment="" />
-      <created>1722243177981</created>
+      <changelist id="c9bd050e-cab3-4ebd-82ca-6afd413ebc69" name="Changes" comment="" />
+      <created>1722254655213</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1722243177981</updated>
-      <workItem from="1722243179041" duration="80000" />
+      <updated>1722254655213</updated>
+      <workItem from="1722254656487" duration="19000" />
+      <workItem from="1722326053866" duration="69000" />
     </task>
     <servers />
   </component>
