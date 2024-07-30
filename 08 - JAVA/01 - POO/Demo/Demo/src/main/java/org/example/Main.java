@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.Demo1.Concessionnaire;
 import org.example.Demo1.MaClasse;
 import org.example.Demo1.Voiture;
 
@@ -8,15 +9,22 @@ public class Main {
 //        MaClasse monObjet = new MaClasse();
 
         Voiture maVoiture = new Voiture("modele","rouge",63,755);
-        Voiture voiture = new Voiture();
-        maVoiture.setModel("Fiat");
+//        Voiture voiture = new Voiture();
+//        maVoiture.setModel("Fiat");
+//
+//
+//        maVoiture.afficher();
+//        maVoiture.demarrer();
+//        maVoiture.demarrer();
+//
+//        System.out.println("nombre de voiture : "+Voiture.getNombreVoiture());
 
+        Concessionnaire concessionnaire = new Concessionnaire();
 
-        maVoiture.afficher();
-        maVoiture.demarrer();
-        maVoiture.demarrer();
+        concessionnaire.addVoiture(maVoiture);
+        concessionnaire.addVoiture("Fiat","Rouge",75,300);
 
-        System.out.println("nombre de voiture : "+Voiture.getNombreVoiture());
+        concessionnaire.show();
 
     }
 }
