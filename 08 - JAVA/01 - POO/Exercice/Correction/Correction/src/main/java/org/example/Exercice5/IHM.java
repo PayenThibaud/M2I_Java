@@ -25,6 +25,7 @@ public class IHM {
                 case "2" -> choixTwo();
                 case "3" -> choixThree();
                 case "4" -> choixFour();
+                case "5" -> choixFive();
                 case "0" -> {
                     System.out.println("Au revoir !!!");
                     return; // ou break; ou System.exit(0); (termine l'application)
@@ -42,12 +43,20 @@ public class IHM {
         System.out.println("2) get salary from salarie");
         System.out.println("3) number total salarie");
         System.out.println("4) total salary");
+        System.out.println("5) research by name");
         System.out.println("0) Quitter");
         System.out.print("Faite votre choix : ");
     }
 
         public void choixOne(){
         System.out.println("Add a salarie");
+        System.out.println(""" 
+            is a commercial ?
+            1/ no
+            2/Yes""");
+        int isCommercial = scanner.nextInt();
+        scanner.nextLine();
+
             System.out.println("Salarie matricule :");
             String matricule = scanner.nextLine();
 
@@ -64,7 +73,23 @@ public class IHM {
             float salary = scanner.nextFloat();
             scanner.nextLine();
 
-            Salarie salarie = new Salarie(matricule,service,category,nom,salary);
+            Salarie salarie ;
+
+            if(isCommercial == 2){
+                System.out.println("Commercial chiffre d'affaire :");
+                float chiffreAffaire = scanner.nextFloat();
+                scanner.nextLine();
+
+                System.out.println("commercial commission :");
+                int commission = scanner.nextInt();
+                scanner.nextLine();
+
+                salarie = new Commercial(matricule,service,category,nom,salary,chiffreAffaire,commission);
+
+            }else{
+                salarie = new Salarie(matricule,service,category,nom,salary);
+            }
+
 
             for (int i = 0 ; i<salaries.length-1;i++){
                 if(salaries[i] == null){
@@ -92,6 +117,18 @@ public class IHM {
 
         public void choixFour(){
         System.out.println("total salary : "+Salarie.getTotalSalary()+" €");
+    }
+
+    public void choixFive (){
+        System.out.println("search by name ");
+        System.out.println("name of the employee");
+        String name = scanner.nextLine();
+
+        for(Salarie salarie : salaries){
+            if(salarie.getNom().contains(name)){
+                salarie.afficheSalaire();
+            }
+        }
     }
 
     }

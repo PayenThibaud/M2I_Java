@@ -36,4 +36,19 @@ public class Salarie {
         numberSalarie = 0;
         totalSalary = 0;
     }
+
+    public String getNom() {
+        return nom;
+    }
+
+    @Override
+    public String toString() {
+        return  super.getClass().getSimpleName() +
+                ", matricule='" + matricule + '\'' +
+                ", service='" + service + '\'' +
+                ", categorie='" + categorie + '\'' +
+                ", nom='" + nom + '\'' +
+                ", salaire=" + salaire
+                ;
+    }
 }
