@@ -11,7 +11,7 @@ Vous allez créer un programme pour gérer les animaux d'un zoo. Le programme de
    - Méthode `dormir()`: qui ne retourne rien et simule l'action de dormir.
    - Méthode `faireDuBruit()`: qui ne retourne rien et simule l'action de faire du bruit.
 
-2. **Créer des classes concrètes qui implémentent l'interface `Animal`:**
+2. **Créer des classes concrètes qui herite de la classe `Animal`:**
    - `Lion` : Attributs spécifiques : nom, âge.
    - `Elephant` : Attributs spécifiques : nom, âge, poids.
 
