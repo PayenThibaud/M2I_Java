@@ -1,5 +1,3 @@
-D'accord, voici un exercice de programmation Java plus complexe utilisant des interfaces, la programmation orientée objet avancée et des collections.
-
 ### Exercice : Système de Gestion des Animaux dans un Zoo
 
 Vous allez créer un programme pour gérer les animaux d'un zoo. Le programme devra utiliser des interfaces pour définir des comportements communs et des classes pour les différents types d'animaux. De plus, vous allez gérer les animaux dans des enclos et afficher des informations spécifiques à chaque type d'animal.
