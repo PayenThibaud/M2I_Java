@@ -17,7 +17,7 @@ Vous allez créer un programme pour gérer les animaux d'un zoo. Le programme de
 
 3. **Définir l'interface `Enclos`:**
    - Méthode `ajouterAnimal(Animal animal)`: qui ajoute un animal à l'enclos.
-   - Méthode `afficherAnimaux()`: qui affiche la liste des animaux dans l'enclos.
+   - Méthode `afficherAnimaux()`: qui affiche le tableau des animaux dans l'enclos.
 
 4. **Créer des classes concrètes qui implémentent l'interface `Enclos`:**
    - `EnclosDesLions` : Implémente les méthodes `ajouterAnimal` et `afficherAnimaux`.
