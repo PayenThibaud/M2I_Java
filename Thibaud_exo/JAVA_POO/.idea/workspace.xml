@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9bd050e-cab3-4ebd-82ca-6afd413ebc69" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Java_POO_exo/src/main/java/org/example/ExoPlante/Arbre.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java_POO_exo/src/main/java/org/example/ExoPlante/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java_POO_exo/src/main/java/org/example/ExoPlante/Plante.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java_POO_exo/src/main/java/org/example/ExoSalarie/Commercial.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java_POO_exo/src/main/java/org/example/ExoSalarie/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java_POO_exo/src/main/java/org/example/ExoSalarie/Salarier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_POO_exo/src/main/java/org/example/Exo6/Classe/CarteDeCredit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_POO_exo/src/main/java/org/example/Exo6/Classe/Paypal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_POO_exo/src/main/java/org/example/Exo6/GestionPaiements.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_POO_exo/src/main/java/org/example/Exo6/Interface/Paiement.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +53,7 @@
       <workItem from="1722254656487" duration="19000" />
       <workItem from="1722326053866" duration="69000" />
       <workItem from="1722413235278" duration="9000" />
+      <workItem from="1722415014396" duration="4000" />
     </task>
     <servers />
   </component>
