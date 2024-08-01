@@ -1,5 +1,7 @@
 package org.example.DemoGenerique.Interface;
 
+import java.util.Arrays;
+
 public class Enclot <T> {
 
     private T[] animaux;
@@ -24,6 +26,4 @@ public class Enclot <T> {
             System.out.println(element);
         }
     }
-
-
 }
