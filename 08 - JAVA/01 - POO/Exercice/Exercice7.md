@@ -1,5 +1,3 @@
-D'accord, voici un exercice de programmation Java plus complexe utilisant des interfaces, la programmation orientée objet avancée et des collections.
-
 ### Exercice : Système de Gestion des Animaux dans un Zoo
 
 Vous allez créer un programme pour gérer les animaux d'un zoo. Le programme devra utiliser des interfaces pour définir des comportements communs et des classes pour les différents types d'animaux. De plus, vous allez gérer les animaux dans des enclos et afficher des informations spécifiques à chaque type d'animal.
@@ -11,13 +9,13 @@ Vous allez créer un programme pour gérer les animaux d'un zoo. Le programme de
    - Méthode `dormir()`: qui ne retourne rien et simule l'action de dormir.
    - Méthode `faireDuBruit()`: qui ne retourne rien et simule l'action de faire du bruit.
 
-2. **Créer des classes concrètes qui implémentent l'interface `Animal`:**
+2. **Créer des classes concrètes qui herite de la classe `Animal`:**
    - `Lion` : Attributs spécifiques : nom, âge.
    - `Elephant` : Attributs spécifiques : nom, âge, poids.
 
 3. **Définir l'interface `Enclos`:**
    - Méthode `ajouterAnimal(Animal animal)`: qui ajoute un animal à l'enclos.
-   - Méthode `afficherAnimaux()`: qui affiche la liste des animaux dans l'enclos.
+   - Méthode `afficherAnimaux()`: qui affiche le tableau des animaux dans l'enclos.
 
 4. **Créer des classes concrètes qui implémentent l'interface `Enclos`:**
    - `EnclosDesLions` : Implémente les méthodes `ajouterAnimal` et `afficherAnimaux`.

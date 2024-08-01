@@ -1,6 +1,4 @@
-Bien sûr ! Voici un exercice de programmation en Java qui utilise des interfaces.
-
-### Exercice : Gestion de Paiements
+ ### Exercice : Gestion de Paiements
 
 Vous allez créer un programme pour gérer différents types de paiements. Vous allez implémenter une interface commune pour les paiements et ensuite créer des classes spécifiques pour différents modes de paiement : Carte de Crédit et PayPal.
 
