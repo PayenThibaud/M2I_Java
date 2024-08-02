@@ -1,4 +1,4 @@
-package org.example.ExerciceException;
+package org.example.ExerciceException.Exo1;
 
 import java.util.Scanner;
 
