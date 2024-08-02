@@ -21,6 +21,10 @@ public class Client {
         this.compteBancaires = new ArrayList<>();
     }
 
+    public Client(String nom, String prenom, String email) {
+        this(nom,prenom,email,new ArrayList<>());
+    }
+
     public int getId() {
         return id;
     }

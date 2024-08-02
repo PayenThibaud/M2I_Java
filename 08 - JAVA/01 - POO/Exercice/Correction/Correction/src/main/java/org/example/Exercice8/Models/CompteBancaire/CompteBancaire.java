@@ -9,10 +9,10 @@ import java.util.List;
 
 public abstract class CompteBancaire {
     private static int nbCompte = 0;
-    private int id;
-    private double solde;
-    private Client client;
-    private List<Operation> operationList;
+    protected int id;
+    protected double solde;
+    protected Client client;
+    protected List<Operation> operationList;
 
     public CompteBancaire( double solde,Client client) {
         this.id = ++nbCompte;
@@ -22,6 +22,10 @@ public abstract class CompteBancaire {
         if(solde > 0){
             this.operationList.add(new Operation(solde, StatutOperation.DEPOT));
         }
+    }
+
+    public CompteBancaire (Client client){
+        this(0,client);
     }
 
     public int getId() {
@@ -42,6 +46,26 @@ public abstract class CompteBancaire {
 
     public void setOperationList(List<Operation> operationList) {
         this.operationList = operationList;
+    }
+
+    public boolean depot (double montant){
+        if(montant<=0){
+            return false;
+        }
+        Operation operation = new Operation(montant,StatutOperation.DEPOT);
+        operationList.add(operation);
+        solde += montant;
+        return true;
+    }
+
+    public boolean retrait (double montant){
+        if(montant<=0 || solde < montant){
+            return false;
+        }
+        Operation operation = new Operation(montant,StatutOperation.RETRAIT);
+        operationList.add(operation);
+        solde -= montant;
+        return true;
     }
 
     @Override
