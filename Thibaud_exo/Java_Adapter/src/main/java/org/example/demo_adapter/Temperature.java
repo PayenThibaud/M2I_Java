@@ -6,6 +6,8 @@ public class Temperature {
     private Random rand = new Random();
 
     public double getTemperature() {
-        return rand.nextDouble();
+        double temp = rand.nextDouble(-100,100);
+        System.out.println(temp + " f");
+        return temp;
     }
 }

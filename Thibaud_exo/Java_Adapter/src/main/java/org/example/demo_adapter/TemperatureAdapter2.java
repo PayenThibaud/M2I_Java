@@ -1,15 +1,15 @@
 package org.example.demo_adapter;
 
-public class TemperatureAdapter implements TemperatureSensor{
+public class TemperatureAdapter2 implements TemperatureSensor{
 
     private Temperature temperature;
 
-    public TemperatureAdapter() {
+    public TemperatureAdapter2() {
         temperature = new Temperature();
     }
 
     @Override
     public double getTemperature() {
-        return (this.temperature.getTemperature() - 32)*0.5/9.0;
+        return (this.temperature.getTemperature());
     }
 }
