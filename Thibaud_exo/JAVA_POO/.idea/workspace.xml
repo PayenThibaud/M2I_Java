@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9bd050e-cab3-4ebd-82ca-6afd413ebc69" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Java_POO_exo/src/main/java/org/example/Exo6/Classe/CarteDeCredit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java_POO_exo/src/main/java/org/example/Exo6/Classe/Paypal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java_POO_exo/src/main/java/org/example/Exo6/GestionPaiements.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java_POO_exo/src/main/java/org/example/Exo6/Interface/Paiement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +26,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Thiba/Desktop/M2I_Java/M2I_Java/Thibaud_exo/JAVA_POO/Java_POO_exo&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Administrateur/OneDrive/Desktop/M2I_Java/poec_java_28_juin/Thibaud_exo/JAVA_POO/Java_POO_exo&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -54,6 +51,9 @@
       <workItem from="1722326053866" duration="69000" />
       <workItem from="1722413235278" duration="9000" />
       <workItem from="1722415014396" duration="4000" />
+      <workItem from="1724051659679" duration="72000" />
+      <workItem from="1724052164189" duration="16000" />
+      <workItem from="1724054406708" duration="53000" />
     </task>
     <servers />
   </component>
