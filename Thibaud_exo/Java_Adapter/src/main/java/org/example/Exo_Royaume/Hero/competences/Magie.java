@@ -19,5 +19,10 @@ public class Magie {
         return level;
     }
 
+    @Override
+    public String toString() {
+        return pouvoirMagique + " niv " + level;
+    }
+
 
 }

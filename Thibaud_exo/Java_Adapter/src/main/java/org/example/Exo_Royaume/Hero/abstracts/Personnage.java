@@ -69,6 +69,6 @@ public abstract class Personnage {
 
     @Override
     public String toString() {
-        return name + " pv : "+ pv + " level : "+ pv + " pm : "+ pm + " pa : "+ pa + ", ces competences magiques : " + magie + ", ces competences physiques : " + physique;
+        return name + " pv : "+ pv + " level : "+ level + " pm : "+ pm + " pa : "+ pa + ", ces competences magiques : " + magie + ", ces competences physiques : " + physique;
     }
 }
