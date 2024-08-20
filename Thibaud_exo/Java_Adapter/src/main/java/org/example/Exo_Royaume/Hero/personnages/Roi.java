@@ -3,15 +3,15 @@ package org.example.Exo_Royaume.Hero.personnages;
 import org.example.Exo_Royaume.Hero.abstracts.Personnage;
 import org.example.Exo_Royaume.Hero.competences.Magie;
 import org.example.Exo_Royaume.Hero.competences.Physique;
-import org.example.Exo_Royaume.Hero.interfaces.IGuerrierBuilder;
+import org.example.Exo_Royaume.Hero.interfaces.IRoiBuilder;
 
 import java.util.List;
 
-public class Guerrier extends Personnage {
+public class Roi extends Personnage {
 
     protected int BonusPointVie;
 
-    public Guerrier(GuerrierBuilder builder) {
+    public Roi(RoiBuilder builder) {
         super(builder.name, builder.magie, builder.physique, builder.level, builder.pv, builder.pm, builder.pa);
         BonusPointVie = builder.bonusPointVie;
     }
@@ -25,10 +25,10 @@ public class Guerrier extends Personnage {
 
     @Override
     public String toString() {
-        return super.toString() + ", bonus de votre classe de depart, Points de vie bonus : : " + BonusPointVie;
+        return super.toString() + ", bonus du roi, invicible";
     }
 
-    public static class GuerrierBuilder implements IGuerrierBuilder {
+    public static class RoiBuilder implements IRoiBuilder {
 
         protected String name;
         protected List<Magie> magie;
@@ -39,42 +39,42 @@ public class Guerrier extends Personnage {
         protected int pa;
         protected int bonusPointVie;
 
-        public GuerrierBuilder name (String name) {
+        public RoiBuilder name (String name) {
             this.name = name;
             return this;
         }
-        public GuerrierBuilder magie(List<Magie> magie) {
+        public RoiBuilder magie(List<Magie> magie) {
             this.magie = magie;
             return this;
         }
-        public GuerrierBuilder physique(List<Physique> physique) {
+        public RoiBuilder physique(List<Physique> physique) {
             this.physique = physique;
             return this;
         }
-        public GuerrierBuilder level(int level) {
+        public RoiBuilder level(int level) {
             this.level = level;
             return this;
         }
-        public GuerrierBuilder pv(int pv) {
+        public RoiBuilder pv(int pv) {
             this.pv = pv;
             return this;
         }
-        public GuerrierBuilder pm(int pm) {
+        public RoiBuilder pm(int pm) {
             this.pm = pm;
             return this;
         }
-        public GuerrierBuilder pa(int pa) {
+        public RoiBuilder pa(int pa) {
             this.pa = pa;
             return this;
         }
-        public GuerrierBuilder bonusPointVie(int bonusPointVie) {
+        public RoiBuilder bonusPointVie(int bonusPointVie) {
             this.bonusPointVie = bonusPointVie;
             return this;
         }
 
         @Override
-        public Guerrier build() {
-            return new Guerrier(this);
+        public Roi build() {
+            return new Roi(this);
         }
     }
 }

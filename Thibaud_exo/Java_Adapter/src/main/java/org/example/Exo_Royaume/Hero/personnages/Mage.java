@@ -26,7 +26,7 @@ public class Mage extends Personnage {
 
     @Override
     public String toString() {
-        return super.toString() + ", bonus des Mages, bonus points de magie : " + BonusPointMagique;
+        return super.toString() + ", bonus de votre classe de depart, Points de magie bonus : " + BonusPointMagique;
     }
 
     public static class MageBuilder implements IMageBuilder{

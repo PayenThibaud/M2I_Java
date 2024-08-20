@@ -25,7 +25,7 @@ public class Archer extends Personnage {
 
     @Override
     public String toString() {
-        return super.toString() + ", bonus des Archers, Points d agiliter bonus : " + BonusPointAgiliter;
+        return super.toString() + ", bonus de votre classe de depart, Points d agiliter bonus : " + BonusPointAgiliter;
     }
 
     public static class ArcherBuilder implements IArcherBuilder {

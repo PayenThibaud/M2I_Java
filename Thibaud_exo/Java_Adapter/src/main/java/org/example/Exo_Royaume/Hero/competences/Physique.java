@@ -17,4 +17,10 @@ public class Physique {
     public int getLevel() {
         return level;
     }
+
+    @Override
+    public String toString() {
+        return abiliterPhysique + " niv " + level;
+    }
+
 }
