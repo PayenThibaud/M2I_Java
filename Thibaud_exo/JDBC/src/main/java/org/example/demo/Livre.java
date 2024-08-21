@@ -1,4 +1,4 @@
-package org.example;
+package org.example.demo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
