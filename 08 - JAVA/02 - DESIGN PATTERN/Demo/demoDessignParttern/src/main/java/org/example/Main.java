@@ -10,6 +10,7 @@ import org.example.demo_adapter.TemperaturSensor;
 import org.example.demo_adapter.TemperatureAdapter;
 import org.example.demo_adapter.TemperatureKelvinAdapter;
 import org.example.demo_builder.Voiture;
+import org.example.demo_singleton.Singleton;
 
 public class Main {
     public static void main(String[] args) {
@@ -37,10 +38,17 @@ public class Main {
 //        Button button = macFactory.createButton();
 //        button = winFactory.createButton();
 
-        Voiture voiture = new Voiture.VoitureBuilder().couleur("rouge").nbrPorte(5).reservoire(200).nbrRoue(4).build();
-        Voiture voiture2 = new Voiture.VoitureBuilder().marque("autoMarque").couleur("vert").reservoire(102).build();
+//        Voiture voiture = new Voiture.VoitureBuilder().couleur("rouge").nbrPorte(5).reservoire(200).nbrRoue(4).build();
+//        Voiture voiture2 = new Voiture.VoitureBuilder().marque("autoMarque").couleur("vert").reservoire(102).build();
+//
+//        System.out.println(voiture);
+//        System.out.println(voiture2);
+//
+//        System.out.println(Singleton.getInstance("ma 1er url"));
+//        System.out.println(Singleton.getInstance("ma 2eme url"));
 
-        System.out.println(voiture);
-        System.out.println(voiture2);
+        System.out.println(Singleton.getInstance("1er") == Singleton.getInstance("2eme"));
+
+
     }
 }
