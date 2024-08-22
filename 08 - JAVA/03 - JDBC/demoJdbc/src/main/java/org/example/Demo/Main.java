@@ -1,8 +1,5 @@
-package org.example;
+package org.example.Demo;
 
-import com.sun.source.tree.LambdaExpressionTree;
-
-import java.rmi.ConnectException;
 import java.sql.*;
 
 public class Main {
