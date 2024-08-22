@@ -19,7 +19,7 @@ public class Utiliter {
 
         while (rs.next()) {
             System.out.println("id : " + rs.getString("id") + " nom : " + rs.getString("nom") + " prenom : " + rs.getString("prenom") + " numero de classe : " + rs.getString("numeroDeClasse") + " date de diplome : " + rs.getString("dateDeDiplome"));
-        };
+        }
     }
 
     public static void trierEtudiants(Connection connection, Trie trie, String valeur) throws SQLException {
@@ -31,7 +31,7 @@ public class Utiliter {
 
         while (rs.next()) {
             System.out.println("id : " + rs.getString("id") + " nom : " + rs.getString("nom") + " prenom : " + rs.getString("prenom") + " numero de classe : " + rs.getString("numeroDeClasse") + " date de diplome : " + rs.getString("dateDeDiplome"));
-        };
+        }
 
     }
 

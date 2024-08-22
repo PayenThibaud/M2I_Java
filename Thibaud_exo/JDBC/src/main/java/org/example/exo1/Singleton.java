@@ -2,7 +2,7 @@ package org.example.exo1;
 
 public class Singleton {
     private static Singleton instance;
-    private String urlConnection;
+    private final String urlConnection;
 
     private Singleton(String urlConnection) {
         this.urlConnection = urlConnection;
