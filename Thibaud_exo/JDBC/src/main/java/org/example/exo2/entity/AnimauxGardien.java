@@ -8,6 +8,6 @@ import lombok.Data;
 
 public class AnimauxGardien {
     private int id;
-    private Animaux animaux;
-    private Gardien gardien;
+    private int animaux_id;
+    private int gardien_id;
 }
