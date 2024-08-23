@@ -1,6 +1,7 @@
 package org.example.exo3.DAO;
 
 import org.example.exo3.DAO.abstractDAO.BaseDAO;
+import org.example.exo3.DAO.jointure.IngredientRecetteDAO;
 import org.example.exo3.entity.Commentaire;
 import org.example.exo3.entity.Ingredient;
 import org.example.exo3.util.DatabaseManager;
@@ -11,6 +12,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class IngredientDAO extends BaseDAO<Ingredient> {
+
+    private IngredientRecetteDAO ingredientRecetteDAO;
+
+    public IngredientDAO() {
+        this.ingredientRecetteDAO = new IngredientRecetteDAO();
+    }
+
     @Override
     public Ingredient save(Ingredient ingredient) throws SQLException {
         try {
@@ -40,12 +48,60 @@ public class IngredientDAO extends BaseDAO<Ingredient> {
 
     @Override
     public Ingredient update(Ingredient ingredient) throws SQLException {
-        return null;
+        try {
+            connection = DatabaseManager.getConnection();
+            request = "UPDATE ingredient SET description = ? WHERE id = ?";
+            statement = connection.prepareStatement(request);
+            statement.setString(1, ingredient.getNom());
+            statement.setInt(2, ingredient.getId());
+
+            int row = statement.executeUpdate();
+
+            if(row != 1) {
+                connection.rollback();
+                return null;
+            }
+
+            connection.commit();
+            return ingredient;
+
+        }catch(SQLException e) {
+            System.out.println(e.getMessage());
+            connection.rollback();
+            return null;
+        }finally {
+            close();
+        }
     }
 
     @Override
-    public Ingredient delete(Ingredient ingredient) throws SQLException {
-        return null;
+    public boolean delete(int id) throws SQLException {
+        try {
+            connection = DatabaseManager.getConnection();
+            request = "DELETE FROM ingredient WHERE id = ?";
+            statement = connection.prepareStatement(request);
+            statement.setInt(1, id);
+
+            ingredientRecetteDAO.deleteByIngredientId(id);
+
+            int row = statement.executeUpdate();
+
+            if(row == 1){
+                connection.commit();
+                return row == 1;
+            }
+            else {
+                connection.rollback();
+                return false;
+            }
+
+        }catch(SQLException e) {
+            System.out.println(e.getMessage());
+            connection.rollback();
+            return false;
+        }finally {
+            close();
+        }
     }
 
     @Override

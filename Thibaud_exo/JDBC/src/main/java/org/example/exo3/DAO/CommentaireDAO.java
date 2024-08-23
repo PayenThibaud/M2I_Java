@@ -1,6 +1,7 @@
 package org.example.exo3.DAO;
 
 import org.example.exo3.DAO.abstractDAO.BaseDAO;
+import org.example.exo3.DAO.jointure.CommentaireRecetteDAO;
 import org.example.exo3.entity.Commentaire;
 import org.example.exo3.util.DatabaseManager;
 
@@ -10,6 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CommentaireDAO extends BaseDAO<Commentaire> {
+
+    private CommentaireRecetteDAO commentaireRecetteDAO;
+
+    public CommentaireDAO() {
+        commentaireRecetteDAO = new CommentaireRecetteDAO();
+    }
 
     @Override
     public Commentaire save(Commentaire commentaire) throws SQLException {
@@ -40,13 +47,62 @@ public class CommentaireDAO extends BaseDAO<Commentaire> {
 
     @Override
     public Commentaire update(Commentaire commentaire) throws SQLException {
-        return null;
+        try {
+            connection = DatabaseManager.getConnection();
+            request = "UPDATE commentaire SET description = ? WHERE id = ?";
+            statement = connection.prepareStatement(request);
+            statement.setString(1, commentaire.getDescription());
+            statement.setInt(2, commentaire.getId());
+
+            int row = statement.executeUpdate();
+
+            if(row != 1) {
+                connection.rollback();
+                return null;
+            }
+
+            connection.commit();
+            return commentaire;
+
+        }catch(SQLException e) {
+            System.out.println(e.getMessage());
+            connection.rollback();
+            return null;
+        }finally {
+            close();
+        }
     }
 
     @Override
-    public Commentaire delete(Commentaire commentaire) throws SQLException {
-        return null;
+    public boolean delete(int id) throws SQLException {
+        try {
+            connection = DatabaseManager.getConnection();
+            request = "DELETE FROM commentaire WHERE id = ?";
+            statement = connection.prepareStatement(request);
+            statement.setInt(1, id);
+
+            commentaireRecetteDAO.deleteByCommentaireId(id);
+
+            int row = statement.executeUpdate();
+
+            if(row == 1){
+                connection.commit();
+                return row == 1;
+            }
+            else {
+                connection.rollback();
+                return false;
+            }
+
+        }catch(SQLException e) {
+            System.out.println(e.getMessage());
+            connection.rollback();
+            return false;
+        }finally {
+            close();
+        }
     }
+
 
     @Override
     public Commentaire get(int id) throws SQLException {

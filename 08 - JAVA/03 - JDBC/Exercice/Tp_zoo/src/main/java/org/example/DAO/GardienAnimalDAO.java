@@ -60,7 +60,11 @@ public class GardienAnimalDAO extends BaseDAO<GardienAnimal>{
     public List<Animal> getAnimalByGardienId (int id)throws SQLException{
         connection = DatabaseManager.getConnection();
           List<Animal> animals = new ArrayList<>();
-          request = "SELECT a.id as animalId, a.name as animalName, a.race as AnimalRace, a.description as animalDesc, a.habitat as animalHab, a.age as animalAge FROM animal as a INNER JOIN gardien_animal as e ON e.id_animal = a.id WHERE e.id_gardien = ?";
+          request = "SELECT a.id as animalId, a.name as animalName, a.race as AnimalRace, a.description as animalDesc, a.habitat as animalHab, a.age as animalAge " +
+                  "FROM animal as a " +
+                  "INNER JOIN gardien_animal as e ON e.id_animal = a.id " +
+                  "WHERE e.id_gardien = ?";
+
           statement = connection.prepareStatement(request);
           statement.setInt(1,id);
           resultSet = statement.executeQuery();

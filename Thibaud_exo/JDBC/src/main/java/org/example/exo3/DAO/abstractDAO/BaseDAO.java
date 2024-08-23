@@ -19,7 +19,7 @@ public abstract class BaseDAO <T> {
 
     public abstract T save(T t) throws SQLException;
     public abstract T update(T t) throws SQLException;
-    public abstract T delete(T t) throws SQLException;
+    public abstract boolean delete(int id) throws SQLException;
     public abstract T get (int id) throws SQLException;
     public abstract List<T> get () throws SQLException;
 

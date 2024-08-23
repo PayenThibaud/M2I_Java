@@ -1,6 +1,7 @@
 package org.example.exo3.DAO;
 
 import org.example.exo3.DAO.abstractDAO.BaseDAO;
+import org.example.exo3.DAO.jointure.EtapeRecetteDAO;
 import org.example.exo3.entity.Commentaire;
 import org.example.exo3.entity.Etape;
 import org.example.exo3.util.DatabaseManager;
@@ -11,6 +12,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EtapeDAO extends BaseDAO<Etape> {
+
+    private EtapeRecetteDAO etapeRecetteDAO;
+
+    public EtapeDAO() {
+        etapeRecetteDAO = new EtapeRecetteDAO();
+    }
+
     @Override
     public Etape save(Etape etape) throws SQLException {
         try {
@@ -40,12 +48,60 @@ public class EtapeDAO extends BaseDAO<Etape> {
 
     @Override
     public Etape update(Etape etape) throws SQLException {
-        return null;
-    }
+            try {
+                connection = DatabaseManager.getConnection();
+                request = "UPDATE etape SET description = ? WHERE id = ?";
+                statement = connection.prepareStatement(request);
+                statement.setString(1, etape.getDescription());
+                statement.setInt(2, etape.getId());
+
+                int row = statement.executeUpdate();
+
+                if(row != 1) {
+                    connection.rollback();
+                    return null;
+                }
+
+                connection.commit();
+                return etape;
+
+            }catch(SQLException e) {
+                System.out.println(e.getMessage());
+                connection.rollback();
+                return null;
+            }finally {
+                close();
+            }
+        }
 
     @Override
-    public Etape delete(Etape etape) throws SQLException {
-        return null;
+    public boolean delete(int id) throws SQLException {
+        try {
+            connection = DatabaseManager.getConnection();
+            request = "DELETE FROM etape WHERE id = ?";
+            statement = connection.prepareStatement(request);
+            statement.setInt(1, id);
+
+            etapeRecetteDAO.deleteByEtapeId(id);
+
+            int row = statement.executeUpdate();
+
+            if(row == 1){
+                connection.commit();
+                return row == 1;
+            }
+            else {
+                connection.rollback();
+                return false;
+            }
+
+        }catch(SQLException e) {
+            System.out.println(e.getMessage());
+            connection.rollback();
+            return false;
+        }finally {
+            close();
+        }
     }
 
     @Override

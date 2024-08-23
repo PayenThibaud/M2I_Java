@@ -4,6 +4,7 @@ import org.example.exo3.DAO.abstractDAO.BaseDAO;
 import org.example.exo3.entity.Categorie;
 import org.example.exo3.util.DatabaseManager;
 
+
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -40,12 +41,58 @@ public class CategorieDAO extends BaseDAO<Categorie> {
 
     @Override
     public Categorie update(Categorie categorie) throws SQLException {
-        return null;
+        try {
+            connection = DatabaseManager.getConnection();
+            request = "UPDATE categorie SET nom = ? WHERE id = ?";
+            statement = connection.prepareStatement(request);
+            statement.setString(1, categorie.getNom());
+            statement.setInt(2, categorie.getId());
+
+            int row = statement.executeUpdate();
+
+            if(row != 1) {
+                connection.rollback();
+                return null;
+            }
+
+            connection.commit();
+            return categorie;
+
+        }catch(SQLException e) {
+            System.out.println(e.getMessage());
+            connection.rollback();
+            return null;
+        }finally {
+            close();
+        }
     }
 
     @Override
-    public Categorie delete(Categorie categorie) throws SQLException {
-        return null;
+    public boolean delete(int id) throws SQLException {
+        try {
+            connection = DatabaseManager.getConnection();
+            request = "DELETE FROM categorie WHERE id = ?";
+            statement = connection.prepareStatement(request);
+            statement.setInt(1, id);
+
+            int row = statement.executeUpdate();
+
+            if(row == 1){
+                connection.commit();
+                return row == 1;
+            }
+            else {
+                connection.rollback();
+                return false;
+            }
+
+        }catch(SQLException e) {
+            System.out.println(e.getMessage());
+            connection.rollback();
+            return false;
+        }finally {
+            close();
+        }
     }
 
     @Override
@@ -59,7 +106,7 @@ public class CategorieDAO extends BaseDAO<Categorie> {
             if(resultSet.next()) {
                 return Categorie.builder()
                         .id(resultSet.getInt(1))
-                        .nom(resultSet.getNString(2))
+                        .nom(resultSet.getString(2))
                         .build();
             }
             return null;
