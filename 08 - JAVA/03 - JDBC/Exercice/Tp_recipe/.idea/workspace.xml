@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="060ccff4-adff-4b50-b39c-42611cc36c79" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SQlCreationDeBase.sql" beforeDir="false" afterPath="$PROJECT_DIR$/SQlCreationDeBase.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Util/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Util/DatabaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/IngredienRecipesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/IngredienRecipesDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/RecipeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/RecipeDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Exception/NotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Exception/NotFoundException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Util/DatabaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Util/DatabaseManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Util/Ihm/IhmComment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Util/Ihm/IhmComment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Util/Ihm/IhmIngredient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Util/Ihm/IhmIngredient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Util/Ihm/IhmIngredientRecipe.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Util/Ihm/IhmIngredientRecipe.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Util/Ihm/IhmRecipe.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Util/Ihm/IhmRecipe.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Util/Ihm/IhmStep.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Util/Ihm/IhmStep.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Util/Ihm/MainIhm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Util/Ihm/MainIhm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Util/Table.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Util/Table.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Util/Validator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Util/Validator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/dao/BaseDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/dao/BaseDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/dao/CategorieDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/dao/CategorieDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/dao/CommentDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/dao/CommentDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/dao/IngredienRecipesDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/dao/IngredienRecipesDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/dao/IngredientDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/dao/IngredientDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/dao/RecipeDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/dao/RecipeDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/dao/StepDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/dao/StepDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/model/BaseShowMethod.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/model/BaseShowMethod.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/model/Categorie$CategorieBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/model/Categorie$CategorieBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/model/Categorie.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/model/Categorie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/model/Comment$CommentBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/model/Comment$CommentBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/model/Comment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/model/Comment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/model/Ingredient$IngredientBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/model/Ingredient$IngredientBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/model/Ingredient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/model/Ingredient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/model/Recipe$Difficulty.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/model/Recipe$Difficulty.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/model/Recipe$RecipeBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/model/Recipe$RecipeBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/model/Recipe.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/model/Recipe.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/model/Step.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/model/Step.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/service/CommentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/service/CommentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/service/IService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/service/IService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/service/IngredientRecipeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/service/IngredientRecipeService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/service/IngredientService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/service/IngredientService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/service/RecipeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/service/RecipeService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/service/StepService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/service/StepService.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2k3NJE5dcnvviqL9Pu33gzGiQr5" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
+    ]
+  }
+}</component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Recipe_JDBC" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Recipe_JDBC" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+      <module name="Tp_Recettes_JDBC" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+      <module name="Tp_Recettes_JDBC" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Recipe_JDBC" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Recipe_JDBC" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.387" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.387" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="060ccff4-adff-4b50-b39c-42611cc36c79" name="Changes" comment="" />
+      <created>1722508226674</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1722508226674</updated>
+      <workItem from="1722508228027" duration="36000" />
+      <workItem from="1724399753195" duration="327000" />
+      <workItem from="1724400099941" duration="7091000" />
+      <workItem from="1724654206288" duration="1555000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
