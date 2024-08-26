@@ -1,6 +1,9 @@
 package org.example;
 
+import org.example.entity.Arrosoir;
+import org.example.entity.Fleur;
 import org.example.entity.Plante;
+import org.example.entity.Pot;
 
 import javax.persistence.*;
 import javax.transaction.Transaction;
@@ -14,15 +17,61 @@ public class Main {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("demo_jpa");
         em = emf.createEntityManager();
 
-        Plante plante = Plante.builder().name("Plante").color("red").build();
 
-//        add(plante);
 
-        getByReference(3);
+
+// One to many
+//        Fleur fleur1 = Fleur.builder().color("rose").build();
+//        Fleur fleur2 = Fleur.builder().color("bleu").build();
+
+//        em.getTransaction().begin();
+//
+//
+//
+//        em.persist(fleur1);
+//        em.persist(fleur2);
+//
+//        em.getTransaction().commit();
+
+//        em.getTransaction().begin();
+//
+//        Plante plante = em.find(Plante.class,1);
+//        Fleur fleur = em.find(Fleur.class,1);
+//        Fleur fleur2 = em.find(Fleur.class,2);
+//
+//        fleur.setPlante(plante);
+//        fleur2.setPlante(plante);
+//
+//        em.getTransaction().commit();
+
+
+
+// one to one  / composant
+//        em.getTransaction().begin();
+//        Plante plante = Plante.builder().name("Plante").color("red").build();
+//        Pot pot = Pot.builder().size(12).build();
+//
+//        plante.setPot(pot);
+//        em.persist(plante);
+//        em.getTransaction().commit();
 //
 //        edit(2,"plante2","vert");
 
-        delete(1);
+
+        //One to many
+//        Arrosoir arrosoir = Arrosoir.builder().contenance(20).build();
+
+//
+//        em.getTransaction().begin();
+//        em.persist(arrosoir);
+//        em.getTransaction().commit();
+
+        em.getTransaction().begin();
+        Plante plante = em.find(Plante.class,1);
+        Arrosoir arrosoir = em.find(Arrosoir.class,1);
+        plante.addArrosoir(arrosoir);
+        arrosoir.addPlante(plante);
+        em.getTransaction().commit();
 
     }
 
@@ -34,6 +83,7 @@ public class Main {
         em.persist(plante);
         em.getTransaction().commit();
     }
+
 
     public static void getAll (){
         TypedQuery<Plante> query = em.createQuery("select p from Plante p ",Plante.class);
