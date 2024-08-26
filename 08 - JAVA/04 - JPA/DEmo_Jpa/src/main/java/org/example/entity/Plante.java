@@ -6,9 +6,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Data
@@ -22,5 +23,29 @@ public class Plante {
     private String name;
     private String color;
 
+//    @OneToOne
+//    @JoinColumn(name = "id_pot")
+//    private Pot pot;
 
+    @Embedded
+    private Pot pot;
+
+    @OneToMany(mappedBy = "plante")
+    private List<Fleur> fleurs;
+
+    @ManyToMany(mappedBy = "plantes")
+    private List<Arrosoir> arrosoirs;
+
+    public Plante() {
+        fleurs = new ArrayList<>();
+        arrosoirs =new ArrayList<>();
+    }
+
+    public void addFLeur (Fleur fleur){
+        fleurs.add(fleur);
+    }
+
+    public void addArrosoir (Arrosoir arrosoir){
+        arrosoirs.add(arrosoir);
+    }
 }
