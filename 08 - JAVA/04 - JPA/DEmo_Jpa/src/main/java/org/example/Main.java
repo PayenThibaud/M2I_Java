@@ -19,6 +19,10 @@ public class Main {
 //        add(plante);
 
         getByReference(3);
+//
+//        edit(2,"plante2","vert");
+
+        delete(1);
 
     }
 
@@ -51,14 +55,33 @@ public class Main {
         }
     }
 
-    public static void getByReference (int id){
+    public static Plante getByReference (int id){
         try{
-            Plante plante = em.getReference(Plante.class,id);
-            System.out.println(plante);
+            return em.getReference(Plante.class,id);
         }catch (EntityNotFoundException ex){
             System.out.println(ex.getMessage());
+            return null;
         }
+    }
 
+    public static void edit (int id , String name, String color){
+        Plante plante = getByReference(id);
+        em.getTransaction().begin();
+        plante.setName(name);
+        plante.setColor(color);
+
+        em.getTransaction().commit();
+    }
+
+    public static void delete (int id){
+        Plante plante = getByReference(id);
+        if(plante == null){
+            System.out.println("no plant found");
+            return ;
+        }
+        em.getTransaction().begin();
+        em.remove(plante);
+        em.getTransaction().commit();
     }
 
 }
