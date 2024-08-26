@@ -1,6 +1,6 @@
-package org.example;
+package org.example.exo1Etudient;
 
-import org.example.entity.Etudient;
+import org.example.exo1Etudient.entity.Etudient;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -45,7 +45,7 @@ public class Main {
         System.out.println(getAll());
     }
 
-    public static void add (Etudient etudient) {
+    public static void add (Etudient etudient){
         em.getTransaction().begin();
         em.persist(etudient);
         em.getTransaction().commit();
