@@ -11,6 +11,12 @@
         <class>org.example.exo1Etudient.entity.Examen</class>
         <class>org.example.exo1Etudient.entity.Cour</class>
 
+        <class>org.example.exo2Product.Entity.Product_Electronic</class>
+        <class>org.example.exo2Product.Entity.Product</class>
+        <class>org.example.exo2Product.Entity.Product_Housing</class>
+        <class>org.example.exo2Product.Entity.Product_Food</class>
+
+
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/"/>
