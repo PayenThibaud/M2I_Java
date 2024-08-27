@@ -13,24 +13,29 @@
 
 ### Partie 2 :
 
-- un etudiant a une seul adresse et une adresse est liée a un seul étudiant
+- un étudiant a une seule adresse et une adresse est liée à un seul étudiant
     
 - Adresse :
-    - numeros
+    - numéros
     - rue
     - ville
     - code postal
 
-- un etudiant auras une liste de Examens (One to many)
+- Un étudiant aura une liste d'Examens (One to many)
 - Examen :
-    - Date
+    - date
     - note
-    - matiere (string)
+    - Matière (string)
 
-- un etudiant pourras suivre plusieurs cours et un cours pourras etre suivi par plusieur étudiants :
+- un étudiant pourra suivre plusieurs cours et un cours pourront être suivi par plusieurs étudiants :
 - Cours :
-    - matiere
-    - profeseur
+    - matière
+    - professeur
     - salle
-    - horraire
+    - horaire
 
+
+### Bonus : 
+- ajouter la recherche d'examens pour un étudiant par matière / par date
+- ajouter le calcul de la moyenne d'un étudiant
+- ajouter la recherche du cours par matière et par professeur
