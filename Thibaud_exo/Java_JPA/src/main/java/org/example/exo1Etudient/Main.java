@@ -87,7 +87,9 @@ public class Main {
         etudientRepository.addCourInEtudient(3,List.of(courRepository.getById(6)));
 
         System.out.println(etudientRepository.getById(2));
-
+        System.out.println("L etudient avec l id 2 a une moyenne de : " + etudientRepository.calculMoyenne(2));
+        System.out.println("Recherche examen pour 1 etudient par matiere : " + etudientRepository.getExamenByEtudientAndMatiere(2,"Physique"));
+        System.out.println("Recherche de Cours avec un prof et une matiere : " + courRepository.getByProfesseurAndMatiere("Tata","IT"));
     }
 
 }

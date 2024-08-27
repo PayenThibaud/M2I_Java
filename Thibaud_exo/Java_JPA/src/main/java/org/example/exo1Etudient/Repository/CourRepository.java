@@ -4,6 +4,7 @@ import org.example.exo1Etudient.entity.Cour;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CourRepository {
@@ -62,5 +63,23 @@ public class CourRepository {
     public List<Cour> getAll() {
         TypedQuery<Cour> query = em.createQuery("select e from Cour e", Cour.class);
         return query.getResultList();
+    }
+
+    public List<Cour> getByProfesseurAndMatiere(String professeur, String matiere) {
+        List<Cour> cours = getAll();
+
+        if (cours == null) {
+            System.out.println("pas d cour avec cet id");
+            return null;
+        }
+
+        List<Cour> courTrierProfMat = new ArrayList<>();
+
+        for (Cour cour : cours) {
+            if (professeur.equalsIgnoreCase(cour.getProfesseur()) && matiere.equalsIgnoreCase(cour.getMatiere())) {
+                courTrierProfMat.add(cour);
+            }
+        }
+            return courTrierProfMat;
     }
 }

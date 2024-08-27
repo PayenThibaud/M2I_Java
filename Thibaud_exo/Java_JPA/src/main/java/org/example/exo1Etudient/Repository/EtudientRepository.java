@@ -12,19 +12,19 @@ import java.util.List;
 
 public class EtudientRepository {
 
-    private  EntityManager em;
+    private EntityManager em;
 
     public EtudientRepository(EntityManager em) {
         this.em = em;
     }
 
-    public void add (Etudient etudient){
+    public void add(Etudient etudient) {
         em.getTransaction().begin();
         em.persist(etudient);
         em.getTransaction().commit();
     }
 
-    public void update (int id, Etudient etudientUpdate) {
+    public void update(int id, Etudient etudientUpdate) {
 
         Etudient etudient = getById(id);
 
@@ -39,7 +39,8 @@ public class EtudientRepository {
 
         if (etudientUpdate.getClasse() != null) {
             Adresse adresseUpdate = etudientUpdate.getAdresse();
-            if (adresseUpdate != null) {}
+            if (adresseUpdate != null) {
+            }
         }
 
         if (etudientUpdate.getAdresse() != null) {
@@ -54,7 +55,7 @@ public class EtudientRepository {
         em.getTransaction().commit();
     }
 
-    public void delete (int id) {
+    public void delete(int id) {
         Etudient etudient = getById(id);
         if (etudient == null) {
             System.out.println("pas d etudient avec cet id");
@@ -65,11 +66,11 @@ public class EtudientRepository {
         em.getTransaction().commit();
     }
 
-    public Etudient getById (int id) {
+    public Etudient getById(int id) {
         Etudient etudient = em.find(Etudient.class, id);
-        if(etudient != null){
+        if (etudient != null) {
             return etudient;
-        }else {
+        } else {
             System.out.println("pas d etudient avec cet id");
             return etudient;
         }
@@ -80,7 +81,7 @@ public class EtudientRepository {
         return query.getResultList();
     }
 
-    public void addExamenInEtudient (int EtudientId, List<Examen> examenList) {
+    public void addExamenInEtudient(int EtudientId, List<Examen> examenList) {
         Etudient etudient = getById(EtudientId);
 
         if (etudient == null) {
@@ -100,7 +101,7 @@ public class EtudientRepository {
         em.getTransaction().commit();
     }
 
-    public void addCourInEtudient (int EtudientId, List<Cour> cours) {
+    public void addCourInEtudient(int EtudientId, List<Cour> cours) {
         Etudient etudient = getById(EtudientId);
 
         if (etudient == null) {
@@ -124,5 +125,59 @@ public class EtudientRepository {
 
         em.merge(etudient);
         em.getTransaction().commit();
+    }
+
+    public double calculMoyenne(int idEtudient) {
+        Etudient etudient = getById(idEtudient);
+        if (etudient == null) {
+            System.out.println("pas d etudient avec cet id");
+            return 0;
+        }
+
+        List<Examen> examens = etudient.getExamens();
+        if (examens == null || examens.isEmpty()) {
+            System.out.println("L etudient n a pas encore d examen");
+            return 0;
+        }
+
+        double moyenne = 0;
+        double nombreExamen = 0;
+        for (Examen examen : examens) {
+            if (examen.getId() > 0) {
+                moyenne = moyenne + examen.getNote();
+                nombreExamen++;
+            }
+        }
+
+        if (nombreExamen == 0) {
+            return 0;
+        } else {
+            return (moyenne / nombreExamen);
+        }
+    }
+
+    public List<Examen> getExamenByEtudientAndMatiere(int etudientId, String matiere) {
+        Etudient etudient = getById(etudientId);
+        if (etudient == null) {
+            System.out.println("pas d etudient avec cet id");
+            return null;
+        }
+
+        List<Examen> examens = etudient.getExamens();
+        if (examens == null || examens.isEmpty()) {
+            System.out.println("L etudient n a pas encore d examen");
+            return null;
+        }
+
+        List<Examen> examenTrierMatiere = new ArrayList<>();
+
+        for (Examen examen : examens) {
+            if (matiere.equalsIgnoreCase(examen.getMatiere())) {
+                examenTrierMatiere.add(examen);
+            }
+        }
+
+        return examenTrierMatiere;
+
     }
 }
