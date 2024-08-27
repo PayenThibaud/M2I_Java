@@ -1,16 +1,15 @@
-package org.example.entity;
+package org.example.Demo1.entity;
 
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+//@Entity
 @Data
 @Builder
 @AllArgsConstructor

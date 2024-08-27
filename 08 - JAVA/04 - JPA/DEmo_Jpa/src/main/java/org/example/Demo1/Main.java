@@ -1,12 +1,9 @@
-package org.example;
+package org.example.Demo1;
 
-import org.example.entity.Arrosoir;
-import org.example.entity.Fleur;
-import org.example.entity.Plante;
-import org.example.entity.Pot;
+import org.example.Demo1.entity.Arrosoir;
+import org.example.Demo1.entity.Plante;
 
 import javax.persistence.*;
-import javax.transaction.Transaction;
 import java.util.List;
 
 public class Main {
