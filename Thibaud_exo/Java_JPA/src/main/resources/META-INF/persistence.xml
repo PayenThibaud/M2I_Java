@@ -7,6 +7,9 @@
 
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>org.example.exo1Etudient.entity.Etudient</class>
+        <class>org.example.exo1Etudient.entity.Adresse</class>
+        <class>org.example.exo1Etudient.entity.Examen</class>
+        <class>org.example.exo1Etudient.entity.Cour</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>

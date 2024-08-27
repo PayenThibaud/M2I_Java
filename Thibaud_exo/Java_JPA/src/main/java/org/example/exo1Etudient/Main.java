@@ -1,6 +1,13 @@
 package org.example.exo1Etudient;
 
+import org.example.exo1Etudient.Repository.AdresseRepository;
+import org.example.exo1Etudient.Repository.CourRepository;
+import org.example.exo1Etudient.Repository.EtudientRepository;
+import org.example.exo1Etudient.Repository.ExamenRepository;
+import org.example.exo1Etudient.entity.Adresse;
+import org.example.exo1Etudient.entity.Cour;
 import org.example.exo1Etudient.entity.Etudient;
+import org.example.exo1Etudient.entity.Examen;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -10,12 +17,15 @@ import java.util.List;
 
 public class Main {
 
-    private static EntityManager em;
-
     public static void main(String[] args) {
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("Java_JPA");
-        em = emf.createEntityManager();
+        EntityManager em = emf.createEntityManager();
+
+        AdresseRepository adresseRepository = new AdresseRepository(em);
+        EtudientRepository etudientRepository = new EtudientRepository(em);
+        ExamenRepository examenRepository = new ExamenRepository(em);
+        CourRepository courRepository = new CourRepository(em);
 
         Etudient etudient = Etudient.builder()
                 .nom("Titi2")
@@ -23,80 +33,61 @@ public class Main {
                 .classe("6Ee")
                 .build();
 
+        etudientRepository.add(etudient);
 
-
-
-//        add(etudient);
-
-        System.out.println(getAll());
-        System.out.println(getById(1));
-
-
-        Etudient etudient2 = Etudient.builder()
-                .nom("Toto")
-                .prenom("Titi")
+        Adresse adresse = Adresse.builder()
+                .numero(1)
+                .rue(10)
+                .ville("Lille")
+                .codePostal(111)
                 .build();
-        update(1, etudient2);
 
-        System.out.println(getById(1));
+        adresseRepository.add(adresse);
 
-        delete(1);
+        Etudient etudient1 = Etudient.builder()
+                .nom("Titi")
+                .prenom("Toto")
+                .classe("6Ee")
+                .adresse(adresse)
+                .build();
 
-        System.out.println(getAll());
+        etudientRepository.add(etudient1);
+
+
+        Examen examen1 = Examen.builder()
+                .date("2024-06-15")
+                .note(85)
+                .matiere("Mathématiques")
+                .etudient(etudientRepository.getById(2))
+                .build();
+
+        Examen examen2 = Examen.builder()
+                .date("2024-06-16")
+                .note(90)
+                .matiere("Physique")
+                .etudient(etudientRepository.getById(2))
+                .build();
+
+        Cour cour = Cour.builder()
+                .salle("E5")
+                .professeur("Tata")
+                .horraire("9H-10h")
+                .matiere("IT")
+                .build();
+
+        courRepository.add(cour);
+
+        examenRepository.add(examen1);
+        examenRepository.add(examen2);
+
+//        etudientRepository.addExamenInEtudient(2,List.of(examen1, examen2));
+
+        System.out.println(etudientRepository.getById(2));
+
+        etudientRepository.addCourInEtudient(3,List.of(courRepository.getById(6)));
+
+        System.out.println(etudientRepository.getById(2));
+
     }
-
-    public static void add (Etudient etudient){
-        em.getTransaction().begin();
-        em.persist(etudient);
-        em.getTransaction().commit();
-    }
-
-    public static void update (int id, Etudient etudientUpdate) {
-
-        Etudient etudient = getById(id);
-
-        if (etudient == null) {
-            System.out.println("pas d etudient avec cet id");
-            return;
-        }
-        em.getTransaction().begin();
-
-        etudient.setNom(etudientUpdate.getNom());
-        etudient.setPrenom(etudientUpdate.getPrenom());
-
-        if (etudientUpdate.getClasse() != null) {
-            etudient.setClasse(etudientUpdate.getClasse());
-        }
-
-        em.merge(etudient);
-        em.getTransaction().commit();
-    }
-
-    public static void delete (int id) {
-        Etudient etudient = getById(id);
-        if (etudient == null) {
-            System.out.println("pas d etudient avec cet id");
-            return;
-        }
-        em.getTransaction().begin();
-        em.remove(etudient);
-        em.getTransaction().commit();
-    }
-
-    public static Etudient getById (int id) {
-        Etudient etudient = em.find(Etudient.class, id);
-        if(etudient != null){
-            return etudient;
-        }else {
-            System.out.println("pas d etudient avec cet id");
-            return etudient;
-        }
-    }
-
-    public static List<Etudient> getAll() {
-        TypedQuery<Etudient> query = em.createQuery("select e from Etudient e", Etudient.class);
-        return query.getResultList();
-    }
-
 
 }

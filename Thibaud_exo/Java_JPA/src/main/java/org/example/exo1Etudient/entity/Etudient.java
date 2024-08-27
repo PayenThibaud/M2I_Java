@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -24,4 +25,22 @@ public class Etudient {
     private String prenom;
     private String classe;
 
+    @OneToOne
+    @JoinColumn(name = "id_adresse")
+    private Adresse adresse;
+
+    @OneToMany(mappedBy = "etudient")
+    private List<Examen> examens;
+
+    @ManyToMany(mappedBy = "etudients")
+    private List<Cour> cours;
+
+    public void addCour(Cour cour) {
+        cours.add(cour);
+    }
+
+    @Override
+    public String toString() {
+        return "(Etudient = nom : " + nom + " prenom : " + prenom + " classe : " + classe + " adresse : " + adresse  + " examens : " + examens + " cours : " + cours + ")";
+    }
 }
