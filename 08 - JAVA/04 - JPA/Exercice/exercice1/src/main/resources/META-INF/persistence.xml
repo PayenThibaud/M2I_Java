@@ -8,6 +8,9 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider </provider>
 
         <class>org.example.entity.Student</class>
+        <class>org.example.entity.Cours</class>
+        <class>org.example.entity.Exam</class>
+        <class>org.example.entity.Adress</class>
 
 
         <properties>

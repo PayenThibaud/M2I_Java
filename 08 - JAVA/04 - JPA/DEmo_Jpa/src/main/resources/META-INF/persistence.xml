@@ -6,16 +6,15 @@
     <persistence-unit name="demo_jpa">
 
         <provider>org.hibernate.jpa.HibernatePersistenceProvider </provider>
-        <class>org.example.entity.Plante</class>
-<!--        <class>org.example.entity.Pot</class>-->
+
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/postgres?currentSchema=exo1"/>
             <property name="javax.persistence.jdbc.user" value="postgres"/>
             <property name="javax.persistence.jdbc.password" value="formation"/>
 <!--            <property name="hibernate.show_sql" value="true"/>-->
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
         </properties>
 
     </persistence-unit>
