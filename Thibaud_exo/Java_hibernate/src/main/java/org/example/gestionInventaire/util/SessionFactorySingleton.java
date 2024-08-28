@@ -1,12 +1,9 @@
-package org.example.demo.util;
+package org.example.gestionInventaire.util;
 
-import lombok.Synchronized;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-
-import javax.transaction.Synchronization;
 
 public class SessionFactorySingleton {
     private static SessionFactory sessionFactory;
