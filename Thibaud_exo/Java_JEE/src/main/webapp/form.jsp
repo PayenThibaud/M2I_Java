@@ -25,7 +25,7 @@
 
     <div>
         <label for ="age"> Age</label>
-        <input type="text" id = "age" name="age"/>
+        <input type="number" id = "age" name="age"/>
     </div>
 </form>
 </body>
