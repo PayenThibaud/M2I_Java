@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04795b01-6ad8-4a45-9a91-9b13f938a335" name="Changes" comment="" />
+    <list default="true" id="04795b01-6ad8-4a45-9a91-9b13f938a335" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../06 - JEE/Demo_Jee/src/main/java/VariableServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../06 - JEE/Demo_Jee/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../06 - JEE/Demo_Jee/src/main/webapp/style/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../06 - JEE/Demo_Jee/src/main/webapp/stylePage.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../06 - JEE/Demo_Jee/src/main/webapp/variable.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
