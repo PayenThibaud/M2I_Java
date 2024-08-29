@@ -1,6 +1,7 @@
 package org.example.gestionInventaire.repository;
 
 import org.example.gestionInventaire.entity.Article;
+import org.example.gestionInventaire.entity.Article_vente;
 import org.example.gestionInventaire.entity.Vente;
 import org.example.gestionInventaire.enums.Categorie;
 import org.example.gestionInventaire.util.SessionFactorySingleton;
@@ -22,68 +23,79 @@ public class VenteRepository extends BaseRepository<Vente> {
         this.sessionFactory = SessionFactorySingleton.getSessionFactory();
     }
 
-    public void addArticleInVente(int idVente, List<Article> articles) {
+//    public void addArticleInVente(int idVente, List<Article> articles) {
+//
+//        try {
+//            session = sessionFactory.openSession();
+//            session.beginTransaction();
+//
+//            Vente vente = session.get(Vente.class, idVente);
+//            if (vente == null) {
+//                System.out.println("Aucune vente trouvée avec cet ID");
+//                return;
+//            }
+//
+//            if (vente.getArticles() == null) {
+//                vente.setArticles(new ArrayList<>());
+//            }
+//
+//            for (Article article : articles) {
+//                Article articleRecup = session.get(Article.class, article.getId());
+//
+//                if (articleRecup.getVentes() == null) {
+//                    articleRecup.setVentes(new ArrayList<>());
+//                }
+//
+//                if (!articleRecup.getVentes().contains(vente)) {
+//                    articleRecup.getVentes().add(vente);
+//                    session.saveOrUpdate(articleRecup);
+//                }
+//
+//                if (!vente.getArticles().contains(articleRecup)) {
+//                    vente.getArticles().add(articleRecup);
+//                }
+//            }
+//
+//            session.saveOrUpdate(vente);
+//
+//            session.getTransaction().commit();
+//        } catch (Exception e) {
+//            session.getTransaction().rollback();
+//        } finally {
+//            session.close();
+//        }
+//    }
 
+    @Override
+    public boolean delete(Vente vente) {
         try {
             session = sessionFactory.openSession();
             session.beginTransaction();
 
-            Vente vente = session.get(Vente.class, idVente);
-            if (vente == null) {
-                System.out.println("Aucune vente trouvée avec cet ID");
-                return;
-            }
-
-            if (vente.getArticles() == null) {
-                vente.setArticles(new ArrayList<>());
-            }
-
-            for (Article article : articles) {
-                Article articleRecup = session.get(Article.class, article.getId());
-
-                if (articleRecup.getVentes() == null) {
-                    articleRecup.setVentes(new ArrayList<>());
-                }
-
-                if (!articleRecup.getVentes().contains(vente)) {
-                    articleRecup.getVentes().add(vente);
-                    session.saveOrUpdate(articleRecup);
-                }
-
-                if (!vente.getArticles().contains(articleRecup)) {
-                    vente.getArticles().add(articleRecup);
-                }
-            }
-
-            session.saveOrUpdate(vente);
-
-            session.getTransaction().commit();
-        } catch (Exception e) {
-            session.getTransaction().rollback();
-        } finally {
-            session.close();
-        }
-    }
-
-    public boolean deleteVenteAndArticle_Vente(int idVente) {
-        try {
-            session = sessionFactory.openSession();
-            session.beginTransaction();
-
-            Vente vente = session.get(Vente.class, idVente);
-            if (vente == null) {
+            Vente venteSupr = session.get(Vente.class, vente.getId());
+            if (venteSupr == null) {
                 System.out.println("Aucune vente trouvée avec cet ID");
                 return false;
             }
 
-            for (Article article : vente.getArticles()) {
-                article.getVentes().remove(vente);
-                session.saveOrUpdate(article);
+            List<Article_vente> articleVentes = session.createQuery(
+                            "FROM Article_vente av WHERE av.vente.id = :venteId",
+                            Article_vente.class)
+                    .setParameter("venteId", venteSupr.getId())
+                    .getResultList();
+
+
+            for (Article_vente av : articleVentes) {
+                Article article = av.getArticle();
+                article.setQuantite(article.getQuantite() + av.getQuantiteArticle());
+                session.update(article);
             }
 
-            vente.getArticles().clear();
+            for (Article_vente av : articleVentes) {
+                session.delete(av);
+            }
 
-            session.delete(vente);
+            session.delete(venteSupr);
 
             session.getTransaction().commit();
             return true;

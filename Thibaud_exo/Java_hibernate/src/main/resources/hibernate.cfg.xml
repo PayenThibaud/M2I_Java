@@ -11,6 +11,7 @@
         <mapping class="org.example.gestionInventaire.entity.Article_Nourriture"/>
         <mapping class="org.example.gestionInventaire.entity.Client"/>
         <mapping class="org.example.gestionInventaire.entity.Vente"/>
+        <mapping class="org.example.gestionInventaire.entity.Article_vente"/>
 
     </session-factory>
 </hibernate-configuration>

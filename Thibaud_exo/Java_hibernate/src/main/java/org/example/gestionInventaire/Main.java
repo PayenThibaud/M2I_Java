@@ -4,6 +4,7 @@ import org.example.gestionInventaire.entity.*;
 import org.example.gestionInventaire.enums.Categorie;
 import org.example.gestionInventaire.enums.Status;
 import org.example.gestionInventaire.repository.ArticleRepository;
+import org.example.gestionInventaire.repository.Article_venteRepository;
 import org.example.gestionInventaire.repository.ClientRepository;
 import org.example.gestionInventaire.repository.VenteRepository;
 
@@ -15,6 +16,7 @@ public class Main {
         ArticleRepository articleRepository = new ArticleRepository();
         ClientRepository clientRepository = new ClientRepository();
         VenteRepository venteRepository = new VenteRepository();
+        Article_venteRepository article_venteRepository = new Article_venteRepository();
 
 //        Article_electronique article_electronique = Article_electronique.builder()
 //                .description("TV")
@@ -83,10 +85,22 @@ public class Main {
 
 //        venteRepository.deleteVenteAndArticle_Vente(2);
 
-        System.out.println(venteRepository.findById(3));
-        System.out.println(articleRepository.findById(4));
-        System.out.println(clientRepository.findById(1));
-        System.out.println(venteRepository.getVenteByClient(1));
+//        Article_vente article_vente = Article_vente.builder()
+//                .vente(venteRepository.findById(10))
+//                .article(articleRepository.findById(6))
+//                .quantiteArticle(150)
+//                .build();
+//
+//        article_venteRepository.createOrUpdate(article_vente);
+
+
+        venteRepository.delete(venteRepository.findById(6));
+
+//        System.out.println(venteRepository.findById(3));
+//        System.out.println(articleRepository.findById(4));
+//        System.out.println(clientRepository.findById(1));
+//        System.out.println(venteRepository.getVenteByClient(1));
+
     }
 }
 
