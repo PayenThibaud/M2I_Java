@@ -12,5 +12,8 @@
 </head>
 <body>
 <h1>Mon Index</h1>
+<a href="hello-servlet">Hello-Servlet</a>
+<a href="Variables">variables</a>
+<a href="Variables">variables</a>
 </body>
 </html>

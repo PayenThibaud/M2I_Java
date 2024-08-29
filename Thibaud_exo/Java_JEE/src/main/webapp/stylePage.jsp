@@ -8,11 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>$
-    <link rel ="stylesheet" type="text/css" href="${pageContext.reqqust.contextPatch}/src/main/webapp/style/styles.css">
-    <title>Titre</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style/styles.css">
+    <title>Title</title>
 </head>
 <body>
-<h1>Coucou</h1>
-<p>{pageContext.request.contextPatch</p>
+<h1>je suis sur la page JSP avec du style</h1>
+<p>${pageContext.request.contextPath}</p>
 </body>
 </html>
