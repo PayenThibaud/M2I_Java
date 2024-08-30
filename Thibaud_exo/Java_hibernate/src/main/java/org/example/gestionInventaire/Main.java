@@ -94,12 +94,21 @@ public class Main {
 //        article_venteRepository.createOrUpdate(article_vente);
 
 
-        venteRepository.delete(venteRepository.findById(6));
+//        venteRepository.delete(venteRepository.findById(6));
 
 //        System.out.println(venteRepository.findById(3));
 //        System.out.println(articleRepository.findById(4));
 //        System.out.println(clientRepository.findById(1));
 //        System.out.println(venteRepository.getVenteByClient(1));
+
+        Article_vente article_vente = Article_vente.builder()
+                .id(1)
+                .article(articleRepository.findById(4))
+                .vente(venteRepository.findById(2))
+                .quantiteArticle(5)
+                .build();
+
+        article_venteRepository.createOrUpdate(article_vente);
 
     }
 }
