@@ -11,6 +11,9 @@
     <title>Title</title>
 </head>
 <body>
-
+<a href="article">table d article</a>
+<a href="client">table de client</a>
+<a href="vente">table des ventes</a>
+<a href="articleVente">table de jointure Article - Vente</a>
 </body>
 </html>
