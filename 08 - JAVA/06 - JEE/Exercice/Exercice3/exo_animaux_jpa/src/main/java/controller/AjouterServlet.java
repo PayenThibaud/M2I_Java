@@ -22,23 +22,31 @@ public class AjouterServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("titre", titre);
-        req.setAttribute("chien",new Chien());
+        Chien newChien = new Chien();
+        newChien.setIdChien(0);
+        req.setAttribute("chien",newChien);
         getServletContext().getRequestDispatcher("/WEB-INF/ajouter.jsp").forward(req, resp);
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        System.out.println("ajout d'un chien");
 
-        String id = req.getParameter("id");
+        String stringId = req.getParameter("id");
+        int id = Integer.parseInt((stringId));
+        System.out.println(id);
         Chien chien;
-        if(id != null){
-            int idint = Integer.parseInt(id);
+
+        if(id == 0){
+            int idint = Integer.parseInt(stringId);
             chien = chienRepository.findById(idint);
             chien.setNomChien(req.getParameter("nom"));
             chien.setRace(req.getParameter("race"));
             chien.setDateNaissance(LocalDate.parse(req.getParameter("dateDeNaissance")));
 
         }else{
+
+
             chien = Chien.builder()
                     .nomChien(req.getParameter("nom"))
                     .race(req.getParameter("race"))
@@ -47,5 +55,7 @@ public class AjouterServlet extends HttpServlet {
         }
         chienRepository.createOrUpdate(chien);
         doGet(req, resp);
+
+
     }
 }
