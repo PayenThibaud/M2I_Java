@@ -1,5 +1,5 @@
 <%@ page import="entity.Chien" %>
-<jsp:useBean id="dogs" type="java.util.ArrayList<entity.Chien>" scope="request" />
+<jsp:useBean id="chiens" type="java.util.ArrayList<entity.Chien>" scope="request" />
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -12,7 +12,7 @@
         <div class="col-8 offset-2 rounded text-bg-dark p-3">
             <h1 class="fw-light">- Dogs List -</h1>
             <hr>
-            <% if (!dogs.isEmpty()) { %>
+            <% if (!chiens.isEmpty()) { %>
             <table class="table table-dark align-middle table-striped text-center">
                 <thead>
                 <tr>
@@ -24,7 +24,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <% for (Chien d : dogs) {%>
+                <% for (Chien d : chiens) {%>
                 <tr>
                     <td><%= d.getIdChien() %></td>
                     <td><%= d.getNomChien() %></td>

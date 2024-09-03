@@ -28,30 +28,60 @@ public class ChienServlet extends HttpServlet {
 
         req.setAttribute("chiens", chienRepository.findAll());
 
-        String pathInfo = req.getPathInfo();
+        String pathInfo = req.getPathInfo().substring(1);
         switch (pathInfo) {
-            case "/list":
-                req.getRequestDispatcher("/WEB-INF/list.jsp").forward(req, resp);
+            case "list":
+                AfficherTout(req, resp);
                 break;
-            case "/add":
-                req.getRequestDispatcher("/WEB-INF/add.jsp").forward(req, resp);
+            case "add":
+                Ajout(req, resp);
+                break;
+            case "addForm":
+                AfficherAjout(req, resp);
+                break;
+            case "detail":
+                AfficherDetail(req, resp);
                 break;
         }
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doGet(req, resp);
+    }
 
-        ChienRepository chienRepository = new ChienRepository();
+    protected void Ajout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Chien chien = Chien.builder()
+        chienRepository.createOrUpdate(Chien.builder()
                 .nom(req.getParameter("nom"))
                 .race(req.getParameter("race"))
                 .dateDeNaissance(LocalDate.parse(req.getParameter("dateDeNaissance")))
+                .build());
+
+        resp.sendRedirect("list");
+    }
+
+    protected void AfficherTout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("chiens", chienRepository.findAll());
+        req.getRequestDispatcher("/WEB-INF/list.jsp").forward(req, resp);
+    }
+
+    protected void AfficherAjout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Chien chien = Chien.builder()
+                .nom("")
+                .race("")
+                .dateDeNaissance(LocalDate.now())
                 .build();
+        req.setAttribute("chien", chien);
+        req.setAttribute("mode", "add");
+        req.getRequestDispatcher("/WEB-INF/chienForm.jsp").forward(req, resp);
+    }
 
-        chienRepository.createOrUpdate(chien);
-
-        doGet(req, resp);
+    protected void AfficherDetail(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int chienId = Integer.parseInt(req.getParameter("id"));
+        Chien chien = chienRepository.findById(chienId);
+        req.setAttribute("chien",chien);
+        req.setAttribute("mode","view");
+        req.getRequestDispatcher("/WEB-INF/chienForm.jsp").forward(req,resp);
     }
 }

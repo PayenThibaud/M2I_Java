@@ -53,7 +53,7 @@ public class ChienServlet extends HttpServlet {
     }
 
     protected void showAll(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-          req.setAttribute("dogs",chienRepository.findAll());
+          req.setAttribute("chiens",chienRepository.findAll());
           req.getRequestDispatcher("/WEB-INF/dogs/list.jsp").forward(req,resp);
     }
 
