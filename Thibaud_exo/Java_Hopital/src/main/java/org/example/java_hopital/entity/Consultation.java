@@ -7,8 +7,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -16,16 +14,19 @@ import java.util.List;
 @Builder
 @Data
 
-@Table(name = "patient")
-public class Patient {
+@Table(name = "consultation")
+public class Consultation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_patient")
+    @Column(name = "id_consultation")
     private int id;
-    private String nom;
-    private String prenom;
-    private LocalDate dateDeNaissance;
+    private String nomMedecin;
+    private LocalDate dateDeConsultation;
+    private String prescription;
+    private String ficheDeSoin;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "patient")
-    private List<Consultation> consultations = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "id_patient")
+    private Patient patient;
+
 }

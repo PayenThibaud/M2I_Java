@@ -8,7 +8,6 @@
 <body>
 <h1>Liste des Patients</h1>
 
-
 <table border="1">
     <thead>
     <tr>
@@ -17,16 +16,18 @@
         <th>Prénom</th>
         <th>Date de Naissance</th>
         <th>Detail</th>
+        <th>Consultation</th>
     </tr>
     </thead>
     <tbody>
-    <c:forEach var="patient" items="${patients}">
+    <c:forEach var="patient" items="${patients}">-
         <tr>
             <td>${patient.id}</td>
             <td>${patient.nom}</td>
             <td>${patient.prenom}</td>
             <td>${patient.dateDeNaissance}</td>
             <td> <a href="${pageContext.request.contextPath}/patient/detail?id=${patient.id}">Voir Détail</a></td>
+            <td> <a href="${pageContext.request.contextPath}/consultation/list?id=${patient.id}">Voir Consultation</a></td>
         </tr>
     </c:forEach>
     </tbody>
