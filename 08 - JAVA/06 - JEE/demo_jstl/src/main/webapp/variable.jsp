@@ -44,6 +44,29 @@
     <p>${prenom}</p>
 </c:forEach>
 
+<h3>La balise c:import</h3>
+
+<c:import url="WEB-INF/madiv.html" />
+
+<h3>La balise c:set</h3>
+
+<c:set var="maVariable" value="true" scope="session" />
+
+<h3>Les balises c:choose c:when c:otherwise</h3>
+
+<c:choose>
+    <c:when test="${maVariable}">
+        <p>La premiere condition est vrai</p>
+    </c:when>
+    <c:when test="${isTrue}">
+        <p>La seconde condition est vrai</p>
+    </c:when>
+    <c:otherwise>
+        <p>Aucune des valeurs precedentes est vrai</p>
+    </c:otherwise>
+</c:choose>
+
+
 
 </body>
 </html>
