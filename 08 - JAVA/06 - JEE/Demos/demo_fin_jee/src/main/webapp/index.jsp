@@ -25,5 +25,7 @@
 <a href="have-session">test presence session</a>
 <br/>
 <a href="get-session">recevoir un attribut dans ma session</a>
+<br/>
+<a href="upload">formulaire upload</a>
 </body>
 </html>
