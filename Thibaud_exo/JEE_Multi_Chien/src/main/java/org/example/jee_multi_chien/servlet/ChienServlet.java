@@ -15,13 +15,18 @@ import java.util.List;
 
 @WebServlet(name = "chienservlet", value = {"/chien/*"})
 public class ChienServlet extends HttpServlet {
-    private List<Chien> chiens = new ArrayList<Chien>();
 
+    private ChienRepository chienRepository;
+
+    @Override
+    public void init() {
+        this.chienRepository = new ChienRepository();
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        req.setAttribute("chiens", chiens);
+        req.setAttribute("chiens", chienRepository.findAll());
 
         String pathInfo = req.getPathInfo();
         switch (pathInfo) {
