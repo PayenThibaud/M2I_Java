@@ -31,17 +31,15 @@ public class ConsultationServlet extends HttpServlet {
             case "list":
                 AfficherTout(req, resp);
                 break;
+            case "addConsultation":
+                AjouterConsultation(req, resp);
+                break;
         }
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String pathInfo = req.getPathInfo().substring(1);
-        switch (pathInfo) {
-            case "addConsultation":
-                AjouterConsultation(req, resp);
-                break;
-        }
+        doGet(req, resp);
     }
 
     protected void AfficherTout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
