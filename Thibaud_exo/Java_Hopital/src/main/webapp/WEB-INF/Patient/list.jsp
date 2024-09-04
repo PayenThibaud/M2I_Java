@@ -20,37 +20,47 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach var="patient" items="${patients}">-
+    <c:forEach var="patient" items="${patients}">
         <tr>
             <td>${patient.id}</td>
             <td>${patient.nom}</td>
             <td>${patient.prenom}</td>
             <td>${patient.dateDeNaissance}</td>
-            <td> <a href="${pageContext.request.contextPath}/patient/detail?id=${patient.id}">Voir Détail</a></td>
-            <td> <a href="${pageContext.request.contextPath}/consultation/list?id=${patient.id}">Voir Consultation</a></td>
+            <td><a href="${pageContext.request.contextPath}/patient/detail?id=${patient.id}">Voir Détail</a></td>
+            <td><a href="${pageContext.request.contextPath}/consultation/list?id=${patient.id}">Voir Consultation</a></td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
 
 <h2>Ajouter un Nouveau Patient</h2>
-<form action="${pageContext.request.contextPath}/patient/addPatient" method="post">
-    <div>
-        <label for="nom">Nom:</label>
-        <input type="text" id="nom" name="nom" required>
-    </div>
-    <div>
-        <label for="prenom">Prénom:</label>
-        <input type="text" id="prenom" name="prenom" required>
-    </div>
-    <div>
-        <label for="dateDeNaissance">Date de Naissance:</label>
-        <input type="date" id="dateDeNaissance" name="dateDeNaissance" required>
-    </div>
-    <div>
-        <button type="submit">Ajouter le Patient</button>
-    </div>
-</form>
+
+<c:choose>
+    <c:when test="${not empty sessionScope.logged}">
+
+        <form action="${pageContext.request.contextPath}/patient/addPatient" method="post">
+            <div>
+                <label for="nom">Nom:</label>
+                <input type="text" id="nom" name="nom" required>
+            </div>
+            <div>
+                <label for="prenom">Prénom:</label>
+                <input type="text" id="prenom" name="prenom" required>
+            </div>
+            <div>
+                <label for="dateDeNaissance">Date de Naissance:</label>
+                <input type="date" id="dateDeNaissance" name="dateDeNaissance" required>
+            </div>
+            <div>
+                <button type="submit">Ajouter le Patient</button>
+            </div>
+        </form>
+    </c:when>
+    <c:otherwise>
+
+        <p>Vous devez être connecté pour ajouter un patient. <a href="${pageContext.request.contextPath}/get-session/connexion">Connectez-vous ici</a>.</p>
+    </c:otherwise>
+</c:choose>
 
 </body>
 </html>

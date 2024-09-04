@@ -24,6 +24,7 @@
         <th>Date de Consultation</th>
         <th>Prescription</th>
         <th>Fiche de Soin</th>
+        <th>Detail</th>
     </tr>
     </thead>
     <tbody>
@@ -34,6 +35,7 @@
             <td>${consultation.dateDeConsultation}</td>
             <td>${consultation.prescription}</td>
             <td>${consultation.ficheDeSoin}</td>
+            <td><a href="${pageContext.request.contextPath}/consultation/detail?id=${consultation.id}">Voir Détail</a></td>
         </tr>
     </c:forEach>
     </tbody>

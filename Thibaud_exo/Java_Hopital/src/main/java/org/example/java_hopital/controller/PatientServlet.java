@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import org.example.java_hopital.entity.Patient;
 import org.example.java_hopital.repository.PatientRepository;
 
@@ -66,7 +67,6 @@ public class PatientServlet extends HttpServlet {
         int patientId = Integer.parseInt(req.getParameter("id"));
         Patient patient = patientRepository.findById(patientId);
         req.setAttribute("patient", patient);
-        req.setAttribute("mode", "view");
         req.getRequestDispatcher("/WEB-INF/Patient/detail.jsp").forward(req, resp);
     }
 }

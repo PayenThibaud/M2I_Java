@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import org.example.java_hopital.entity.Consultation;
 import org.example.java_hopital.entity.Patient;
 import org.example.java_hopital.repository.ConsultationRepository;
@@ -13,7 +14,7 @@ import org.example.java_hopital.repository.PatientRepository;
 import java.io.IOException;
 import java.time.LocalDate;
 
-@WebServlet(name="consultationservlet", value = {"/consultation/*"})
+@WebServlet(name = "consultationservlet", value = {"/consultation/*"})
 public class ConsultationServlet extends HttpServlet {
     private ConsultationRepository consultationRepository;
     private PatientRepository patientRepository;
@@ -33,6 +34,9 @@ public class ConsultationServlet extends HttpServlet {
                 break;
             case "addConsultation":
                 AjouterConsultation(req, resp);
+                break;
+            case "detail":
+                AfficherDetail(req, resp);
                 break;
         }
     }
@@ -63,5 +67,12 @@ public class ConsultationServlet extends HttpServlet {
 
         consultationRepository.createOrUpdate(consultation);
         resp.sendRedirect(req.getContextPath() + "/consultation/list?id=" + patientId);
+    }
+
+    protected void AfficherDetail(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int consultationId = Integer.parseInt(req.getParameter("id"));
+        Consultation consultation = consultationRepository.findById(consultationId);
+        req.setAttribute("consultation", consultation);
+        req.getRequestDispatcher("/WEB-INF/Consultation/detail.jsp").forward(req, resp);
     }
 }
