@@ -2,12 +2,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>exo hopital</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+<h1>Bienvenue dans l hopital</h1>
+
+<a href="${pageContext.request.contextPath}/patient/list">Allez a la liste des Patients</a>
+
 </body>
 </html>

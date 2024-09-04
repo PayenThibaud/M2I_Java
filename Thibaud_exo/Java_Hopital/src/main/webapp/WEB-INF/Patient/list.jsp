@@ -58,7 +58,7 @@
     </c:when>
     <c:otherwise>
 
-        <p>Vous devez être connecté pour ajouter un patient. <a href="${pageContext.request.contextPath}/get-session/connexion">Connectez-vous ici</a>.</p>
+        <p>Connectez vous pour ajouter des patients : <a href="${pageContext.request.contextPath}/get-session/connexion">ici</a>.</p>
     </c:otherwise>
 </c:choose>
 
