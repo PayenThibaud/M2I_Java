@@ -3,18 +3,18 @@
 
 ```
 public class GradingCalculator {
-    public int Score
-    public int AttendancePercentage
+    public int score;
+    public int attendancePercentage;
 
-    public GradingCalculator(int score, int attendancePercentage) {
-        Score = score;
-        AttendancePercentage = attendancePercentage;
+    public gradingCalculator(int score, int attendancePercentage) {
+        this.score = score;
+        this.attendancePercentage = attendancePercentage;
     }
     
     public char getGrade() {
-        if(Score > 90 && AttendancePercentage > 70) return 'A';
-        else if(Score > 80 && AttendancePercentage > 60) return  'B';
-        else if (Score > 60 && AttendancePercentage > 60) return  'C';
+        if(score > 90 && attendancePercentage > 70) return 'A';
+        else if(score > 80 && attendancePercentage > 60) return  'B';
+        else if (score > 60 && attendancePercentage > 60) return  'C';
         else return 'F';
     }
 }
