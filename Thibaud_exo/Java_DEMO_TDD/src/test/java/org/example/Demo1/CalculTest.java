@@ -1,12 +1,7 @@
 package org.example.Demo1;
 
-import org.example.Calcul;
-import org.example.DivideByZeroException;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import javax.swing.*;
 
 public class CalculTest {
 

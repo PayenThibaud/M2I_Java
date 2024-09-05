@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Demo1;
 
 public class Calcul {
 
