@@ -6,7 +6,7 @@ public class GradingCalculator {
     public int score;
     public int attendancePercentage;
 
-    public gradingCalculator(int score, int attendancePercentage) {
+    public GradingCalculator(int score, int attendancePercentage) {
         this.score = score;
         this.attendancePercentage = attendancePercentage;
     }
