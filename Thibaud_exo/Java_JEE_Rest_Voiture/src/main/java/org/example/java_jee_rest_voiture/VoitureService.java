@@ -17,7 +17,9 @@ public class VoitureService {
     }
 
     public Voiture save(int id, String nom, Date dateDeFabrication, String couleur) {
-        return new Voiture(id, nom, dateDeFabrication, couleur);
+        Voiture nouvelleVoiture = new Voiture(id, nom, dateDeFabrication, couleur);
+        fakeVoiture.getVoitures().add(nouvelleVoiture);
+        return nouvelleVoiture;
     }
 
     public Voiture getVoiture(int id) {
