@@ -45,4 +45,11 @@ public class VoitureService {
         }
         return null;
     }
+
+    public void deleteVoiture(int id) {
+        Voiture voiture = getVoiture(id);
+        if (voiture != null) {
+            fakeVoiture.getVoitures().remove(voiture);
+        }
+    }
 }
