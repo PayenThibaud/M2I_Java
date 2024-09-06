@@ -14,7 +14,7 @@ public class DiceScoreTest {
 
     @BeforeEach
     public void setUp() {
-        diceScore = new DiceScore();
+        diceScore = new DiceScore(de);
     }
 
     @Test
