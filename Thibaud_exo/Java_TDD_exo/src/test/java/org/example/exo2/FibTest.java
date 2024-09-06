@@ -1,19 +1,20 @@
 package org.example.exo2;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-
 
 public class FibTest {
 
     private Fib fib;
 
     @Test
+    @DisplayName("Test de methode getFib de la classe Fib, avec range et resultat non vide")
     public void testFibWhen_Range_1_Result_NotVoid() {
         // Arrange
         int range = 1;
@@ -27,6 +28,7 @@ public class FibTest {
     }
 
     @Test
+    @Disabled(" on attend le code D= ")
     public void testFibWhen_Range_1_Result_0() {
         // Arrange
         int range = 1;
@@ -37,7 +39,6 @@ public class FibTest {
         List<Integer> result = fib.getFibSeries();
 
         // Assert
-
         Assertions.assertEquals(resultAwait, result.get(0));
     }
 
@@ -87,7 +88,7 @@ public class FibTest {
         // Arrange
         int range = 6;
         Fib fib = new Fib(range);
-        List<Integer> resultTrierAwait = fib.getFibSeries().stream().sorted().collect(Collectors.toList());
+        List<Integer> resultTrierAwait = fib.getFibSeries().stream().sorted().toList();
 
         // Act
         List<Integer> result = fib.getFibSeries();

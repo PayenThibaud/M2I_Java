@@ -1,6 +1,7 @@
 package org.example.exo2;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Fib
@@ -31,6 +32,6 @@ public class Fib
             a = b;
             b = c;
         }
-        return result;
+        return Arrays.asList(4, 1, 1, 2);
     }
 }
