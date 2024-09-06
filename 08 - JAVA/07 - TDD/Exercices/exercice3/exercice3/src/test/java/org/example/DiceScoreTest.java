@@ -3,6 +3,8 @@ package org.example;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.Mockito;
 
 // import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -31,6 +33,27 @@ public class DiceScoreTest {
         // Assert
        // assertEquals(expected,result);
         Assertions.assertEquals(expected,result);
+
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1,12",
+            "2,14",
+            "3,16",
+            "4,18",
+            "5,20",
+    })
+    public void testDiceScoreWhenGetScore_2DiceAreEquals_DeValues_ThenScore(int diceValue,int expectedScore){
+        // Arrange
+        Mockito.when(de.getRoll()).thenReturn(diceValue);
+
+        // Act
+        int result = diceScore.getScore();
+
+        // Assert
+        // assertEquals(expected,result);
+        Assertions.assertEquals(expectedScore,result);
 
     }
    // - dans le cas ou les 2 dés sont identiques et egaux a 6 on recupere 30
