@@ -10,7 +10,11 @@
 
 
 <ul th:unless="${Todos.isEmpty()}">
-    <li th:each="t : ${Todos}"><span th:text="${t}"></span> </li>
+    <li th:each="t : ${Todos}">
+        <p>Tache : <span th:text="${t.getName()}"></span> </p>
+        <p>Description : <span th:text="${t.getDescription()}"></span> </p>
+        <p>Terminer ? <span th:text="${t.isDone()}"></span> </p>
+        </span> </li>
 </ul>
 
 <li>   <a href="/index">Index</a> </li>

@@ -1,9 +1,9 @@
 package org.example.spring_exo.controller;
 
-import org.example.spring_exo.model.Todo;
 import org.example.spring_exo.service.ServiceTodo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -15,9 +15,9 @@ public class TodoController {
         this.serviceTodo = serviceTodo;
     }
 
-    @RequestMapping("/todo")
-    public String getOneTodo(Model model) {
-        model.addAttribute("Todo", serviceTodo.getFirstTodo());
+    @RequestMapping("/todo/{nb}")
+    public String getOneTodo(Model model, @PathVariable("nb") int nb) {
+        model.addAttribute("Todo", serviceTodo.getTodo(nb));
         return "todo";
     }
 

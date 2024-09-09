@@ -23,8 +23,8 @@ public class ServiceTodo {
         todos.add(todo3);
     }
 
-    public Todo getFirstTodo(){
-    return todos.get(0);
+    public Todo getTodo(int nb){
+    return todos.get(nb);
     }
 
 

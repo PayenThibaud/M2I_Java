@@ -10,7 +10,9 @@
 
 
 </body>
-<p>Todo : <span th:text="${Todo}"></span> </p>
+<p>Tache : <span th:text="${Todo.getName()}"></span> </p>
+<p>Description : <span th:text="${Todo.getDescription()}"></span> </p>
+<p>Terminer ? : <span th:text="${Todo.isDone()}"></span> </p>
 
 
 <li>   <a href="/index">Index</a> </li>
