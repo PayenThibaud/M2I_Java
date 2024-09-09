@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mes todos</title>
+</head>
+
+<body>
+<h1>Detail de mes Todos</h1>
+
+
+<ul th:unless="${Todos.isEmpty()}">
+    <li th:each="t : ${Todos}"><span th:text="${t}"></span> </li>
+</ul>
+
+<li> <a href="http://localhost:8080/">Details des todos</a> </li>
+
+</body>
+
+
+</html>
