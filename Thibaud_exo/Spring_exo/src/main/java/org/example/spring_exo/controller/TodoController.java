@@ -1,10 +1,14 @@
 package org.example.spring_exo.controller;
 
+import org.example.spring_exo.model.Todo;
 import org.example.spring_exo.service.ServiceTodo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 @Controller
 public class TodoController {
@@ -23,9 +27,14 @@ public class TodoController {
 
     @RequestMapping("/todos")
     public String getAllTodos(Model model) {
-        serviceTodo.getAllTodo();
         model.addAttribute("Todos", serviceTodo.getAllTodo());
         return "todos";
+    }
+
+    @RequestMapping("/todos-json")
+    @ResponseBody
+    public List<Todo> getAllTodosJson() {
+        return serviceTodo.getAllTodo();
     }
 
     @RequestMapping("/index")
