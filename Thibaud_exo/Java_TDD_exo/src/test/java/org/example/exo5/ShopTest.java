@@ -66,7 +66,7 @@ public class ShopTest {
     public void TestShopBrieVieilli_And_Qualite_is_49_ThenThrowQualiteException() {
         // Arrange
         Product product = new Product("Fromage", "brie vieilli", 50, 49);
-        
+
         // Act
         shop.update(product);
 

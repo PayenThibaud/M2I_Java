@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5facea71-5bfb-44b2-bf11-a9065f5c9118" name="Changes" comment="" />
+    <list default="true" id="5facea71-5bfb-44b2-bf11-a9065f5c9118" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Java_TDD_exo/src/test/java/org/example/exo5/ShopTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_TDD_exo/src/test/java/org/example/exo5/ShopTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,6 +60,7 @@
       <workItem from="1724922932615" duration="344000" />
       <workItem from="1725451886266" duration="234000" />
       <workItem from="1725529004077" duration="143000" />
+      <workItem from="1725867058534" duration="288000" />
     </task>
     <servers />
   </component>
