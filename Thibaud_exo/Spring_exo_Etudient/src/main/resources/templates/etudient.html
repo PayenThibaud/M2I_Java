@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste Etudients</title>
+</head>
+
+<body>
+<h1>Liste des etudients avec le prenom : <span th:text="${name}"></span> </h1>
+
+
+<ul th:unless="${Etudients.isEmpty()}">
+    <li th:each="e : ${Etudients}">
+        <p>Nom : <span th:text="${e.getNom()}"></span> </p>
+        <p>Prenom : <span th:text="${e.getPrenom()}"></span> </p>
+        <p>Age : <span th:text="${e.getAgee()}"></span> </p></span>
+        <p>Email : <span th:text="${e.getEmail()}"></span> </p></span>
+    </li>
+</ul>
+
+<li>   <a href="/">Index</a> </li>
+
+</body>
+
+
+</html>
