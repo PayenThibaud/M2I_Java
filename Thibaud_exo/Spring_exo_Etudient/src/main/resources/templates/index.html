@@ -9,15 +9,21 @@
 <h1>Index</h1>
 
 
-    <li>   <a href="/list-etudient">Liste etudients</a> </li>
+<li><a href="/list-etudient">Liste etudients</a></li>
+<li><a href="/inscription">Inscrire un etudient</a></li>
 
-<ul th:unless="${EtudientsName.isEmpty()}">
-    <li th:each="e : ${EtudientsName}">
-        <a th:href="@{/etudient/{prenom}(prenom=${e.prenom})}"> <span th:text="${e.prenom}"> </span> </a>
+<form th:action="@{/recherche}" method="get">
+    <input type="text" name="nom" placeholder="Rechercher un étudiant">
+    <button type="submit">Rechercher</button>
+</form>
+
+<ul th:if="${EtudientsNom != null}">
+    <li th:each="e : ${EtudientsNom}">
+        <a th:href="@{/etudient/{prenom}(prenom=${e.prenom})}">
+            <span th:text="${e.prenom}"></span>
+        </a>
     </li>
 </ul>
-
-
 
 
 </body>

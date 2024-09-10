@@ -1,18 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Inscription</title>
+    <title>Inscription Étudiant</title>
 </head>
-
 <body>
-<h1>Inscription d un etudient</h1>
+<h2>Inscription d'un nouvel étudiant</h2>
 
 
+<form th:action="@{/inscription}" method="post">
+    <input type="text" name="prenom" placeholder="Entrez le prénom">
+    <input type="text" name="nom" placeholder="Entrez le nom">
+    <input type="email" name="email" placeholder="Entrez l'email">
+    <input type="number" name="age" placeholder="Entrez l'âge">
+    <button type="submit">S'inscrire</button>
+</form>
 
+<li>   <a href="/">Index</a> </li>
 
-
-
+</body>
+</html>
 
 </body>
 </html>

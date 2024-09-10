@@ -15,6 +15,7 @@
         <p>Prenom : <span th:text="${e.getPrenom()}"></span> </p>
         <p>Age : <span th:text="${e.getAgee()}"></span> </p></span>
         <p>Email : <span th:text="${e.getEmail()}"></span> </p></span>
+        <p>Detail :   <a th:href="@{/etudient/{prenom}(prenom=${e.prenom})}"> Voir les details </a></p>
     </li>
 </ul>
 
