@@ -56,9 +56,24 @@ public class EtudientController {
             @RequestParam int age,
             Model model) {
 
-        Etudient etudient = new Etudient(nom, prenom, email, age);
+        Etudient etudient = Etudient.builder()
+                .prenom(prenom)
+                .nom(nom)
+                .email(email)
+                .agee(age)
+                .build();
         etudientService.setEtudients(etudient);
         return "redirect:/";
+    }
+
+    @RequestMapping("/Supprime/{id}")
+    public String Supprime(@PathVariable int id) {
+        etudientService.deleteEtudientByID(id);
+        return "redirect:/list-etudient";
+    }
+
+    @RequestMapping("/update/{nom}")
+    public String update(@PathVariable int nom, Model model) {
     }
 
 

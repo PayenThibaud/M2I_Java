@@ -25,6 +25,8 @@ public class EtudientService {
     }
 
     public void setEtudients(Etudient etudient) {
+
+        etudient.setId(id++);
         etudients.add(etudient);
     }
 
@@ -39,6 +41,6 @@ public class EtudientService {
     }
 
     public void deleteEtudientByID(int id) {
-        etudients.remove(id);
+        etudients.removeIf(e -> e.getId() == id);
     }
 }
