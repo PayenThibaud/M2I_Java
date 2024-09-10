@@ -16,9 +16,11 @@ public class StudentService {
         students.add(student);
     }
 
-//    public Student createStudent(){
-//
-//    }
+    public Student createStudent(Student student){
+        student.setId(currentId++);
+        students.add(student);
+        return student;
+    }
 
     public List<Student> getAllStudents(){
         return students;

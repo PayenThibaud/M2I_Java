@@ -26,8 +26,8 @@
                             <a class="nav-link" th:href="@{/formulaire}">Ajouter un étudiant</a>
                         </li>
                     </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" placeholder="Search" aria-label="Search">
+                    <form th:action="@{/students}" role="search" class="d-flex" method="get">
+                        <input class="form-control me-2" placeholder="Search" aria-label="Search" th:name="search">
                         <button class="btn btn-outline-success">Rechercher</button>
                     </form>
                 </div>
