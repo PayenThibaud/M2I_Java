@@ -47,9 +47,7 @@ public class EtudientController {
     }
 
     @RequestMapping( "/inscription")
-    public String inscription(Model model) {
-        Etudient etudientVide = new Etudient("Entrez le nom", "Entrez le prénom", "Entrez l'email", 0);
-        model.addAttribute("Etudient", etudientVide);
+    public String inscription() {
         return "inscription";
     }
 
