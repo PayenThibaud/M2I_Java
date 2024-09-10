@@ -10,13 +10,14 @@ import java.util.List;
 public class EtudientService {
 
     private List<Etudient> etudients;
+    private int id;
 
     public EtudientService() {
         etudients = new ArrayList<>();
 
-        Etudient e1 = new Etudient("Titi", "Riri", "Titi@gmail.com", 20);
-        Etudient e2 = new Etudient("Toto", "Roro", "Toto@gmail.com", 17);
-        Etudient e3 = new Etudient("Tata", "Rara", "Tata@gmail.com", 24);
+        Etudient e1 = new Etudient(id++,"Titi", "Riri", "Titi@gmail.com", 20);
+        Etudient e2 = new Etudient(id++,"Toto", "Roro", "Toto@gmail.com", 17);
+        Etudient e3 = new Etudient(id++,"Tata", "Rara", "Tata@gmail.com", 24);
 
         etudients.add(e1);
         etudients.add(e2);
@@ -35,5 +36,9 @@ public class EtudientService {
         return etudients.stream()
                 .filter(e -> e.getPrenom().equals(name))
                 .toList();
+    }
+
+    public void deleteEtudientByID(int id) {
+        etudients.remove(id);
     }
 }

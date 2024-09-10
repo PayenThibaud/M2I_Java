@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 
 public class Etudient {
+    private int id;
     private String nom;
     private String prenom;
     private String email;
