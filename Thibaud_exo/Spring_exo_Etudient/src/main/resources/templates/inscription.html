@@ -1,24 +1,40 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
     <title>Inscription Étudiant</title>
+    <span th:replace="~{index :: bootstrapImport}"></span>
 </head>
 <body>
-<h2>Inscription d'un nouvel étudiant</h2>
 
+<span th:replace="~{index :: navbar}"></span>
+<span th:replace="~{index :: footer}"></span>
 
-<form th:action="@{/inscription}" method="post">
-    <input type="text" name="prenom" placeholder="Entrez le prénom">
-    <input type="text" name="nom" placeholder="Entrez le nom">
-    <input type="email" name="email" placeholder="Entrez l'email">
-    <input type="number" name="age" placeholder="Entrez l'âge">
-    <button type="submit">S'inscrire</button>
-</form>
+<div class="container">
+    <h1>Inscription d'un nouvel étudiant</h1>
+    <form th:action="@{/inscription}" method="post">
+        <table class="table">
 
-<li>   <a href="/">Index</a> </li>
+            <tr>
+                <td><label for="prenom">Prénom :</label></td>
+                <td><label for="nom">Nom :</label></td>
+                <td><label for="email">Email :</label></td>
+                <td><label for="age">Âge :</label></td>
+                <td><p>Validez l inscription ? </p></td>
+            </tr>
 
-</body>
-</html>
+            <tr>
+                <td><input type="text" id="prenom" name="prenom" placeholder="Entrez le prénom"></td>
+                <td><input type="text" id="nom" name="nom" placeholder="Entrez le nom"></td>
+                <td><input type="email" id="email" name="email" placeholder="Entrez l'email"></td>
+                <td><input type="number" id="age" name="age" placeholder="Entrez l'âge"></td>
+                <td>
+                    <button type="submit">S'inscrire</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
 
 </body>
 </html>

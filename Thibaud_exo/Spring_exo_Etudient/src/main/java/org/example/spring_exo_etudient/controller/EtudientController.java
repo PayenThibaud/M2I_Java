@@ -46,7 +46,7 @@ public class EtudientController {
         return "etudient";
     }
 
-    @RequestMapping( "/inscription")
+    @RequestMapping("/inscription")
     public String inscription() {
         return "inscription";
     }

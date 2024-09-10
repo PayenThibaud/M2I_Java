@@ -3,23 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Liste Etudients</title>
+    <span th:replace="~{index :: bootstrapImport}"></span>
 </head>
 
 <body>
-<h1>Liste des etudients</h1>
+<span th:replace="~{index :: navbar}"></span>
+<span th:replace="~{index :: footer}"></span>
 
 
-<ul th:unless="${Etudients.isEmpty()}">
-    <li th:each="e : ${Etudients}">
-        <p>Nom : <span th:text="${e.getNom()}"></span> </p>
-        <p>Prenom : <span th:text="${e.getPrenom()}"></span> </p>
-        <p>Age : <span th:text="${e.getAgee()}"></span> </p></span>
-        <p>Email : <span th:text="${e.getEmail()}"></span> </p></span>
-        <p>Detail :   <a th:href="@{/etudient/{prenom}(prenom=${e.prenom})}"> Voir les details </a></p>
-    </li>
-</ul>
-
-<li>   <a href="/">Index</a> </li>
+<div class="container">
+    <h1>Liste d'étudiant</h1>
+    <table class="table" th:unless="${Etudients.isEmpty()}">
+        <thead>
+        <tr>
+            <th scope="col">Nom</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Age</th>
+            <th scope="col">Email</th>
+            <th scope="col">Détails</th>
+        </tr>
+        </thead>
+        <tbody th:each="e : ${Etudients}">
+        <td th:text="${e.getNom()}"></td>
+        <td th:text="${e.getPrenom()}"></td>
+        <td th:text="${e.getAgee()}"></td>
+        <td th:text="${e.getEmail()}"></td>
+        <td><a th:href="@{/etudient/{prenom}(prenom=${e.prenom})}" class="btn btn-outline-info">Détails</a></td>
+        </tbody>
+    </table>
+</div>
 
 </body>
 
