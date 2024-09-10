@@ -1,0 +1,26 @@
+@keyframes moveRandom {
+    0% {
+        transform: translate(0, 0);
+    }
+    33% {
+        transform: translate(5px, 5px);
+    }
+    66% {
+        transform: translate(-5px, -5px);
+    }
+    99% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes colorChange {
+    0% { color: red; }
+    33% { color: green; }
+    66% { color: blue; }
+    100% { color: red; }
+}
+
+.color-change {
+    animation: colorChange 5s infinite, moveRandom 3.5s infinite;
+}
+

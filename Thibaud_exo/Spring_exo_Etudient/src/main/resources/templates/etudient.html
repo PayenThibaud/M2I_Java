@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Liste Etudients</title>
     <span th:replace="~{index :: bootstrapImport}"></span>
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
 </head>
 
 <body>
@@ -13,7 +14,7 @@
 
 
 <div class="container">
-    <h1>Liste des etudients avec le prenom : <span th:text="${name}"></span> </h1>
+    <h1 class="color-change">Liste des etudients avec le prenom : <span th:text="${name}"></span> </h1>
     <table class="table" th:unless="${Etudients.isEmpty()}">
         <thead>
         <tr>

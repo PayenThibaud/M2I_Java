@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Liste Etudients</title>
     <span th:replace="~{index :: bootstrapImport}"></span>
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
 </head>
 
 <body>
@@ -12,7 +13,7 @@
 
 
 <div class="container">
-    <h1>Liste d'étudiant</h1>
+    <h1 class="color-change" >Liste d'étudiant</h1>
     <table class="table" th:unless="${Etudients.isEmpty()}">
         <thead>
         <tr>
@@ -28,7 +29,7 @@
         <td th:text="${e.getPrenom()}"></td>
         <td th:text="${e.getAgee()}"></td>
         <td th:text="${e.getEmail()}"></td>
-        <td><a th:href="@{/etudient/{prenom}(prenom=${e.prenom})}" class="btn btn-outline-info">Détails</a></td>
+        <td ><a  th:href="@{/etudient/{prenom}(prenom=${e.prenom})}" class="btn btn-outline-info">Détails</a></td>
         </tbody>
     </table>
 </div>

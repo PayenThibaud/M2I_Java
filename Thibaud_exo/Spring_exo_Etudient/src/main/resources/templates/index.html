@@ -11,6 +11,7 @@
                 integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
                 crossorigin="anonymous"></script>
     </th:block>
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
     <title>Index</title>
 </head>
 
@@ -39,7 +40,7 @@
 
 <div class="container">
 
-    <h1>Rechercher un etudient a partir de son prenom</E></h1>
+    <h1 class="color-change">Rechercher un etudiant a partir de son prenom</E></h1>
 
     <form th:action="@{/recherche}" method="get">
         <input type="text" name="nom" placeholder="Prenom etudient">
@@ -49,12 +50,12 @@
     <table class="table" th:unless="${EtudientsNom.isEmpty()}">
         <thead>
         <tr>
-            <th scope="col">Prenom</th>
+            <th class="color-change" scope="col">Prenom</th>
         </tr>
         </thead>
         <tbody th:each="e : ${EtudientsNom}">
         <td>
-            <a th:href="@{/etudient/{prenom}(prenom=${e.prenom})}">
+            <a class="color-change" th:href="@{/etudient/{prenom}(prenom=${e.prenom})}">
             <span th:text="${e.prenom}"></span></a>
         </td>
 

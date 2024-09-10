@@ -4,10 +4,7 @@ import org.example.spring_exo_etudient.model.Etudient;
 import org.example.spring_exo_etudient.service.EtudientService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -51,7 +48,7 @@ public class EtudientController {
         return "inscription";
     }
 
-    @RequestMapping(value = "/inscription", method = RequestMethod.POST)
+    @PostMapping("/inscription")
     public String inscription(
             @RequestParam String prenom,
             @RequestParam String nom,
