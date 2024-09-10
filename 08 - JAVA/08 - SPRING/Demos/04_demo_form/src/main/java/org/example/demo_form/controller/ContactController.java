@@ -57,6 +57,21 @@ public class ContactController {
         System.out.println(contact.getName());
         System.out.println(contact.getPhone());
         System.out.println(contact.getAge());
+        // Modification du post pour vérifier s'il y a un contact
         return "redirect:/list";
+    }
+
+    // Suite du crud
+    @RequestMapping("/delete")
+    public String delete(@RequestParam("contactId") UUID id){
+        System.out.println("delete");
+        return "redirect:/list";
+    }
+
+    @RequestMapping("/update")
+    public String update(@RequestParam("contactId") UUID id, Model model){
+        Contact contact = contactService.getContactById(id);
+        model.addAttribute("contact", contact);
+        return "form";
     }
 }
