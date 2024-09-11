@@ -15,9 +15,9 @@ public class EtudientService {
     public EtudientService() {
         etudients = new ArrayList<>();
 
-        Etudient e1 = new Etudient(id++,"Titi", "Riri", "Titi@gmail.com", 20);
-        Etudient e2 = new Etudient(id++,"Toto", "Roro", "Toto@gmail.com", 17);
-        Etudient e3 = new Etudient(id++,"Tata", "Rara", "Tata@gmail.com", 24);
+        Etudient e1 = new Etudient(id++, "Titi", "Riri", "Titi@gmail.com", 20);
+        Etudient e2 = new Etudient(id++, "Toto", "Roro", "Toto@gmail.com", 17);
+        Etudient e3 = new Etudient(id++, "Tata", "Rara", "Tata@gmail.com", 24);
 
         etudients.add(e1);
         etudients.add(e2);
@@ -35,12 +35,25 @@ public class EtudientService {
     }
 
     public List<Etudient> getEtudientsByName(String name) {
-        return etudients.stream()
-                .filter(e -> e.getPrenom().equals(name))
-                .toList();
+        return etudients.stream().filter(e -> e.getPrenom().equals(name)).toList();
+    }
+
+    public Etudient getEtudientById(int id) {
+        return etudients.stream().filter(e -> e.getId() == id).findFirst().orElse(null);
     }
 
     public void deleteEtudientByID(int id) {
         etudients.removeIf(e -> e.getId() == id);
+    }
+
+    public void updateEtudient(Etudient updatedEtudient) {
+        Etudient existingEtudient = getEtudientById(updatedEtudient.getId());
+        if (existingEtudient != null) {
+            existingEtudient.setPrenom(updatedEtudient.getPrenom());
+            existingEtudient.setNom(updatedEtudient.getNom());
+            existingEtudient.setEmail(updatedEtudient.getEmail());
+            existingEtudient.setAgee(updatedEtudient.getAgee());
+            System.out.println("Student updated: " + existingEtudient);
+        }
     }
 }

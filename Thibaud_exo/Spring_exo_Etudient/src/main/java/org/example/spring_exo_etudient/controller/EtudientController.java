@@ -72,8 +72,17 @@ public class EtudientController {
         return "redirect:/list-etudient";
     }
 
-    @RequestMapping("/update/{nom}")
-    public String update(@PathVariable int nom, Model model) {
+    @RequestMapping("/update/{id}")
+    public String update(@PathVariable int id, Model model) {
+        Etudient etudient = etudientService.getEtudientById(id);
+        model.addAttribute("Etudient", etudient);
+        return "update";
+    }
+
+    @PostMapping("/update")
+    public String update(@ModelAttribute("etudient") Etudient etudient, Model model) {
+        etudientService.updateEtudient(etudient);
+        return "redirect:/list-etudient";
     }
 
 
