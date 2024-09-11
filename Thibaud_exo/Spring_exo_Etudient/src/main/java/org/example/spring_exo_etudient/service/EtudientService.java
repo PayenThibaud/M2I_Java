@@ -10,14 +10,14 @@ import java.util.List;
 public class EtudientService {
 
     private List<Etudient> etudients;
-    private int id;
+    private int id = 4;
 
     public EtudientService() {
         etudients = new ArrayList<>();
 
-        Etudient e1 = new Etudient(id++, "Titi", "Riri", "Titi@gmail.com", 20);
-        Etudient e2 = new Etudient(id++, "Toto", "Roro", "Toto@gmail.com", 17);
-        Etudient e3 = new Etudient(id++, "Tata", "Rara", "Tata@gmail.com", 24);
+        Etudient e1 = new Etudient(1, "Titi", "Riri", "Titi@gmail.com", 20);
+        Etudient e2 = new Etudient(2, "Toto", "Roro", "Toto@gmail.com", 17);
+        Etudient e3 = new Etudient(3, "Tata", "Rara", "Tata@gmail.com", 24);
 
         etudients.add(e1);
         etudients.add(e2);
@@ -46,14 +46,11 @@ public class EtudientService {
         etudients.removeIf(e -> e.getId() == id);
     }
 
-    public void updateEtudient(Etudient updatedEtudient) {
-        Etudient existingEtudient = getEtudientById(updatedEtudient.getId());
-        if (existingEtudient != null) {
-            existingEtudient.setPrenom(updatedEtudient.getPrenom());
-            existingEtudient.setNom(updatedEtudient.getNom());
-            existingEtudient.setEmail(updatedEtudient.getEmail());
-            existingEtudient.setAgee(updatedEtudient.getAgee());
-            System.out.println("Student updated: " + existingEtudient);
-        }
+    public void updateEtudient(Etudient majEtudient) {
+        Etudient BDDEtudient = getEtudientById(majEtudient.getId());
+        BDDEtudient.setPrenom(majEtudient.getPrenom());
+        BDDEtudient.setNom(majEtudient.getNom());
+        BDDEtudient.setEmail(majEtudient.getEmail());
+        BDDEtudient.setAgee(majEtudient.getAgee());
     }
 }
