@@ -11,8 +11,8 @@ import java.lang.annotation.Target;
 @Target({ElementType.FIELD, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface MyValidPrenom {
-    public String value() default "t";
-    public String message() default "Le prenom doit contenir la lettre t";
+    public String value() default "r";
+    public String message() default "Le prenom doit contenir la lettre r";
     public Class<?>[] groups() default {};
     public Class<? extends Payload>[] payload() default {};
 }

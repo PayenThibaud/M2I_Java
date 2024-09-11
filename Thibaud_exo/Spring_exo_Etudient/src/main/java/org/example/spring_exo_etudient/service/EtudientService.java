@@ -1,6 +1,6 @@
 package org.example.spring_exo_etudient.service;
 
-import org.example.spring_exo_etudient.model.Etudient;
+import org.example.spring_exo_etudient.entity.Etudient;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

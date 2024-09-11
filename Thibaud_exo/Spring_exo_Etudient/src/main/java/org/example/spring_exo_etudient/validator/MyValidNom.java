@@ -11,8 +11,8 @@ import java.lang.annotation.Target;
 @Target({ElementType.FIELD, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface MyValidNom {
-    public String value() default "a";
-    public String message() default "Le Nom doit avoir la lettre a!";
+    public String value() default "t";
+    public String message() default "Le Nom doit avoir la lettre t!";
     public Class<?>[] groups() default {};
     public Class<? extends Payload>[] payload() default {};
 }

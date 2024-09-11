@@ -12,7 +12,6 @@
 <span th:replace="~{index :: navbar}"></span>
 <span th:replace="~{index :: footer}"></span>
 
-
 <div class="container">
     <h1 class="color-change">Liste des etudients avec le prenom : <span th:text="${name}"></span> </h1>
     <table class="table" th:unless="${Etudients.isEmpty()}">
