@@ -33,4 +33,19 @@ public class StudentService {
     public List<Student> searchStudents(String search){
         return students.stream().filter(student -> student.getLastname().toLowerCase().contains(search.toLowerCase())).toList();
     }
+
+    public void deleteStudent(Long id){
+        students.removeIf(student -> student.getId().equals(id));
+    }
+
+    public Student updateStudent(Long id, Student updateStudent){
+        Student studentExist = getStudentById(id);
+        if(studentExist != null){
+            studentExist.setFirstname(updateStudent.getFirstname());
+            studentExist.setLastname(updateStudent.getLastname());
+            studentExist.setAge(updateStudent.getAge());
+            studentExist.setEmail(updateStudent.getEmail());
+        }
+        return studentExist;
+    }
 }

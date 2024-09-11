@@ -8,8 +8,9 @@
 <body>
 <span th:replace="~{home :: navbar}"></span>
 <div class="container">
-    <h1>Ajouter un étudiant</h1>
+    <h1 th:text="${student.getId() != null ? 'Modifier étudiant' : 'Ajouter étudiant'}"></h1>
     <form th:action="@{/add}" method="post" th:object="${student}">
+        <input th:field="*{id}" type="hidden">
         <div class="mb-3">
             <label for="firstname">Prénom :</label>
             <input type="text" class="form-control" id="firstname" th:field="*{firstname}">
@@ -26,7 +27,7 @@
             <label for="email">Email :</label>
             <input type="text" class="form-control" id="email" th:field="*{email}">
         </div>
-        <button class="btn btn-primary">Ajouter</button>
+        <button class="btn btn-primary" th:text="${student.getId() != null ? 'Modifier' : 'Ajouter'}"></button>
     </form>
 </div>
 </body>
