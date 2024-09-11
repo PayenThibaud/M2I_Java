@@ -16,6 +16,9 @@
             <p>Âge : <span th:text="${student.getAge()}"></span></p>
             <p>Email : <span th:text="${student.getEmail()}"></span></p>
         </div>
+        <hr>
+        <a th:href="@{/delete(studentId=${student.getId()})}" class="btn btn-danger">Supprimer</a>
+        <a th:href="@{/update(studentId=${student.getId()})}" class="btn btn-info">Modifier</a>
     </div>
 </body>
 </html>

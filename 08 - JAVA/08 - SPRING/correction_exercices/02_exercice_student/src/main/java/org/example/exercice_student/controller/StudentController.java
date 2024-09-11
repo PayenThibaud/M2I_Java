@@ -29,7 +29,11 @@ public class StudentController {
 
     @PostMapping("/add")
     public String addStudent(@ModelAttribute("student") Student student){
-        studentService.createStudent(student);
+        if (student.getId() != null){
+            studentService.updateStudent(student.getId(), student);
+        } else {
+            studentService.createStudent(student);
+        }
         return "redirect:/students";
     }
 
@@ -47,5 +51,18 @@ public class StudentController {
     public String showStudent(@PathVariable("id") Long id, Model model){
         model.addAttribute("student", studentService.getStudentById(id));
         return "detail";
+    }
+
+    @RequestMapping("/delete")
+    public String delete(@RequestParam("studentId") Long id){
+        studentService.deleteStudent(id);
+        return "redirect:/students";
+    }
+
+    @RequestMapping("/update")
+    public String formUpdate(@RequestParam("studentId") Long id, Model model){
+        Student student = studentService.getStudentById(id);
+        model.addAttribute("student", student);
+        return "form";
     }
 }
