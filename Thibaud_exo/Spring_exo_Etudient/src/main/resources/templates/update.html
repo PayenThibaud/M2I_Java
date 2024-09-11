@@ -26,10 +26,18 @@
 
             <tbody>
             <input type="hidden" th:field="*{id}"/>
-            <td><input type="text" class="form-control" id="nom" th:field="*{nom}"></td>
-            <td><input type="text" class="form-control" id="prenom" th:field="*{prenom}"></td>
-            <td><input type="email" class="form-control" id="email" th:field="*{email}"></td>
-            <td><input type="number" class="form-control" id="age" th:field="*{agee}"></td>
+            <td><input type="text" class="form-control" id="nom" th:field="*{nom}">
+                <span th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}" class="alert alert-danger"></span>
+            </td>
+            <td><input type="text" class="form-control" id="prenom" th:field="*{prenom}">
+                <span th:if="${#fields.hasErrors('prenom')}" th:errors="*{prenom}" class="alert alert-danger"></span>
+            </td>
+            <td><input type="number" class="form-control" id="age" th:field="*{age}">
+                <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}" class="alert alert-danger"></span>
+            </td>
+            <td><input type="email" class="form-control" id="email" th:field="*{email}">
+                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="alert alert-danger"></span>
+            </td>
             <td>
                 <button type="submit">Mettre a jour</button>
             </td>

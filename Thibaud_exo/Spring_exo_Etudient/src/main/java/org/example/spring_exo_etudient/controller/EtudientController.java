@@ -1,10 +1,13 @@
 package org.example.spring_exo_etudient.controller;
 
+import jakarta.validation.Valid;
 import org.example.spring_exo_etudient.model.Etudient;
 import org.example.spring_exo_etudient.service.EtudientService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -19,7 +22,7 @@ public class EtudientController {
 
     @RequestMapping("/")
     public String index(Model model) {
-        model.addAttribute("EtudientsNom",etudientService.getEtudients());
+        model.addAttribute("EtudientsNom", etudientService.getEtudients());
         return "index";
     }
 
@@ -30,40 +33,36 @@ public class EtudientController {
         return "index";
     }
 
-    @RequestMapping ("/list-etudient")
-    public String list(Model model){
+    @RequestMapping("/list-etudient")
+    public String list(Model model) {
         model.addAttribute("Etudients", etudientService.getEtudients());
         return "list-etudient";
     }
 
     @RequestMapping("/etudient/{name}")
-    public String etudient(@PathVariable String name, Model model){
-        model.addAttribute("Name",name);
+    public String etudient(@PathVariable String name, Model model) {
+        model.addAttribute("Name", name);
         model.addAttribute("Etudients", etudientService.getEtudientsByName(name));
         return "etudient";
     }
 
     @RequestMapping("/inscription")
-    public String inscription() {
+    public String inscription(Model model) {
+        model.addAttribute("etudient", new Etudient());
         return "inscription";
     }
 
     @PostMapping("/inscription")
     public String inscription(
-            @RequestParam String prenom,
-            @RequestParam String nom,
-            @RequestParam String email,
-            @RequestParam int age,
-            Model model) {
+            @Valid @ModelAttribute("etudient") Etudient etudient,
+            BindingResult bindingResult) {
 
-        Etudient etudient = Etudient.builder()
-                .prenom(prenom)
-                .nom(nom)
-                .email(email)
-                .agee(age)
-                .build();
-        etudientService.setEtudients(etudient);
-        return "redirect:/";
+        if (bindingResult.hasErrors()) {
+            return "inscription";
+        } else {
+            etudientService.setEtudients(etudient);
+            return "redirect:/";
+        }
     }
 
     @RequestMapping("/Supprime/{id}")
@@ -80,10 +79,13 @@ public class EtudientController {
     }
 
     @PostMapping("/update")
-    public String update(@ModelAttribute("etudient") Etudient etudient, Model model) {
-        etudientService.updateEtudient(etudient);
-        return "redirect:/list-etudient";
+    public String update(@Valid @ModelAttribute("Etudient") Etudient etudient, BindingResult bindingResult) {
+
+        if (bindingResult.hasErrors()) {
+            return "update";
+        } else {
+            etudientService.updateEtudient(etudient);
+            return "redirect:/list-etudient";
+        }
     }
-
-
 }

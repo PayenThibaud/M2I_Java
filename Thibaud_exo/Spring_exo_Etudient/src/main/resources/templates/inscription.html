@@ -13,25 +13,39 @@
 
 <div class="container">
     <h1 class="color-change">Inscription d'un nouvel étudiant</h1>
-    <form th:action="@{/inscription}" method="post">
+    <form th:action="@{/inscription}" method="post" th:object="${etudient}">
         <table class="table">
             <thead>
             <tr>
                 <th scope="col">Nom</th>
                 <th scope="col">Prénom</th>
-                <th scope="col">Age</th>
+                <th scope="col">Âge</th>
                 <th scope="col">Email</th>
                 <th scope="col">Validez l'inscription</th>
             </tr>
-
+            </thead>
             <tbody>
-                <td><input type="text" id="nom" name="nom" placeholder="Entrez le nom"></td>
-                <td><input type="text" id="prenom" name="prenom" placeholder="Entrez le prénom"></td>
-                <td><input type="email" id="email" name="email" placeholder="Entrez l'email"></td>
-                <td><input type="number" id="age" name="age" placeholder="Entrez l'âge"></td>
+            <tr>
+                <td>
+                    <input type="text" id="nom" th:field="*{nom}" placeholder="Entrez le nom">
+                    <span th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}" class="alert alert-danger"></span>
+                </td>
+                <td>
+                    <input type="text" id="prenom" th:field="*{prenom}" placeholder="Entrez le prénom">
+                    <span th:if="${#fields.hasErrors('prenom')}" th:errors="*{prenom}" class="alert alert-danger"></span>
+                </td>
+                <td>
+                    <input type="number" id="age" th:field="*{age}" placeholder="Entrez l'âge">
+                    <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}" class="alert alert-danger"></span>
+                </td>
+                <td>
+                    <input type="email" id="email" th:field="*{email}" placeholder="Entrez l'email">
+                    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="alert alert-danger"></span>
+                </td>
                 <td>
                     <button type="submit">S'inscrire</button>
                 </td>
+            </tr>
             </tbody>
         </table>
     </form>

@@ -29,7 +29,7 @@
         <tbody th:each="e : ${Etudients}">
         <td th:text="${e.getNom()}"></td>
         <td th:text="${e.getPrenom()}"></td>
-        <td th:text="${e.getAgee()}"></td>
+        <td th:text="${e.getAge()}"></td>
         <td th:text="${e.getEmail()}"></td>
         <td ><a  th:href="@{/etudient/{prenom}(prenom=${e.prenom})}" class="btn btn-outline-info">Détails</a></td>
         <td ><a  th:href="@{/Supprime/{id}(id=${e.id})}"  class="btn btn-outline-danger">Supprimer</a></td>

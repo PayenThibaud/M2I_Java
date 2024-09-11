@@ -51,6 +51,6 @@ public class EtudientService {
         BDDEtudient.setPrenom(majEtudient.getPrenom());
         BDDEtudient.setNom(majEtudient.getNom());
         BDDEtudient.setEmail(majEtudient.getEmail());
-        BDDEtudient.setAgee(majEtudient.getAgee());
+        BDDEtudient.setAge(majEtudient.getAge());
     }
 }

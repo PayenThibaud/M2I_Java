@@ -75,3 +75,20 @@ footer {
     text-align: center;
     padding: 10px 0;
 }
+
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    padding: 5px;
+    border-radius: 4px;
+    display: block; /* Assurez-vous que les messages d'erreur apparaissent sur une nouvelle ligne */
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group input {
+    margin-bottom: 0.5rem;
+}

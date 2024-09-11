@@ -1,9 +1,15 @@
 package org.example.spring_exo_etudient.model;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.spring_exo_etudient.validator.MyValidNom;
+import org.example.spring_exo_etudient.validator.MyValidPrenom;
 
 @Data
 @NoArgsConstructor
@@ -12,8 +18,18 @@ import lombok.NoArgsConstructor;
 
 public class Etudient {
     private int id;
+    @NotBlank(message = "La valeur ne doit pas être vide !")
+    @NotNull(message = "Ce champ doit être rempli !")
+    @MyValidPrenom()
     private String nom;
+    @NotBlank(message = "La valeur ne doit pas être vide !")
+    @NotNull(message = "Ce champ doit être rempli !")
+    @MyValidNom()
     private String prenom;
+    @NotBlank(message = "La valeur ne doit pas être vide !")
+    @NotNull(message = "Ce champ doit être rempli !")
     private String email;
-    private int agee;
+    @Min(value = 15)
+    @Max(40)
+    private int age;
 }
