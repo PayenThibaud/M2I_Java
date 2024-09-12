@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -64,10 +65,11 @@ public class EtudientJpaController {
     }
 
     @RequestMapping("/Supprime/{id}")
-    public String Supprime(@PathVariable int id) {
+    public String Supprime(@PathVariable int id, RedirectAttributes redirectAttributes) {
         etudientJpaService.delete(etudientJpaService.findById(id));
-        return "redirect:/list-etudient";
+        return "explosion";
     }
+
 
     @RequestMapping("/update/{id}")
     public String update(@PathVariable int id, Model model) {
@@ -86,4 +88,6 @@ public class EtudientJpaController {
             return "redirect:/list-etudient";
         }
     }
+
+
 }
