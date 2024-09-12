@@ -1,10 +1,12 @@
 package org.example.exercice_student.controller;
 
+import jakarta.validation.Valid;
 import org.example.exercice_student.model.Student;
 import org.example.exercice_student.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -28,13 +30,17 @@ public class StudentController {
     }
 
     @PostMapping("/add")
-    public String addStudent(@ModelAttribute("student") Student student){
-        if (student.getId() != null){
-            studentService.updateStudent(student.getId(), student);
+    public String addStudent(@Valid @ModelAttribute("student") Student student, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            return "form";
         } else {
-            studentService.createStudent(student);
+            if (student.getId() != null){
+                studentService.updateStudent(student.getId(), student);
+            } else {
+                studentService.createStudent(student);
+            }
+            return "redirect:/students";
         }
-        return "redirect:/students";
     }
 
     @RequestMapping("/students") // /students?search=Toto
