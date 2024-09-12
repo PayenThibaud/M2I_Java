@@ -17,25 +17,14 @@ import org.example.spring_exo_etudient.validator.MyValidPrenom;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "etudient")
-public class Etudient {
+@Table(name = "admin")
+public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_etudient")
+    @Column(name = "id_admin")
     private int id;
-    @NotBlank(message = "La valeur ne doit pas être vide !")
-    @NotNull(message = "Ce champ doit être rempli !")
-    @MyValidNom()
-    private String nom;
-    @NotBlank(message = "La valeur ne doit pas être vide !")
-    @NotNull(message = "Ce champ doit être rempli !")
-    @MyValidPrenom()
-    private String prenom;
-    @NotBlank(message = "La valeur ne doit pas être vide !")
-    @NotNull(message = "Ce champ doit être rempli !")
-    private String email;
-    @Min(value = 15)
-    @Max(40)
-    private int age;
-    private String image;
+
+    private String username ;
+    private String password ;
+
 }

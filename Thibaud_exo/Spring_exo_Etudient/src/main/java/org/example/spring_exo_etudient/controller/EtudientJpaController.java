@@ -9,14 +9,24 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 
 @Controller
 public class EtudientJpaController {
+    private String location = "src/main/resources/static/images";
+
     private final EtudientJpaService etudientJpaService;
     private final LoginService loginService;
+
 
     @Autowired
     public EtudientJpaController(EtudientJpaService etudientJpaService, LoginService loginService) {
@@ -57,10 +67,11 @@ public class EtudientJpaController {
         if (!loginService.isLogged()) {
             return "redirect:/login";
         }
-        model.addAttribute("Name", prenom);
+        model.addAttribute("prenom", prenom);
         model.addAttribute("Etudients", etudientJpaService.findByPrenom(prenom));
         return "etudient";
     }
+
 
     @RequestMapping("/inscription")
     public String inscription(Model model) {
@@ -119,6 +130,27 @@ public class EtudientJpaController {
             etudientJpaService.save(etudient);
             return "redirect:/list-etudient";
         }
+    }
+
+    @PostMapping("/upload")
+    public String postForm(@RequestParam("image") MultipartFile image, @RequestParam("prenom") String prenom, RedirectAttributes redirectAttributes) throws IOException {
+        if (!loginService.isLogged()) {
+            return "redirect:/login";
+        }
+
+        List<Etudient> etudiants = etudientJpaService.findByPrenom(prenom);
+
+        Etudient etudient = etudiants.get(0);
+
+        Path destinationFile = Paths.get(location).resolve(image.getOriginalFilename()).toAbsolutePath();
+        InputStream inputStream = image.getInputStream();
+
+        Files.copy(inputStream, destinationFile, StandardCopyOption.REPLACE_EXISTING);
+
+        etudient.setImage(image.getOriginalFilename());
+        etudientJpaService.save(etudient);
+
+        return "redirect:/etudient/" + prenom;
     }
 
 

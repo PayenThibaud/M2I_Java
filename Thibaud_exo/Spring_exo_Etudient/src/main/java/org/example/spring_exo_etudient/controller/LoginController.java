@@ -1,7 +1,6 @@
 package org.example.spring_exo_etudient.controller;
 
 import org.example.spring_exo_etudient.service.EtudientJpaService;
-import org.example.spring_exo_etudient.service.EtudientService;
 import org.example.spring_exo_etudient.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
