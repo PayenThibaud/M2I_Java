@@ -3,6 +3,8 @@ package org.example.spring_exo_etudient.controller;
 import jakarta.validation.Valid;
 import org.example.spring_exo_etudient.entity.Etudient;
 import org.example.spring_exo_etudient.service.EtudientJpaService;
+import org.example.spring_exo_etudient.service.LoginService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,19 +16,28 @@ import java.util.List;
 @Controller
 public class EtudientJpaController {
     private final EtudientJpaService etudientJpaService;
+    private final LoginService loginService;
 
-    public EtudientJpaController(EtudientJpaService etudientJpaService) {
+    @Autowired
+    public EtudientJpaController(EtudientJpaService etudientJpaService, LoginService loginService) {
         this.etudientJpaService = etudientJpaService;
+        this.loginService = loginService;
     }
 
     @RequestMapping("/")
     public String index(Model model) {
+        if (!loginService.isLogged()) {
+            return "redirect:/login";
+        }
         model.addAttribute("EtudientsNom", etudientJpaService.findAll());
         return "index";
     }
 
     @RequestMapping("/recherche")
     public String search(@RequestParam("prenom") String prenom, Model model) {
+        if (!loginService.isLogged()) {
+            return "redirect:/login";
+        }
         List<Etudient> resultatsRecherche = etudientJpaService.findByPrenom(prenom);
         model.addAttribute("EtudientsNom", resultatsRecherche);
         return "index";
@@ -34,12 +45,18 @@ public class EtudientJpaController {
 
     @RequestMapping("/list-etudient")
     public String list(Model model) {
+        if (!loginService.isLogged()) {
+            return "redirect:/login";
+        }
         model.addAttribute("Etudients", etudientJpaService.findAll());
         return "list-etudient";
     }
 
     @RequestMapping("/etudient/{prenom}")
     public String etudient(@PathVariable String prenom, Model model) {
+        if (!loginService.isLogged()) {
+            return "redirect:/login";
+        }
         model.addAttribute("Name", prenom);
         model.addAttribute("Etudients", etudientJpaService.findByPrenom(prenom));
         return "etudient";
@@ -47,6 +64,9 @@ public class EtudientJpaController {
 
     @RequestMapping("/inscription")
     public String inscription(Model model) {
+        if (!loginService.isLogged()) {
+            return "redirect:/login";
+        }
         model.addAttribute("etudient", new Etudient());
         return "inscription";
     }
@@ -55,6 +75,9 @@ public class EtudientJpaController {
     public String inscription(
             @Valid @ModelAttribute("etudient") Etudient etudient,
             BindingResult bindingResult) {
+        if (!loginService.isLogged()) {
+            return "redirect:/login";
+        }
 
         if (bindingResult.hasErrors()) {
             return "inscription";
@@ -66,6 +89,9 @@ public class EtudientJpaController {
 
     @RequestMapping("/Supprime/{id}")
     public String Supprime(@PathVariable int id, RedirectAttributes redirectAttributes) {
+        if (!loginService.isLogged()) {
+            return "redirect:/login";
+        }
         etudientJpaService.delete(etudientJpaService.findById(id));
         return "explosion";
     }
@@ -73,6 +99,9 @@ public class EtudientJpaController {
 
     @RequestMapping("/update/{id}")
     public String update(@PathVariable int id, Model model) {
+        if (!loginService.isLogged()) {
+            return "redirect:/login";
+        }
         Etudient etudient = etudientJpaService.findById(id);
         model.addAttribute("Etudient", etudient);
         return "update";
@@ -80,6 +109,9 @@ public class EtudientJpaController {
 
     @PostMapping("/update")
     public String update(@Valid @ModelAttribute("Etudient") Etudient etudient, BindingResult bindingResult) {
+        if (!loginService.isLogged()) {
+            return "redirect:/login";
+        }
 
         if (bindingResult.hasErrors()) {
             return "update";

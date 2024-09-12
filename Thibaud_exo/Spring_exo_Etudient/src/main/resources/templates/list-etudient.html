@@ -32,12 +32,7 @@
         <td th:text="${e.getAge()}"></td>
         <td th:text="${e.getEmail()}"></td>
         <td ><a  th:href="@{/etudient/{prenom}(prenom=${e.prenom})}" class="btn btn-outline-info">Détails</a></td>
-        <td>
-            <form th:action="@{/Supprime/{id}(id=${e.id})}" method="post">
-                <input type="hidden" name="_method" value="delete"/>
-                <button type="submit" class="btn btn-outline-danger">Lancer la bombe</button>
-            </form>
-        </td>
+        <td ><a  th:href="@{/Supprime/{id}(id=${e.id})}"  class="btn btn-outline-danger">Exterminer la cible</a></td>
         <td ><a  th:href="@{/update/{id}(id=${e.id})}" class="btn btn-outline-info">Update</a></td>
         </tbody>
     </table>
