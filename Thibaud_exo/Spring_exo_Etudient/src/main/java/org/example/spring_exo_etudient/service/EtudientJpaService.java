@@ -30,7 +30,7 @@ public class EtudientJpaService {
         etudientRepository.delete(etudient);
     }
 
-    public List<Etudient> findByNom(String nom){
-        return etudientRepository.findByNom(nom);
+    public List<Etudient> findByPrenom(String prenom){
+        return etudientRepository.findByPrenom(prenom);
     }
 }

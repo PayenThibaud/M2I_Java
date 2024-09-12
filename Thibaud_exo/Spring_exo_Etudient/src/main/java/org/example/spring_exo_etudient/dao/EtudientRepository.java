@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface EtudientRepository extends JpaRepository<Etudient, Integer> {
 
-    List<Etudient> findByNom(String nom);
+    List<Etudient> findByPrenom(String prenom);
+
 }

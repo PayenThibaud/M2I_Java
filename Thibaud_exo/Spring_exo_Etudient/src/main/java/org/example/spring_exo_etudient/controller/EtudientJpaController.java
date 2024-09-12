@@ -25,8 +25,8 @@ public class EtudientJpaController {
     }
 
     @RequestMapping("/recherche")
-    public String search(@RequestParam("nom") String nom, Model model) {
-        List<Etudient> resultatsRecherche = etudientJpaService.findByNom(nom);
+    public String search(@RequestParam("prenom") String prenom, Model model) {
+        List<Etudient> resultatsRecherche = etudientJpaService.findByPrenom(prenom);
         model.addAttribute("EtudientsNom", resultatsRecherche);
         return "index";
     }
@@ -37,10 +37,10 @@ public class EtudientJpaController {
         return "list-etudient";
     }
 
-    @RequestMapping("/etudient/{name}")
-    public String etudient(@PathVariable String name, Model model) {
-        model.addAttribute("Name", name);
-        model.addAttribute("Etudients", etudientJpaService.findByNom(name));
+    @RequestMapping("/etudient/{prenom}")
+    public String etudient(@PathVariable String prenom, Model model) {
+        model.addAttribute("Name", prenom);
+        model.addAttribute("Etudients", etudientJpaService.findByPrenom(prenom));
         return "etudient";
     }
 
