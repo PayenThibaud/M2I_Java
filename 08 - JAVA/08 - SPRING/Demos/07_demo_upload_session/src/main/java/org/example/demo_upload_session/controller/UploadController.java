@@ -25,7 +25,7 @@ public class UploadController {
     @PostMapping("/upload")
     // IOException est souvent utilisé pour signaler les erreurs lors de la lecture ou l'écriture de fichier externe.
     public String postForm(@RequestParam("image")MultipartFile image) throws IOException {
-        // Cette ligne construit le chemin absolu où le fichier téléchargé sera enregistré.
+        // Cette ligne construit le chemin absolu où le fichier téléchargé sera enregistré
         Path destinationFile = Paths.get(location).resolve(image.getOriginalFilename()).toAbsolutePath();
         // Récupère un flux d'entrée du fichier téléchargé
         InputStream inputStream = image.getInputStream();

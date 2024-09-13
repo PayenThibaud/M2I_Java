@@ -133,7 +133,7 @@ public class EtudientJpaController {
     }
 
     @PostMapping("/upload")
-    public String postForm(@RequestParam("image") MultipartFile image, @RequestParam("prenom") String prenom, RedirectAttributes redirectAttributes) throws IOException {
+    public String postForm(@RequestParam("image") MultipartFile image, @RequestParam("prenom") String prenom) throws IOException {
         if (!loginService.isLogged()) {
             return "redirect:/login";
         }
