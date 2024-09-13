@@ -60,7 +60,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image: url('../../../../../../../08 - JAVA/08 - SPRING/Demos/Exo_Spring_Forum/src/main/resources/static/images/background.jpg');
+    background-image: url('../images/background.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -92,5 +92,4 @@ footer {
 .form-group input {
     margin-bottom: 0.5rem;
 }
-
 

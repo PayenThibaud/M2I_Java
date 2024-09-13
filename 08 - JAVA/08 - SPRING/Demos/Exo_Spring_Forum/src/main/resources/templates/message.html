@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Forum</title>
+    <title>Messages du forum</title>
     <span th:replace="~{bootstrap :: bootstrapImport}"></span>
 </head>
 <body>
@@ -11,20 +11,20 @@
 <span th:replace="~{bootstrap :: footer}"></span>
 
 <div class="container">
-    <h1 class="color-change" >Liste des forums</h1>
+    <h1 class="color-change" >Message du forum</h1>
     <table class="table">
         <thead>
         <tr>
             <th scope="col">Nom de l'auteur</th>
-            <th scope="col">Titre du Forum</th>
-            <th scope="col">Allez dessus</th>
+            <th scope="col">Message</th>
+            <th scope="col">Date du message</th>
         </tr>
         </thead>
-        <tbody th:each="e : ${forums}">
+        <tbody th:each="e : ${messages}">
         <td th:text="${e.getUtilisateur().getNom()}"></td>
-        <td th:text="${e.getTitre}"></td>
-        <td> <a th:href="@{/message/{id_forum}(id_forum=${e.id})}">Voir les messages</a> </td>
-       </tbody>
+        <td th:text="${e.getMot()}"></td>
+        <td th:text="${e.getDate()}"></td>
+        </tbody>
     </table>
 </div>
 
@@ -32,14 +32,14 @@
 
 
 <div class="container">
-    <h1 class="color-change">Creer un nouveau Forum</h1>
-    <form th:action="@{/forum}" method="post" th:object="${forum}">
+    <h1 class="color-change">Creer un nouveau message</h1>
+    <form th:action="@{/message/{id_forum}(id_forum=${forum.id})}" method="post" th:object="${message}">
         <table class="table">
             <thead>
             <tr>
-                <th scope="col">Createur du forum</th>
-                <th scope="col">Titre du forum</th>
-                <th scope="col">Validez la creation du Forum</th>
+                <th scope="col">Createur du message</th>
+                <th scope="col">Votre message</th>
+                <th scope="col">Poster ?</th>
             </tr>
             </thead>
             <tbody>
@@ -48,7 +48,7 @@
                     <input type="text" th:value="${utilisateur.nom}" readonly/>
                 </td>
                 <td>
-                    <input type="text" id="titre" th:field="*{titre}" placeholder="Entrez le titre du forum">
+                    <input type="text" id="titre" th:field="*{mot}" placeholder="Entrez votre message">
                 </td>
                 <td>
                     <button type="submit">Poster</button>
@@ -58,7 +58,6 @@
         </table>
     </form>
 </div>
-
 
 </body>
 </html>

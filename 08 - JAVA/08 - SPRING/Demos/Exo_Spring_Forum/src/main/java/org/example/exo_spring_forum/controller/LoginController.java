@@ -27,8 +27,7 @@ public class LoginController {
     @RequestMapping("/login")
     public String login(Model model) {
         if (loginService.isLogged()) {
-            String nom = (String) httpSession.getAttribute("utilisateurNom");
-            model.addAttribute("utilisateur", utilisateurService.findByNom(nom));
+            model.addAttribute("utilisateur", utilisateurService.findByNom((String) httpSession.getAttribute("utilisateurNom")));
             return "index";
         }
         return "login";

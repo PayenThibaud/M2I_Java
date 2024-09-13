@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Authentification</title>
+    <span th:replace="~{bootstrap :: bootstrapImport}"></span>
 </head>
 <body>
+
+<span th:replace="~{bootstrap :: navbar}"></span>
+<span th:replace="~{bootstrap :: footer}"></span>
 
 <form th:action="@{/login}" method="post">
     <input type="text" name="nom" placeholder="nom">

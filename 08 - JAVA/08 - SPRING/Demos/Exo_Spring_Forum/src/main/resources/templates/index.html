@@ -3,13 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
+    <span th:replace="~{bootstrap :: bootstrapImport}"></span>
+    <style>
+
+        .center-image {
+            display: flex;
+            justify-content: center; /* Centre l'image horizontalement */
+            margin-top: 20px; /* Espacement au-dessus de l'image, ajustable selon tes besoins */
+        }
+
+        img {
+            width: 10%;
+            object-fit: cover;
+        }
+    </style>
 </head>
 <body>
 
-<a class="nav-link" th:href="@{/inscription}">S inscrire</a>
+<span th:replace="~{bootstrap :: navbar}"></span>
+<span th:replace="~{bootstrap :: footer}"></span>
 
 
-<h1 class="color-change">Bienvenue sur le forum, <span th:text="${utilisateur.getNom()}"></span></h1>
+<div class="container text-center">
+    <h1 class="color-change">✨ Disco pour le membre <span th:text="${utilisateur.nom}">Nom de l'utilisateur</span> ✨</h1>
+</div>
+
+
+<div class="center-image">
+    <img src="/images/disco.gif" alt="Disco" />
+</div>
 
 </body>
 </html>

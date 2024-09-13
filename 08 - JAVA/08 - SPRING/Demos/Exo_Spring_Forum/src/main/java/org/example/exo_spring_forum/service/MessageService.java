@@ -31,4 +31,8 @@ public class MessageService {
         messageRepository.deleteById(id);
     }
 
+    public List<Message> getMessagesByForumId(int forumId) {
+        return messageRepository.findByForum_Id(forumId);
+    }
+
 }
