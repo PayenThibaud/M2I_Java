@@ -3,3 +3,8 @@
 # Version 3 : Reprenez l'exercice sur les étudiants et ajouter les validations avec les erreurs associées dans le formulaire. Ajouter également une page d'erreur 404 personnalisée.
 
 # Version 4 : Reprenez l'exercice sur les étudiants et ajouter une base de données pour enregistrer les étudiants.
+
+# Version 5 : 
+    - Ajouter une entitée User : password et login
+    - Protéger les routes
+    - Ajouter une image par étudiant.

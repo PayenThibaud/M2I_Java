@@ -25,4 +25,5 @@ public class Student {
     @NotBlank(message = "Le champ ne doit pas être vide !")
     @Pattern(regexp = "^[\\w\\.-]+@[a-zA-Z\\d\\.-]+\\.[a-zA-Z]{2,}$", message = "Format de l'email invalide !")
     private String email;
+    private String photo;
 }
