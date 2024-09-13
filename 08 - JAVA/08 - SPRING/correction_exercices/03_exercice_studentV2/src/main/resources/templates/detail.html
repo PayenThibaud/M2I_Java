@@ -11,6 +11,7 @@
         <h1>Détails de l'étudiant</h1>
         <hr>
         <div class="col justify-content-center" th:if="${student != null}">
+            <img th:src="@{/image/{filename}(filename=${student.getPhoto()})}">
             <p>Nom : <span th:text="${student.getLastname()}"></span></p>
             <p>Prénom : <span th:text="${student.getFirstname()}"></span></p>
             <p>Âge : <span th:text="${student.getAge()}"></span></p>
