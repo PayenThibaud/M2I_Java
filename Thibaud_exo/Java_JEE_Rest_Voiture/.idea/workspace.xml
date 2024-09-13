@@ -10,12 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a2a17ad-05ef-44bf-b5a7-d5efa05c232e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Spring_exo/src/main/java/org/example/spring_exo/controller/TodoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring_exo/src/main/java/org/example/spring_exo/model/Todo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring_exo/src/main/java/org/example/spring_exo/service/ServiceTodo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring_exo/src/main/resources/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring_exo/src/main/resources/templates/todo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring_exo/src/main/resources/templates/todos.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../08 - JAVA/08 - SPRING/Demos/Exo_Spring_Forum/src/main/java/org/example/exo_spring_forum/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../08 - JAVA/08 - SPRING/Demos/Exo_Spring_Forum/src/main/java/org/example/exo_spring_forum/entity/Forum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../08 - JAVA/08 - SPRING/Demos/Exo_Spring_Forum/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../08 - JAVA/08 - SPRING/Demos/Exo_Spring_Forum/src/main/java/org/example/exo_spring_forum/controller/UtilisateurController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../08 - JAVA/08 - SPRING/Demos/Exo_Spring_Forum/src/main/java/org/example/exo_spring_forum/controller/UtilisateurController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../08 - JAVA/08 - SPRING/Demos/Exo_Spring_Forum/src/main/java/org/example/exo_spring_forum/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../08 - JAVA/08 - SPRING/Demos/Exo_Spring_Forum/src/main/java/org/example/exo_spring_forum/service/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../08 - JAVA/08 - SPRING/Demos/Exo_Spring_Forum/src/main/java/org/example/exo_spring_forum/service/UtilisateurService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../08 - JAVA/08 - SPRING/Demos/Exo_Spring_Forum/src/main/java/org/example/exo_spring_forum/service/UtilisateurService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../08 - JAVA/08 - SPRING/Demos/Exo_Spring_Forum/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../08 - JAVA/08 - SPRING/Demos/Exo_Spring_Forum/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../08 - JAVA/08 - SPRING/Demos/Exo_Spring_Forum/src/main/resources/templates/inscription.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../08 - JAVA/08 - SPRING/Demos/Exo_Spring_Forum/src/main/resources/templates/inscription.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,6 +131,7 @@
       <workItem from="1725458248023" duration="3319000" />
       <workItem from="1725518723873" duration="5923000" />
       <workItem from="1725874245403" duration="802000" />
+      <workItem from="1726222833901" duration="2000" />
     </task>
     <servers />
   </component>

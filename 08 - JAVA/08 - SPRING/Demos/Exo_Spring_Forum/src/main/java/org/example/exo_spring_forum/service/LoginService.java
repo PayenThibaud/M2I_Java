@@ -22,6 +22,7 @@ public class LoginService {
         if (utilisateur != null) {
             if (utilisateur.getPassword().equals(password)) {
                 httpSession.setAttribute("login", "OK");
+                httpSession.setAttribute("utilisateurNom", utilisateur.getNom());
                 return true;
             }
         }
@@ -31,6 +32,7 @@ public class LoginService {
 
     public void logout() {
         httpSession.removeAttribute("login");
+        httpSession.removeAttribute("utilisateurNom");
     }
 
     public boolean isLogged() {

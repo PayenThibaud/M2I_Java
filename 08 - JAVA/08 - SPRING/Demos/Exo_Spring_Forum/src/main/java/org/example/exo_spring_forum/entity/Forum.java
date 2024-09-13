@@ -15,19 +15,19 @@ import java.util.List;
 @Builder
 @Entity
 
-@Table(name = "utilisateur")
-public class Utilisateur {
+@Table(name = "forum")
+public class Forum {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="id_utilisateur")
+    @Column(name ="id_forum")
     private int id;
 
-    private String nom;
-    private String password;
+    private String titre;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "utilisateur")
-    private List<Forum> forums = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name ="id_utilisateur")
+    private Utilisateur utilisateur;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "utilisateur")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "forum")
     private List<Message> messages = new ArrayList<>();
 }

@@ -26,7 +26,11 @@ public class UtilisateurService {
         return utilisateurRepository.save(utilisateur);
     }
 
-    public void delete(Utilisateur utilisateur){
-        utilisateurRepository.delete(utilisateur);
+    public void delete(int id){
+        utilisateurRepository.deleteById(id);
+    }
+
+    public Utilisateur findByNom(String nom){
+        return utilisateurRepository.findByNom(nom);
     }
 }

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Authentification</title>
+</head>
+<body>
+
+<form th:action="@{/login}" method="post">
+    <input type="text" name="nom" placeholder="nom">
+    <input type="text" name="password" placeholder="password">
+    <button type="submit">Se connecter</button>
+</form>
+
+<a class="nav-link" th:href="@{/inscription}">Besoin de s inscrire ?</a>
+</body>
+</html>

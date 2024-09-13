@@ -1,31 +1,31 @@
 package org.example.exo_spring_forum.controller;
 
 import jakarta.servlet.http.HttpSession;
-import org.example.exo_spring_forum.entity.Utilisateur;
 import org.example.exo_spring_forum.service.LoginService;
 import org.example.exo_spring_forum.service.UtilisateurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class UtilisateurController {
-    private final UtilisateurService utilisateurService;
+public class LoginController {
+
     private final LoginService loginService;
-    private HttpSession httpSession;
+    private final UtilisateurService utilisateurService;
+    private final HttpSession httpSession;
 
     @Autowired
-    public UtilisateurController(UtilisateurService utilisateurService, LoginService loginService, HttpSession httpSession) {
-        this.utilisateurService = utilisateurService;
+    public LoginController(HttpSession httpSession, LoginService loginService, UtilisateurService utilisateurService) {
         this.loginService = loginService;
+        this.utilisateurService = utilisateurService;
         this.httpSession = httpSession;
     }
 
-    @RequestMapping("/")
-    public String index(Model model) {
+    @RequestMapping("/login")
+    public String login(Model model) {
         if (loginService.isLogged()) {
             String nom = (String) httpSession.getAttribute("utilisateurNom");
             model.addAttribute("utilisateur", utilisateurService.findByNom(nom));
@@ -34,17 +34,19 @@ public class UtilisateurController {
         return "login";
     }
 
-    @RequestMapping("/inscription")
-    public String inscription(Model model) {
-        model.addAttribute("utilisateur", new Utilisateur());
-        return "inscription";
+
+    @PostMapping("/login")
+    public String login(@RequestParam("nom") String nom, @RequestParam("password") String password, Model model) {
+        if (loginService.login(nom, password)) {
+            model.addAttribute("utilisateur", utilisateurService.findByNom(nom));
+            return "index";
+        }
+        return "redirect:/login";
     }
 
-    @PostMapping("/inscription")
-    public String inscriptionPost(@ModelAttribute("utilisateur") Utilisateur utilisateur) {
-        utilisateurService.save(utilisateur);
-        return "redirect:/";
+    @RequestMapping("/logout")
+    public String logout() {
+        loginService.logout();
+        return "redirect:/login";
     }
-
-
 }
