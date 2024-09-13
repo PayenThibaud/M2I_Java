@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscription utilisateur</title>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="color-change">Inscription d'un nouvel utilisateur</h1>
+    <form th:action="@{/inscription}" method="post" th:object="${utilisateur}">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Password</th>
+                <th scope="col">Validez l'inscription</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <input type="text" id="nom" th:field="*{nom}" placeholder="Entrez le nom">
+                </td>
+                <td>
+                    <input type="text" id="prenom" th:field="*{password}" placeholder="Entrez le mot de passe">
+                </td>
+                <td>
+                    <button type="submit">S'inscrire</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+</body>
+</html>
