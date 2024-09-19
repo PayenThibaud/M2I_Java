@@ -17,7 +17,7 @@ public class FilmService {
     public List<Film> getAll() {
         return (List<Film>) filmRepository.findAll();
     }
-    
+
     public Film getById(int id) {
         return filmRepository.findById(id).orElseThrow();
     }
