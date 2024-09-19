@@ -3,6 +3,7 @@ package org.example.rest_cinema.service;
 import org.example.rest_cinema.Repository.FilmRepository;
 import org.example.rest_cinema.dto.filmDto.FilmDtoReceive;
 import org.example.rest_cinema.entity.Film;
+import org.example.rest_cinema.entity.Realisateur;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,5 +34,9 @@ public class FilmService {
                 .build();
 
         return filmRepository.save(filmCreated);
+    }
+
+    public List<Film> getByRealisateur(Realisateur realisateur) {
+        return filmRepository.findByRealisateur(realisateur);
     }
 }

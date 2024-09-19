@@ -20,9 +20,11 @@ import java.util.List;
 public class FilmController {
 
     private FilmService filmService;
+    private RealisateurService realisateurService;
 
-    public FilmController(FilmService filmService) {
+    public FilmController(FilmService filmService, RealisateurService realisateurService) {
         this.filmService = filmService;
+        this.realisateurService = realisateurService;
     }
 
     @GetMapping
@@ -67,6 +69,24 @@ public class FilmController {
 
         return new ResponseEntity<>(filmDtoSend, HttpStatus.CREATED);
     }
-}
 
+    @GetMapping("{nom_realisateur}")
+    public ResponseEntity<List<FilmDtoSend>> getByRealisateur(@PathVariable("nom_realisateur") String nomRealisateur) {
+
+        Realisateur realisateur = realisateurService.getByNom(nomRealisateur);
+
+        List<Film> films = filmService.getByRealisateur(realisateur);
+        List<FilmDtoSend> filmDtoSends = new ArrayList<>();
+        for (Film film : films) {
+            filmDtoSends.add(new FilmDtoSend(
+                    film.getNom(),
+                    film.getDescription(),
+                    film.getDateDeSortie(),
+                    film.getDuree(),
+                    film.getGenre(),
+                    film.getRealisateur()));
+        }
+
+        return ResponseEntity.ok(filmDtoSends);
+    }
 }

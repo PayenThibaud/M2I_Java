@@ -32,4 +32,8 @@ public class RealisateurService {
 
         return realisateurRepository.save(realisateurCreated);
     }
+
+    public Realisateur getByNom(String nom) {
+        return realisateurRepository.findByNom(nom);
+    }
 }
