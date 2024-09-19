@@ -1,6 +1,7 @@
 package org.example.rest_cinema.service;
 
 import org.example.rest_cinema.Repository.FilmRepository;
+import org.example.rest_cinema.Repository.RealisateurRepository;
 import org.example.rest_cinema.dto.filmDto.FilmDtoReceive;
 import org.example.rest_cinema.entity.Film;
 import org.example.rest_cinema.entity.Realisateur;
@@ -14,6 +15,8 @@ public class FilmService {
 
     @Autowired
     private FilmRepository filmRepository;
+    @Autowired
+    private RealisateurRepository realisateurRepository;
 
     public List<Film> getAll() {
         return (List<Film>) filmRepository.findAll();
@@ -30,7 +33,7 @@ public class FilmService {
                 .description(filmDtoReceive.getDescription())
                 .duree(filmDtoReceive.getDuree())
                 .genre(filmDtoReceive.getGenre())
-                .realisateur(filmDtoReceive.getRealisateur())
+                .realisateur(realisateurRepository.findByNom(filmDtoReceive.getNom_realisateur()))
                 .build();
 
         return filmRepository.save(filmCreated);

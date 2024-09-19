@@ -16,5 +16,5 @@ public class FilmDtoReceive {
     private LocalDate dateDeSortie;
     private int duree;
     private String genre;
-    private Realisateur realisateur;
+    private String nom_realisateur;
 }

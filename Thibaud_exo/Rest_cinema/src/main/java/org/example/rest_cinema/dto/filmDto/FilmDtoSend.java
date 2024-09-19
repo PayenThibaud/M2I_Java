@@ -3,6 +3,7 @@ package org.example.rest_cinema.dto.filmDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.rest_cinema.dto.realisateurDto.RealisateurDtoSend;
 import org.example.rest_cinema.entity.Realisateur;
 
 import java.time.LocalDate;
@@ -16,5 +17,5 @@ public class FilmDtoSend {
     private LocalDate dateDeSortie;
     private int duree;
     private String genre;
-    private Realisateur realisateur;
+    private RealisateurDtoSend realisateur;
 }

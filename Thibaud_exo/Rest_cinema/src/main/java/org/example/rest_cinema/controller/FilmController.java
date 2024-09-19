@@ -2,7 +2,6 @@ package org.example.rest_cinema.controller;
 
 import org.example.rest_cinema.dto.filmDto.FilmDtoReceive;
 import org.example.rest_cinema.dto.filmDto.FilmDtoSend;
-import org.example.rest_cinema.dto.realisateurDto.RealisateurDtoReceive;
 import org.example.rest_cinema.dto.realisateurDto.RealisateurDtoSend;
 import org.example.rest_cinema.entity.Film;
 import org.example.rest_cinema.entity.Realisateur;
@@ -19,8 +18,8 @@ import java.util.List;
 @RequestMapping("catalogue/films")
 public class FilmController {
 
-    private FilmService filmService;
-    private RealisateurService realisateurService;
+    private final FilmService filmService;
+    private final RealisateurService realisateurService;
 
     public FilmController(FilmService filmService, RealisateurService realisateurService) {
         this.filmService = filmService;
@@ -32,13 +31,22 @@ public class FilmController {
         List<Film> films = filmService.getAll();
         List<FilmDtoSend> filmDtoSends = new ArrayList<>();
         for (Film film : films) {
+            Realisateur realisateur = film.getRealisateur();
+            RealisateurDtoSend realisateurDtoSend = new RealisateurDtoSend(
+                    realisateur.getNom(),
+                    realisateur.getPrenom(),
+                    realisateur.getDateNaissance(),
+                    realisateur.getNationalite()
+            );
+
             filmDtoSends.add(new FilmDtoSend(
                     film.getNom(),
                     film.getDescription(),
                     film.getDateDeSortie(),
                     film.getDuree(),
                     film.getGenre(),
-                    film.getRealisateur()));
+                    realisateurDtoSend
+            ));
         }
 
         return ResponseEntity.ok(filmDtoSends);
@@ -47,44 +55,72 @@ public class FilmController {
     @GetMapping("{id}")
     public ResponseEntity<FilmDtoSend> getFilm(@PathVariable("id") int id) {
         Film film = filmService.getById(id);
-        return ResponseEntity.ok(new FilmDtoSend(
-                film.getNom(),
-                film.getDescription(),
-                film.getDateDeSortie(),
-                film.getDuree(),
-                film.getGenre(),
-                film.getRealisateur()));
-    }
+        Realisateur realisateur = film.getRealisateur();
+        RealisateurDtoSend realisateurDtoSend = new RealisateurDtoSend(
+                realisateur.getNom(),
+                realisateur.getPrenom(),
+                realisateur.getDateNaissance(),
+                realisateur.getNationalite()
+        );
 
-    @PostMapping
-    public ResponseEntity<FilmDtoSend> register(@RequestBody FilmDtoReceive filmDtoReceive) {
-        Film film = filmService.create(filmDtoReceive);
         FilmDtoSend filmDtoSend = new FilmDtoSend(
                 film.getNom(),
                 film.getDescription(),
                 film.getDateDeSortie(),
                 film.getDuree(),
                 film.getGenre(),
-                film.getRealisateur());
+                realisateurDtoSend
+        );
+
+        return ResponseEntity.ok(filmDtoSend);
+    }
+
+    @PostMapping
+    public ResponseEntity<FilmDtoSend> register(@RequestBody FilmDtoReceive filmDtoReceive) {
+        Film film = filmService.create(filmDtoReceive);
+
+        Realisateur realisateur = film.getRealisateur();
+        RealisateurDtoSend realisateurDtoSend = new RealisateurDtoSend(
+                realisateur.getNom(),
+                realisateur.getPrenom(),
+                realisateur.getDateNaissance(),
+                realisateur.getNationalite()
+        );
+
+        FilmDtoSend filmDtoSend = new FilmDtoSend(
+                film.getNom(),
+                film.getDescription(),
+                film.getDateDeSortie(),
+                film.getDuree(),
+                film.getGenre(),
+                realisateurDtoSend
+        );
 
         return new ResponseEntity<>(filmDtoSend, HttpStatus.CREATED);
     }
 
-    @GetMapping("{nom_realisateur}")
+    @GetMapping("realisateur/{nom_realisateur}")
     public ResponseEntity<List<FilmDtoSend>> getByRealisateur(@PathVariable("nom_realisateur") String nomRealisateur) {
-
         Realisateur realisateur = realisateurService.getByNom(nomRealisateur);
 
         List<Film> films = filmService.getByRealisateur(realisateur);
         List<FilmDtoSend> filmDtoSends = new ArrayList<>();
         for (Film film : films) {
+            RealisateurDtoSend realisateurDtoSend = new RealisateurDtoSend(
+                    film.getRealisateur().getNom(),
+                    film.getRealisateur().getPrenom(),
+                    film.getRealisateur().getDateNaissance(),
+                    film.getRealisateur().getNationalite()
+            );
+
             filmDtoSends.add(new FilmDtoSend(
                     film.getNom(),
                     film.getDescription(),
                     film.getDateDeSortie(),
                     film.getDuree(),
                     film.getGenre(),
-                    film.getRealisateur()));
+                    realisateurDtoSend
+            ));
         }
 
         return ResponseEntity.ok(filmDtoSends);
