@@ -10,12 +10,39 @@
 <span th:replace="~{bootstrap :: navbar}"></span>
 <span th:replace="~{bootstrap :: footer}"></span>
 
-<form th:action="@{/login}" method="post">
-    <input type="text" name="nom" placeholder="nom">
-    <input type="text" name="password" placeholder="password">
-    <button type="submit">Se connecter</button>
-</form>
 
-<a class="nav-link" th:href="@{/inscription}">Besoin de s inscrire ?</a>
+
+<div class="container">
+    <h1 class="color-change">Veuillez vous connectez</h1>
+    <form th:action="@{/login}" method="post">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Password</th>
+                <th scope="col">Se connecter</th>
+                <th scope="col">Besoin de s inscrire ?</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <input type="text" name="nom" placeholder="nom">
+                </td>
+                <td>
+                    <input type="text" name="password" placeholder="password">
+                </td>
+                <td>
+                    <button type="submit">Se connecter</button>
+                </td>
+                <td>
+                    <a class="btn btn-primary" th:href="@{/inscription}">Inscription</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
 </body>
 </html>

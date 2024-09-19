@@ -24,15 +24,12 @@ public class Etudient {
     @Column(name = "id_etudient")
     private int id;
     @NotBlank(message = "La valeur ne doit pas être vide !")
-    @NotNull(message = "Ce champ doit être rempli !")
     @MyValidNom()
     private String nom;
     @NotBlank(message = "La valeur ne doit pas être vide !")
-    @NotNull(message = "Ce champ doit être rempli !")
     @MyValidPrenom()
     private String prenom;
     @NotBlank(message = "La valeur ne doit pas être vide !")
-    @NotNull(message = "Ce champ doit être rempli !")
     private String email;
     @Min(value = 15)
     @Max(40)
