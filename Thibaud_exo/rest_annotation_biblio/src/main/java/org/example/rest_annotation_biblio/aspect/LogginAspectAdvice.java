@@ -1,5 +1,6 @@
 package org.example.rest_annotation_biblio.aspect;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -13,8 +14,8 @@ public class LogginAspectAdvice {
     public void logginAspect() {}
 
     @Before("logginAspect()")
-    public void before() {
-        System.out.println("Avant l execution");
+    public void before(JoinPoint joinPoint) {
+        System.out.println("Avant l execution de " + joinPoint.getSignature().getDeclaringTypeName() + " sur " + joinPoint.getSignature().getName());
     }
 
 

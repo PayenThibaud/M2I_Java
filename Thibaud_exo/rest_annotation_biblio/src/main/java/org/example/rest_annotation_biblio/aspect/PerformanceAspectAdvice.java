@@ -21,7 +21,7 @@ public class PerformanceAspectAdvice {
         Object result = joinPoint.proceed();
 
         long executionTime = System.currentTimeMillis() - start;
-        System.out.println("Temps d'exécution de " + joinPoint.getSignature() + ": " + executionTime + " ms");
+        System.out.println("Temps d'exécution de " +joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName() + "() : " + executionTime + " ms");
 
         return result;
     }
