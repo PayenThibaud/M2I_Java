@@ -42,4 +42,10 @@ public class BibliothequeController {
 
         return new ResponseEntity<>(bibliothequeDtoSend, HttpStatus.CREATED);
     }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> deleteBibliotheque(@PathVariable("id") Integer id) {
+        bibliothequeService.deleteById(id);
+        return ResponseEntity.ok("Deleted bibliotheque with id " + id);
+    }
 }

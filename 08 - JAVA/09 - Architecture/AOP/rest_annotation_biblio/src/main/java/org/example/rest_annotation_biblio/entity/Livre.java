@@ -22,6 +22,6 @@ public class Livre {
     private String auteur;
 
     @ManyToOne
-    @JoinColumn(name = "id_bibliotheque")
+    @JoinColumn(name = "id_bibliotheque", nullable = true)
     private Bibliotheque bibliotheque;
 }

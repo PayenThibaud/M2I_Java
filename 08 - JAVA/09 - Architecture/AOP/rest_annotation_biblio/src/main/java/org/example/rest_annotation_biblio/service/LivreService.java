@@ -31,21 +31,38 @@ public class LivreService {
     }
 
     public Livre saveLivre(LivreDtoReceive livreDtoReceive) {
+        Bibliotheque bibliotheque = null;
+
+        if (livreDtoReceive.getNom_bibliotheque() != null) {
+            bibliotheque = bibliothequeRepository.findByNom(livreDtoReceive.getNom_bibliotheque());
+        }
+
         Livre livre = Livre.builder()
                 .auteur(livreDtoReceive.getAuteur())
                 .titre(livreDtoReceive.getTitre())
-                .bibliotheque(bibliothequeRepository.findByNom(livreDtoReceive.getNom_bibliotheque()))
+                .bibliotheque(bibliotheque)
                 .build();
 
         return livreRepository.save(livre);
     }
 
+    public boolean delete(int id) {
+        Livre livre = livreRepository.findById(id).orElseThrow();
+        livreRepository.delete(livre);
+        return true;
+    }
+
     public LivreDtoSend livreToLivreDto(Livre livre) {
-        Bibliotheque bibliotheque = livre.getBibliotheque();
-        BibliothequeDtoSend bibliothequeDtoSend = new BibliothequeDtoSend(
-                bibliotheque.getNom(),
-                bibliotheque.getLieu()
-        );
+        BibliothequeDtoSend bibliothequeDtoSend = null;
+
+        if (livre.getBibliotheque() != null) {
+            Bibliotheque bibliotheque = livre.getBibliotheque();
+            bibliothequeDtoSend = new BibliothequeDtoSend(
+                    bibliotheque.getNom(),
+                    bibliotheque.getLieu()
+            );
+        }
+
         return new LivreDtoSend(
                 livre.getTitre(),
                 livre.getAuteur(),
@@ -56,10 +73,15 @@ public class LivreService {
     public List<LivreDtoSend> listLivretoListLivreDtoSend(List<Livre> livres) {
         List<LivreDtoSend> livreDtoSends = new ArrayList<>();
         for (Livre livre : livres) {
-            BibliothequeDtoSend bibliothequeDtoSend = new BibliothequeDtoSend(
-                    livre.getBibliotheque().getNom(),
-                    livre.getBibliotheque().getLieu()
-            );
+            BibliothequeDtoSend bibliothequeDtoSend = null;
+
+            if (livre.getBibliotheque() != null) {
+                bibliothequeDtoSend = new BibliothequeDtoSend(
+                        livre.getBibliotheque().getNom(),
+                        livre.getBibliotheque().getLieu()
+                );
+            }
+
             LivreDtoSend livreDtoSend = new LivreDtoSend(
                     livre.getTitre(),
                     livre.getAuteur(),
@@ -69,5 +91,6 @@ public class LivreService {
         }
         return livreDtoSends;
     }
+
 
 }

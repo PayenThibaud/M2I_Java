@@ -45,4 +45,10 @@ public class LivreController {
 
         return new ResponseEntity<>(livreDtoSend, HttpStatus.CREATED);
     }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> delete(@PathVariable("id") Integer id) {
+        livreService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 }
