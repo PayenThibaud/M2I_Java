@@ -51,6 +51,7 @@ public class BookService {
     @Log
     @Performance
     public List<BookDtoSend> findAll(){
+
         return booksToBookDtoSends((List<Book>) bookRepository.findAll());
     }
 
