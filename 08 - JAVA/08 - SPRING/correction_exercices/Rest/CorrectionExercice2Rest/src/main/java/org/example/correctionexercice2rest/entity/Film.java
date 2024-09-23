@@ -26,7 +26,7 @@ public class Film {
     @Column(columnDefinition = "text")
     private String description;
     private int duration;
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private FilmType filmType;
 
     @ManyToOne

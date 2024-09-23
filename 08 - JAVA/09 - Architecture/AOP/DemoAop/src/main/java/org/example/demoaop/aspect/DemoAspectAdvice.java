@@ -1,6 +1,7 @@
 package org.example.demoaop.aspect;
 
 import jdk.swing.interop.SwingInterOpUtils;
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
@@ -9,19 +10,19 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class DemoAspectAdvice {
 
-    // @before permet l'execution avant chaque execution de methode dans le dossier / classe / methode specifié
+    // @Before permet l'execution avant chaque execution de methode dans le dossier / classe / methode specifié
 //    @Before("execution(* org.example.demoaop.service.*.*(..))")
 //    public  void addBeforeEachServiceMethode(){
 //        System.out.println("run before each method");
 //    }
 
-    //@Before permet l'execution de la methode apres la fin de l'execution de la methode specifié
+    //@After permet l'execution de la methode apres la fin de l'execution de la methode specifié
 //    @After("execution(* org.example.demoaop.service.*.*(..))")
 //    public void addAfterEachServiceMethods(){
 //        System.out.println("run after each method");
 //    }
 
-    //@AfterReturningf permet l'execution de la methode apres que la methode specifié a effectué son retour
+    //@AfterReturning permet l'execution de la methode apres que la methode specifié a effectué son retour
 //    @AfterReturning(value = "execution(* org.example.demoaop.service.DemoService.methodWithResult(..))",returning = "result")
 //    public void addAfterReturningEachServicesMethod(Object result){
 //        System.out.println("run after returning each method "+result);
@@ -40,7 +41,8 @@ public class DemoAspectAdvice {
     }
 
     @Before("customPointCut()")
-    public void beforePointCut (){
+    public void beforePointCut (JoinPoint joinPoint){
+        joinPoint.getSignature().getName();
         System.out.println("before execution ");
     }
 
