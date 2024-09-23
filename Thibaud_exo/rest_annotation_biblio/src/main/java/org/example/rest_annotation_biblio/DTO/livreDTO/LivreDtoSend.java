@@ -3,6 +3,7 @@ package org.example.rest_annotation_biblio.DTO.livreDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.rest_annotation_biblio.DTO.AuteurDTO.AuteurDto;
 import org.example.rest_annotation_biblio.DTO.BiblioDTO.BibliothequeDtoSend;
 
 @Data
@@ -10,6 +11,7 @@ import org.example.rest_annotation_biblio.DTO.BiblioDTO.BibliothequeDtoSend;
 @AllArgsConstructor
 public class LivreDtoSend {
     private String titre;
-    private String auteur;
+//    private String auteur;
     private BibliothequeDtoSend bibliotheque;
+    private AuteurDto auteur;
 }
