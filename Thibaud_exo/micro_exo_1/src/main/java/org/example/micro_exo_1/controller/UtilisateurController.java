@@ -24,7 +24,7 @@ public class UtilisateurController {
 
     @GetMapping
     public ResponseEntity<List<UtilisateurDtoSend>> getAll() {
-        return ResponseEntity.ok(utilisateurService.getAlL());
+        return ResponseEntity.ok(utilisateurService.getAll());
     }
 
     @PostMapping

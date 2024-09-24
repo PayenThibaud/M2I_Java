@@ -31,12 +31,10 @@ public class UserService implements UserDetailsService {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-
     public boolean verifyUser(String email, String password) {
         return userRepository.findByEmail(email).map(user -> passwordEncoder.
                 matches(password, user.getPassword())).orElseThrow(() -> new UsernameNotFoundException(" User Not Found "));
     }
-
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
@@ -60,6 +58,7 @@ public class UserService implements UserDetailsService {
         userRepository.save(user);
         return true;
     }
+
 
 
 }

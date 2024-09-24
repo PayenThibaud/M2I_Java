@@ -36,10 +36,7 @@ public class UtilisateurService {
     }
 
 
-
-
-    public List<UtilisateurDtoSend> getAlL() {
-
+    public List<UtilisateurDtoSend> getAll() {
         return listUtilisateurToUtilisateurDtoSends((List<Utilisateur>) utilisateurRepository.findAll());
     }
 
