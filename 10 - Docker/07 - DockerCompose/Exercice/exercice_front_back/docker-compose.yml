@@ -1,0 +1,63 @@
+services:
+
+#Base de donnée
+  bdd:
+    image: mysql
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: employee
+    networks:
+      network:
+    
+# php my admin
+  phpmyadmin:
+    depends_on:
+      - bdd
+    image: phpmyadmin
+    ports:
+      - "8090:80"
+    environment:
+      PMA_HOST: bdd
+    networks:
+      network:
+
+#Back
+  spring-container:
+    ports:
+      - "8080:8080"
+    build:
+      context: ./back_employee
+      dockerfile: Dockerfile
+    depends_on:
+      - bdd
+    networks:
+      network:
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://bdd/employee
+      SPRING_DATASOURCE_PASSWORD: password
+      SPRING_DATASOURCE_USERNAME: root
+
+#Front
+
+  react-nginx:
+    build: 
+      context: ./front_employee
+      dockerfile: dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - spring-container
+    networks:
+      network:
+     
+
+
+volumes:
+  mysql_data:
+
+networks:
+  network:
