@@ -1,63 +1,100 @@
+
+
 services:
-
-#Base de donnée
-  bdd:
-    image: mysql
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    ports:
+      - "${DB_PORT}:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
-      - mysql_data:/var/lib/mysql
-    ports:
-      - "3307:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: employee
+      - ./mysql-db/user.sql:/docker-entrypoint-initdb.d/user.sql
     networks:
-      network:
-    
-# php my admin
-  phpmyadmin:
-    depends_on:
-      - bdd
-    image: phpmyadmin
-    ports:
-      - "8090:80"
-    environment:
-      PMA_HOST: bdd
-    networks:
-      network:
+      - app-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
 
-#Back
-  spring-container:
+  redis:
+    image: redis:alpine
+    container_name: redis
     ports:
-      - "8080:8080"
+      - "${REDIS_PORT}:6379"
+    networks:
+      - app-network
+
+  authentication-service:
     build:
-      context: ./back_employee
+      context: ./server/authentication-service
       dockerfile: Dockerfile
-    depends_on:
-      - bdd
-    networks:
-      network:
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://bdd/employee
-      SPRING_DATASOURCE_PASSWORD: password
-      SPRING_DATASOURCE_USERNAME: root
-
-#Front
-
-  react-nginx:
-    build: 
-      context: ./front_employee
-      dockerfile: dockerfile
     ports:
-      - "80:80"
-    depends_on:
-      - spring-container
+      - "${AUTHENTICATION_SERVICE_PORT}:${AUTHENTICATION_SERVICE_PORT}"
     networks:
-      network:
-     
+      - app-network
+    environment:
+      SPRING_PROFILES_ACTIVE: ${ACTIVE_PROFILE}
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
 
+  common-data-service:
+    build:
+      context: ./server/common-data-service
+      dockerfile: Dockerfile
+    ports:
+      - "${COMMON_DATA_SERVICE_PORT}:${COMMON_DATA_SERVICE_PORT}"
+    networks:
+      - app-network
+    depends_on:
+      mysql:
+        condition: service_healthy
 
-volumes:
-  mysql_data:
+  payment-service:
+    build:
+      context: ./server/payment-service
+      dockerfile: Dockerfile
+    ports:
+      - "${PAYMENT_SERVICE_PORT}:${PAYMENT_SERVICE_PORT}"
+    networks:
+      - app-network
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  search-suggestion-service:
+    build:
+      context: ./server/search-suggestion-service
+      dockerfile: Dockerfile
+    ports:
+      - "${SEARCH_SUGGESTION_SERVICE_PORT}:${SEARCH_SUGGESTION_SERVICE_PORT}"
+    networks:
+      - app-network
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "${REACT_APP_PORT}:${REACT_APP_PORT}"
+    networks:
+      - app-network
+    depends_on:
+      authentication-service:
+        condition: service_healthy
 
 networks:
-  network:
+  app-network:
+    driver: bridge
