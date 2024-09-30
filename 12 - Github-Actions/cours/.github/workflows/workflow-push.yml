@@ -1,0 +1,17 @@
+name: Workflow lors d'un push
+on: push
+jobs:
+  mon_job:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Récupération de notre application
+        uses: actions/checkout@v4
+
+      - name: Installation des dépendances
+        run: npm install
+
+      - name: build de l'application
+        run: npm run build
+      
+      - name: test
+        run: npm run test
