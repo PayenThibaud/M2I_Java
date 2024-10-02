@@ -13,7 +13,7 @@ L'application est composée de plusieurs services, chacun développé avec des t
 
   - Utilisation d'une image Docker Python.
   - Installation des dépendances via `requirements.txt`.
-  - pour installer les dépendances -> `pip install requirements.txt`
+  - pour installer les dépendances -> `pip install -r requirements.txt`
 
 - **Lancement de l'application** :
   ```bash
