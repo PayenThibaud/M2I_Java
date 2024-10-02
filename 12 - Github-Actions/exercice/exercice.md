@@ -22,3 +22,15 @@
 - Revenir sur le workflow de push pour ajouter:
     - Mise en cache des dépendances
     - Upload d'un artéfact avec le build de notre application.
+
+# Partie 4
+
+- Revenir sur le workflow de push pour ajouter:
+    - Upload de l'application uniquement si le push est sur la branche main & si le test à réussit
+    - Faire en sorte que le workflow continue même en cas d'echec des tests
+
+# Partie 5
+
+- Création d'un dockerfile pour notre application
+- Création d'une image de votre application & push cette image sur dockerhub
+- Télécharger votre image en local puis testez la dans un conteneur.
