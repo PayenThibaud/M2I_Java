@@ -1,33 +1,16 @@
-let nbNote = parseInt(prompt("Nombre de note a rentrer"))
+import { Voiture } from "./class/voiture.js";
 
-let min = 20;
-let max = 0;
-let moy = 0;
+const voiture1 = new Voiture("Bmw", "Serie 1", 80);
+const voiture2 = new Voiture("Mercedes", "GLB", 100);
 
-document.getElementById("p").innerText = "Vous avez entré " + nbNote + " notes";
+console.log(voiture1.afficher());
+console.log(voiture2.afficher());
 
+voiture1.accelerer(3);
 
-for(let i = 0; i < nbNote; i++){
-    let note = parseInt(prompt("note n:" + (i + 1) ));
+voiture2.accelerer(2);
+voiture2.tourner(2);
 
-    if (note < min){
-        min = note;
-    }
-
-    if (max < note){
-        max = note;
-    }
-
-    moy += note
-
-    document.getElementById("ul").innerHTML += "<li>En note n°" + (i + 1) + ", vous avez " + note + "/20 </li>";
-}
-
-moy = moy/nbNote;
-
-document.getElementById("p2").innerText = "Sur l ensemble des " + nbNote + " notes :"
-
-document.getElementById("ul2").innerHTML += "<li>Moy = " + moy.toFixed(2) + "/20 </li>";
-document.getElementById("ul2").innerHTML += "<li>Min = " + min + "/20 </li>";
-document.getElementById("ul2").innerHTML += "<li>Max = " + max + "/20 </li>";
-
+const voitureDiv = document.querySelector(".voiture");
+voitureDiv.innerHTML += `<div>${voiture1.afficher()}</div>`;
+voitureDiv.innerHTML += `<div>${voiture2.afficher()}</div>`;
