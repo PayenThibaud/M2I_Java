@@ -1,43 +1,37 @@
-import { Chien } from './class/chien.js';
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector("#mon-form");
+    const dogSelect = document.querySelector("#dog-select");
+    const selectOutput = document.querySelector("#selectOutput");
 
-let chiens = [];
 
-function addChien(nom, race, age) {
-    const chien = new Chien(nom, race, age);
-    chiens.push(chien);
-    select();
-}
-
-function select() {
-    const select = document.getElementById("dog-select");
-    select.innerHTML = `<option value="0">Sélectionnez un chien</option>`;
-
-    chiens.forEach(chien => {
+    let id = 0;
+    const addDogToSelect = (nom, race, age) => {
         const option = document.createElement("option");
-        option.value = chien.id;
-        option.textContent = `Chien ${chien.id}: ${chien.nom}`;
-        select.appendChild(option);
+        option.value = `${++id}`;
+        option.textContent = `${nom} (${race}, ${age} ans)`;
+        dogSelect.appendChild(option);
+    };
+
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const nom = document.querySelector("#dog-name").value;
+        const race = document.querySelector("#dog-breed").value;
+        const age = document.querySelector("#dog-age").value;
+
+        if (nom !== "null" && race !== "null" && age !== "null") {
+            addDogToSelect(nom, race, age);
+            form.reset();
+        }
     });
-}
 
-function displayChien(id) {
-    const chien = chiens.find(chien => chien.id === parseInt(id));
-    const output = document.getElementById("selectOutput");
-    output.innerHTML = `<div>${chien.display()}</div>`;
-}
-
-document.getElementById("btn-submit").addEventListener("click", (e) => {
-    e.preventDefault();
-    const nom = document.getElementById("dog-name").value;
-    const race = document.getElementById("dog-breed").value;
-    const age = document.getElementById("dog-age").value;
-
-    if (nom && race && age) {
-        addChien(nom, race, age);
-        document.getElementById("mon-form").reset();
-    }
-});
-
-document.getElementById("dog-select").addEventListener("change", (e) => {
-    displayChien(e.target.value);
+    dogSelect.addEventListener("change", () => {
+        const selectedOption = dogSelect.options[dogSelect.selectedIndex];
+        if (selectedOption.value !== "0") {
+            selectOutput.textContent = `Le chien id : ${selectedOption.value} : ${selectedOption.textContent}`;
+        } else {
+            selectOutput.textContent = "";
+        }
+    });
 });
