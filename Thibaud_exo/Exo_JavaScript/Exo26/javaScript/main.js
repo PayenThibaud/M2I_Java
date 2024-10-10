@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
             resultTable.innerHTML = "";
 
             contacts.forEach(contact => {
-                const tableHTML = document.createElement("tr");
+                const tableHTML  = document.createElement("tr");
                 tableHTML.innerHTML = `
                     <td>${contact.titre}</td>
                     <td>${contact.nom}</td>
