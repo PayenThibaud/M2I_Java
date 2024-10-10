@@ -1,0 +1,181 @@
+:root {
+    --bg-grey: rgb(38, 37, 37);
+    --bg-blue: rgb(18, 18, 52);
+  }
+  
+  * {
+    font-family: monospace;
+  }
+  
+  html, body {
+    margin: 0;
+  }
+  
+  body {
+    padding-block: 2dvh;
+    height: 100dvh;
+    width: 100dvw;
+    box-sizing: border-box;
+    display: grid;
+    grid-template: 2fr 8fr / 1fr;
+    gap: 2%;
+    background: linear-gradient(45deg, rgb(183, 119, 0), rgb(0, 0, 163), rgb(159, 0, 0));
+  }
+  
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  header img {
+    height: 80%;
+    object-fit: cover;
+  }
+  
+  header form {
+    width: min(60%, 800px);
+    background-color: rgb(199, 22, 22);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    display: flex;
+    gap: 2%;
+  }
+  
+  header form input,
+  header form button {
+    background-color: var(--bg-grey);
+    border: hsl(0 0% 95%) solid 1px;
+    padding: 1ch 2ch;
+    color: hsl(0 0% 95%);
+  }
+  
+  header form input {
+    flex: 1 1 auto;
+    text-align: center;
+    outline: none;
+  }
+  
+  header form input::placeholder {
+    color: hsl(0 0% 65%);
+  }
+  
+  header form button[disabled] {
+    cursor: not-allowed;
+    color: hsl(0 0% 85%);
+    border-color: hsl(0 0% 85%);
+  }
+  
+  header form button:not([disabled]):hover {
+    cursor: pointer;
+  }
+  
+  main {
+    height: 70dvh;
+    width: min(80%, 1000px);
+    margin-inline: auto;
+    display: flex;
+    gap: 2dvw;
+    font-size: 1.6rem;
+  }
+  
+  main button {
+    align-self: center;
+    padding: 2ch;
+    font-size: 2.5rem;
+    background-color: var(--bg-blue);
+    color: hsl(0 0% 95%);
+    border-radius: 50%;
+    border: none;
+    transition: transform 200ms ease, background-color 200ms ease;
+  }
+  
+  main button[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  main button:not([disabled]):hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    background-color: rgb(20, 20, 91);
+  }
+  
+  #pokemon-display {
+    background-color: rgb(199, 22, 22);
+    margin-inline: auto;
+    border-radius: 1.5rem;
+    box-sizing: border-box;
+    padding: 2%;
+    display: grid;
+    grid-template: 1fr 1fr 2fr 2fr 2fr / 6fr 2fr 2fr;
+    gap: 2%;
+  }
+  
+  #pokemon-display * {
+    background-color: var(--bg-grey);
+    color: hsl(0 0% 95%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #pokemon-display ul {
+    padding: 0;
+    list-style: none;
+    margin: 0;
+  }
+  
+  #pokemon-picture {
+    grid-row: 1 / span 3;
+    grid-column: 1;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 2%;
+    object-fit: contain;
+  }
+  
+  #pokemon-name {
+    grid-row: 1;
+    grid-column: 2 / span 2;
+    text-transform: capitalize;
+  }
+  
+  #pokemon-types {
+    grid-row: 3;
+    grid-column: 2 / span 2;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  #pokemon-types li {
+    background-color: gray;
+    padding: 0.5ch 1ch;
+    border-radius: 1ch;
+    text-transform: capitalize;
+  }
+  
+  #pokemon-abilities {
+    grid-row: 4 / span 2;
+    grid-column: 1 / span 3;
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+    padding: 5%;
+    gap: 5%;
+  }
+  
+  #pokemon-abilities li {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: gray;
+    border-radius: 1ch;
+    text-transform: capitalize;
+  }
+  
