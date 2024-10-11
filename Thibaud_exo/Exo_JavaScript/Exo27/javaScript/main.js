@@ -17,7 +17,7 @@ const displayResult2 = (data) => {
     const result = `
         <p>${name}: et id: ${id}</p>
         <p>Taille : ${height / 10} m</p>
-        <p>Poids : ${weight / 10} kg</p>
+        <p>Poids : ${weight / 10} kg</p>.            
         <p>Types : ${typesList}</p>
         <p>Capacités : ${abilitiesList}</p>
     `;
