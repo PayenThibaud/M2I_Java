@@ -1,5 +1,5 @@
-import { Library } from './class/library.js';
-import { createBook } from './service/bookService.js';
+import { Library } from './class/library';
+import { createBook } from './service/bookService';
 const author1 = {
     id: 1,
     nom: "Toto",
