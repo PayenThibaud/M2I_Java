@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuration de typescript - tsconfig.json</title>
+</head>
+<body>
+    <h1>Le fichier tsconfig.json</h1>
+    <p>TypeScript vérifie si un fichier de configuration tsconfig.json existe et utilise les paramètres qui y sont définis.</p>
+    <p>Avantage : Plus besoin de s'inquiter des problèmes de compatibilité entre les versions</p>
+    <h2>Comment obtenir le fichier tsconfig.json :</h2>
+    <ul>
+        <li>Le créer manuellement à la racine du projet et le compléter selon les besoins</li>
+        <li>Utilisez la commande :
+            <pre><code>tsc --init</code></pre>
+        </li>
+        <li>Utiliser un générateur en ligne, par exemple : <a href="https://generator.tsconfigdemystified.com/">tsconfig.json</a></li>
+        <li>Une fois le fichier tsconfig.json en place, vous pouvez utiliser la commande suivante pour écouter le projet
+            <pre><code>tsc -w</code></pre>
+        </li>
+    </ul>
+    <script src="./js/main.js"></script>
+</body>
+</html>
