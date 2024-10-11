@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installation de typeScript</title>
+</head>
+<body>
+    <h2>Installation de typeScript</h2>
+    <ul>
+        <li>Installer Node.js</li>
+        <li>Vérifier l'Installation de Node.js avec la commande :
+            <pre><code>node -v</code></pre>
+        </li>
+        <li>Installer TypeScript en global avec la commande
+            <pre><code>npm install -g typescript</code></pre>
+        </li>
+        <li>Vérifier l'Installation de TypeScript avec la commande :
+            <pre><code>tsc -v</code></pre>
+        </li>
+    </ul>
+
+    <h2>Mon premier script TypeScript</h2>
+    <p>Pour vérifier que typeScript est correctement installé</p>
+    <ul>
+        <li>Ajouter une balise script avec en src un fichier .js</li>
+        <li>Créer un fichier .ts, puis dans la console exécuter la commande :
+            <pre><code>tsc mon-fichier.ts</code></pre>
+        </li>
+    </ul>
+
+    <h2>Utilisation de tsc avec l'option -w</h2>
+    <ul>
+        <li>Avec l'option -w ou --watch, vous pouvez préciser le ou les fichier à surveiller</li>
+        <li>Utilisez ctrl + c dans le terminal pour arrêter la surveillance.</li>
+    </ul>
+    <script src="main.js"></script>
+</body>
+</html>
