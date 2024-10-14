@@ -1,0 +1,95 @@
+body {
+    display: grid;
+    grid-template-columns: 5px 1fr 10px 2fr 5px;
+    grid-template-rows: 5px 3fr 1fr 5px;
+}
+
+#balise-list {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    background-color: #bcbcbc;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#balise-details {
+    grid-column: 4 / 5;
+    margin-top: 5px;
+    height: 485px;
+    background-color: #bcbcbc;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+
+.inputType1 {
+    width: 69%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: white;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.inputType2 {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: white;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.bouton-contact {
+    display: block;
+    margin-bottom: 5px;
+    width: 100%;
+    padding: 10px;
+    background-color: #9fa59d;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1.2em;
+}
+
+.bouton-contact:hover {
+    background-color: #bac4b7;
+}
+
+
+.button-form {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.button-form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+#submit {
+    background-color: #007BFF;
+    color: white;
+}
+
+#delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+.button-container button:hover {
+    opacity: 0.9;
+}
