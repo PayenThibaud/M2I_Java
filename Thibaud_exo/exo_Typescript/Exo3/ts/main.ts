@@ -101,3 +101,4 @@ function remplirFormulaire(contact: Contact) {
         profileImage.src = "./img/imageProfil.png";
     }
 }
+
