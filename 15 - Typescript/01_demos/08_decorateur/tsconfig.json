@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "rootDir": "./ts",
+    "outDir": "./js",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  }
+}
