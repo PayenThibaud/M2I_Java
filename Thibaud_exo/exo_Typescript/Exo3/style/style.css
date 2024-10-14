@@ -16,7 +16,7 @@ body {
 #balise-details {
     grid-column: 4 / 5;
     margin-top: 5px;
-    height: 485px;
+    height: 545px;
     background-color: #bcbcbc;
     padding: 20px;
     border-radius: 8px;
@@ -29,7 +29,7 @@ body {
 
 
 .inputType1 {
-    width: 69%;
+    width: 95%;
     padding: 10px;
     border-radius: 8px;
     border: 1px solid #ccc;
@@ -92,4 +92,12 @@ body {
 
 .button-container button:hover {
     opacity: 0.9;
+}
+
+.ajoutImage {
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    height: auto;
+    margin-right: 10px;
 }

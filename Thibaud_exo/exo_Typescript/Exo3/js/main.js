@@ -5,6 +5,7 @@ const nomInput = document.getElementById("nom");
 const dateNaissanceInput = document.getElementById("dateNaissance");
 const emailInput = document.getElementById("email");
 const telInput = document.getElementById("tel");
+const imageInput = document.getElementById("image");
 export const contactsList = [];
 let id = 0;
 let selectedContactId = null;
@@ -17,15 +18,33 @@ deleteButton.addEventListener("click", (event) => {
     event.preventDefault();
     supprimerContact();
 });
+imageInput.addEventListener("change", () => {
+    var _a;
+    if ((_a = imageInput.files) === null || _a === void 0 ? void 0 : _a.length) {
+        afficherImage(imageInput.files[0]);
+    }
+});
+function afficherImage(file) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+        const profileImage = document.getElementById("profileImage");
+        profileImage.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+}
 function ajouterContact() {
+    var _a;
     const prenomValue = prenomInput.value;
     const nomValue = nomInput.value;
     const dateNaissanceValue = new Date(dateNaissanceInput.value);
     const emailValue = emailInput.value;
     const telValue = Number(telInput.value);
-    const nouveauContact = new Contact(prenomValue, nomValue, dateNaissanceValue, emailValue, telValue, ++id);
+    const imageFile = ((_a = imageInput.files) === null || _a === void 0 ? void 0 : _a[0]) || null;
+    // Créez un nouvel objet Contact
+    const nouveauContact = new Contact(prenomValue, nomValue, dateNaissanceValue, emailValue, telValue, ++id, imageFile);
     contactsList.push(nouveauContact);
     contactForm.reset();
+    imageInput.value = '';
     updateContactList();
     console.log(contactsList);
 }
@@ -64,4 +83,11 @@ function remplirFormulaire(contact) {
     dateNaissanceInput.value = contact.dateNaissance.toISOString().split('T')[0];
     emailInput.value = contact.email;
     telInput.value = contact.tel.toString();
+    if (contact.image) {
+        afficherImage(contact.image);
+    }
+    else {
+        const profileImage = document.getElementById("profileImage");
+        profileImage.src = "./img/imageProfil.png";
+    }
 }

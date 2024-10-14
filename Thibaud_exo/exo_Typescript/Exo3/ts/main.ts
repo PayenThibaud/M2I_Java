@@ -1,12 +1,12 @@
 import { Contact } from "./class/Contact.js";
 
 const contactForm = document.getElementById("contactForm") as HTMLFormElement;
-
 const prenomInput = document.getElementById("prenom") as HTMLInputElement;
 const nomInput = document.getElementById("nom") as HTMLInputElement;
 const dateNaissanceInput = document.getElementById("dateNaissance") as HTMLInputElement;
 const emailInput = document.getElementById("email") as HTMLInputElement;
 const telInput = document.getElementById("tel") as HTMLInputElement;
+const imageInput = document.getElementById("image") as HTMLInputElement;
 
 export const contactsList: Contact[] = [];
 let id = 0;
@@ -23,16 +23,34 @@ deleteButton.addEventListener("click", (event) => {
     supprimerContact();
 });
 
+imageInput.addEventListener("change", () => {
+    if (imageInput.files?.length) {
+        afficherImage(imageInput.files[0]);
+    }
+});
+
+function afficherImage(file: File) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+        const profileImage = document.getElementById("profileImage") as HTMLImageElement;
+        profileImage.src = e.target.result as string;
+    };
+    reader.readAsDataURL(file);
+}
+
 function ajouterContact() {
     const prenomValue = prenomInput.value;
     const nomValue = nomInput.value;
     const dateNaissanceValue = new Date(dateNaissanceInput.value);
     const emailValue = emailInput.value;
     const telValue = Number(telInput.value);
+    const imageFile = imageInput.files?.[0] || null;
 
-    const nouveauContact = new Contact(prenomValue, nomValue, dateNaissanceValue, emailValue, telValue, ++id);
+    // Créez un nouvel objet Contact
+    const nouveauContact = new Contact(prenomValue, nomValue, dateNaissanceValue, emailValue, telValue, ++id, imageFile);
     contactsList.push(nouveauContact);
     contactForm.reset();
+    imageInput.value = '';
     updateContactList();
     console.log(contactsList);
 }
@@ -76,4 +94,10 @@ function remplirFormulaire(contact: Contact) {
     dateNaissanceInput.value = contact.dateNaissance.toISOString().split('T')[0];
     emailInput.value = contact.email;
     telInput.value = contact.tel.toString();
+    if (contact.image) {
+        afficherImage(contact.image);
+    } else {
+        const profileImage = document.getElementById("profileImage") as HTMLImageElement;
+        profileImage.src = "./img/imageProfil.png";
+    }
 }
