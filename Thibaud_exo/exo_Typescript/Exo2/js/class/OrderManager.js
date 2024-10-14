@@ -1,18 +1,14 @@
-import { IOrder } from "../interface/IOrder.js";
-import { Status } from "../enums/Status.js";
-
 export class OrderManager {
-    private orders: IOrder[] = [];
-
-    public addOrder(order: IOrder): void {
+    constructor() {
+        this.orders = [];
+    }
+    addOrder(order) {
         this.orders.push(order);
     }
-
-    public getOrderById(id: number): IOrder | undefined {
+    getOrderById(id) {
         return this.orders.find(order => order.id === id);
     }
-
-    public updateOrderStatus(id: number, status: Status): boolean {
+    updateOrderStatus(id, status) {
         const order = this.getOrderById(id);
         if (order) {
             order.status = status;
@@ -20,12 +16,10 @@ export class OrderManager {
         }
         return false;
     }
-
-    public listOrdersByStatus(status: Status): IOrder[] {
+    listOrdersByStatus(status) {
         return this.orders.filter(order => order.status === status);
     }
-
-    public removeOrder(id: number): boolean {
+    removeOrder(id) {
         const initialLength = this.orders.length;
         this.orders = this.orders.filter(order => order.id !== id);
         return this.orders.length < initialLength;

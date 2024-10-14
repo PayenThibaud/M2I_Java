@@ -1,4 +1,4 @@
-import {IProduct} from "./IProduct";
+import {IProduct} from "./IProduct.js";
 
 export interface IOrderItem {
     product: IProduct

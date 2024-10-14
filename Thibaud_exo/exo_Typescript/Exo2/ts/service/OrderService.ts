@@ -1,7 +1,7 @@
-import {ICustomer} from "../interface/ICustomer";
-import {IOrderItem} from "../interface/IOrderItem";
-import {IOrder} from "../interface/IOrder";
-import {Status} from "../enums/Status";
+import {ICustomer} from "../interface/ICustomer.js";
+import {IOrderItem} from "../interface/IOrderItem.js";
+import {IOrder} from "../interface/IOrder.js";
+import {Status} from "../enums/Status.js";
 
 
 let id: number = 0;

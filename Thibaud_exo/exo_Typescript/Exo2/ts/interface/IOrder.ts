@@ -1,6 +1,6 @@
-import {ICustomer} from "./ICustomer";
-import {IOrderItem} from "./IOrderItem";
-import {Status} from "../enums/Status";
+import {ICustomer} from "./ICustomer.js";
+import {IOrderItem} from "./IOrderItem.js";
+import {Status} from "../enums/Status.js";
 
 export interface IOrder {
     id: number
