@@ -27,5 +27,6 @@ export class CounterComponent {
 
   vert: string = "green";
   rouge: string = "red";
+  jaune: string ="yellow";
 
 }

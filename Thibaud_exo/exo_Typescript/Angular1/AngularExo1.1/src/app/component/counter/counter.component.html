@@ -1,8 +1,10 @@
-<p>counter works!</p>
-
 <section>
-
-  <p [class]="isPair ? vert : rouge">Chiffre : {{chiffre}}</p>
-  <button (click)="chiffrePlus1()">+1</button>
-  <button (click)="chiffreMoins1()">-1</button>
+<div>
+  <p>
+    <span [class]="jaune">Chiffre : </span>
+    <span [class]="isPair ? vert : rouge">{{chiffre}}</span>
+  </p>
+  <button [class]="vert" (click)="chiffrePlus1()">+1</button>
+  <button [class]="rouge" (click)="chiffreMoins1()">-1</button>
+</div>
 </section>
