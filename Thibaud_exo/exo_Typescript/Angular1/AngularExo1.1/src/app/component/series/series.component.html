@@ -1,1 +1,14 @@
-<p>series works!</p>
+<section>
+  <div>
+    <p>Liste de serie :</p>
+
+    @for (serie of listSeries; track serie; let i = $index) {
+      <li>
+        {{ serie }}
+        <button (click)="delete(i)">Supprimer</button>
+      </li>
+    } @empty {
+      <p>Pas de serie ! 😥 </p>
+    }
+  </div>
+</section>
