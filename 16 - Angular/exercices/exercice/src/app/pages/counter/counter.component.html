@@ -1,0 +1,8 @@
+<div class="p-6 bg-gray-100 rounded mx-auto max-w-xs shadow-md">
+    <h1 class="font-bold underline text-center mb-4 text-gray-800">Counter</h1>
+    <p [class]="color" class="font-semibold text-gray-700 text-center mb-4">{{ counter }}</p>
+    <div class="btn-container flex justify-center spaxe-x-4">
+        <button (click)="decrement()" class="bg-red-500 px-4 py-2 text-white rounded hover:bg-red-700">-</button>
+        <button (click)="increment()" class="bg-green-500 px-4 py-2 text-white rounded hover:bg-green-700">+</button>
+    </div>
+</div>

@@ -35,3 +35,21 @@ Permet d'interpréter du js dans les attributs HTML. On peut interpréter du js 
 ```angular2html
 <img [src]="nom_variable">
 ```
+
+## Le router
+
+Pour créer des "routes", on les définit dans le fichier `app.routes.ts` sous la forme d'un objet qui contient
+un path (le chemin dans l'url) et le composant à afficher.
+
+```ts
+export const routes: Routes = [
+    {path: '', component: HomeComponent},
+    {path: 'blocks', component: BlocksComponent}
+];
+```
+
+On peut ensuite créer des liens vers ces routes avec l'attribut `routerLink`
+
+```angulat2html
+<a routerLink="/">Home</a>
+```

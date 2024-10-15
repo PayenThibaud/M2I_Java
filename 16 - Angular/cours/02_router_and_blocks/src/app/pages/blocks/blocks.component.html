@@ -1,0 +1,48 @@
+<h1>Les blocks</h1>
+
+<section>
+    <h2>Les blocks conditionnels</h2>
+
+    @if (!isLogged) {
+        <div>
+            <h3>Vous n'êtes pas connecté !</h3>
+            <div>
+                <button (click)="toggleLogged()">Se connecter</button>
+            </div>
+        </div>
+    } @else {
+        <div>
+            <h3>Vous êtes connecté !</h3>
+            <button (click)="toggleLogged()">Se déconnecter</button>
+        </div>
+    }
+</section>
+
+<section>
+    <h2>Utilisation du switch :</h2>
+    @switch(today){
+        @case('Lundi'){
+            <p>C'est lundi</p>
+        } 
+        @case('Mardi'){
+            <p>C'est mardi</p>
+        }@default{
+            <p>C'est un autre jour ...</p>
+        }
+    }
+</section>
+
+<section>
+    <h2>Les bloucles</h2>
+
+    @for (user of users; track user; let i = $index){
+        <li>
+            L'index : {{ i }} j'ai : {{ user }}
+            C'est le premier élément de la liste ? {{ $first }}
+            C'est le dernier élément de la liste ? {{ $last }}
+            Il y a {{ $count }} items dans le tableau
+        </li>
+    } @empty {
+        <p>La liste est vide !</p>
+    }
+</section>
