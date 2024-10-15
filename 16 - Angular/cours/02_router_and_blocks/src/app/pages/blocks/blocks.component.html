@@ -1,0 +1,19 @@
+<h1>Les blocks</h1>
+
+<section>
+    <h2>Les blocks conditionnels</h2>
+
+    @if (!isLogged) {
+        <div>
+            <h3>Vous n'êtes pas connecté !</h3>
+            <div>
+                <button (click)="toggleLogged()">Se connecter</button>
+            </div>
+        </div>
+    } @else {
+        <div>
+            <h3>Vous êtes connecté !</h3>
+            <button (click)="toggleLogged()">Se déconnecter</button>
+        </div>
+    }
+</section>
