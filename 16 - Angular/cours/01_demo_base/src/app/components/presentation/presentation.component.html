@@ -1,0 +1,24 @@
+<h1>Présentation</h1>
+
+<section>
+    <h2>Interpolation</h2>
+
+    <p>Nom : {{ name }}</p>
+    <p>1 + 1 = {{ 1 + 1 }}</p>
+    <p>NOM : {{ name.toUpperCase() }}</p>
+    <p>{{ isLogged ? "vous êtes connecté" : "Veuillez vous connecter" }}</p>
+</section>
+
+<section>
+    <h2>Data binding</h2>
+
+    <div>
+        <img [src]="m2i" alt="description">
+    </div>
+    <p [style]="color">Mon paragraphe !</p>
+    <p [class]="isLogged ? maClassA : maClassB">J'ai une classe dynamique</p>
+</section>
+
+<section>
+    <button (click)="toggleLogged()" >{{ isLogged ? "Déconnexion" : "Connexion"}}</button>
+</section>
