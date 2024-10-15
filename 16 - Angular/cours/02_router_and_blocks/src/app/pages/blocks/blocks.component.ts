@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+type days = 'Lundi' | 'Mardi' | 'Mercredi' | 'Jeudi' | 'Vendredi'
+
 @Component({
   selector: 'app-blocks',
   standalone: true,
@@ -9,6 +11,8 @@ import { Component } from '@angular/core';
 })
 export class BlocksComponent {
   isLogged: boolean = false
+  today: days = "Mardi"
+  users: string[] = []
 
   toggleLogged() : void {
     this.isLogged = !this.isLogged
