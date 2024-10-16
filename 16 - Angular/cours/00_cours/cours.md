@@ -58,3 +58,9 @@ On peut ensuite créer des liens vers ces routes avec l'attribut `routerLink`
 
 Les pipes sont des fonctions qui prennent en valeur une entrée, et qui retourne la valeur transformée.
 Il y a des pipes pour le texte `uppercase`, `lowercase`, `titlecase`
+
+## Les formulaires
+
+2 types en Angular : 
+    - Template Driven Form
+    - Reactive Forms
