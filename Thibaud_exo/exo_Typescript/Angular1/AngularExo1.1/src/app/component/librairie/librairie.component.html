@@ -1,1 +1,16 @@
-<p>librairie works!</p>
+<section>
+  <div>
+    <p>Liste de livre :</p>
+
+    @for (livre of livres; track livre; let i = $index) {
+      <li>
+        {{ livre.titre }} de {{ livre.auteur }}
+        <button (click)="toggleIsRead(livre)">
+          {{ livre.isRead ? 'lu' : 'non lu' }}
+        </button>
+        {{ livre.isRead | pouce}}
+      </li>
+    }
+  </div>
+</section>
+
