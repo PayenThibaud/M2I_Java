@@ -17,3 +17,9 @@
 - Afficher la liste des séries
 - Afficher un message si la liste est vide
 - Ajouter un bouton de suppression sur chaque élément de la liste
+
+## Exercice 3 :
+
+- Créer un pipe personnalisé qui prend en paramètre un tableau, et un argument de type string 'order' ('asc' ou 'desc')
+- Utiliser ce pipe sur le tableau de séries pour le trier
+- Ajouter 2 boutons pour modifier l'ordre du tableau (asc, desc)
