@@ -1,0 +1,27 @@
+<section>
+
+  <div>
+    <p>Liste de serie avec pipe maj :</p>
+
+    @for (nom of tab | uppertale; track nom; let i =$index){
+      <p> {{ nom }}</p>
+    }
+  </div>
+
+  <div>
+    <p>Liste de serie avec pipe trie asc :</p>
+
+    @for (nom of tab | trie:"asc"; track nom; let i =$index){
+      <p>{{ nom }}</p>
+    }
+  </div>
+
+  <div>
+    <p>Liste de serie avec pipe trie desc :</p>
+
+    @for (nom of tab | trie:"desc"; track nom; let i =$index){
+      <p>{{ nom }}</p>
+    }
+  </div>
+
+</section>
