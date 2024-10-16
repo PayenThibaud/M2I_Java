@@ -21,4 +21,11 @@ export class PipeComponent {
     'The Witcher',
     'Money Heist'
   ];
+
+  trie: "asc" | "desc" = "asc";
+
+
+  toggleSortOrder() {
+    this.trie = this.trie === "asc" ? "desc" : "asc";
+  }
 }

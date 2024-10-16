@@ -24,4 +24,14 @@
     }
   </div>
 
+  <div>
+    <p>Liste de séries avec pipe tri avec bouton :</p>
+
+    <button (click)="toggleSortOrder()">{{ trie }}</button>
+
+    @for (nom of tab | trie:trie; track nom; let i = $index) {
+      <p>{{ nom }}</p>
+    }
+  </div>
+
 </section>
