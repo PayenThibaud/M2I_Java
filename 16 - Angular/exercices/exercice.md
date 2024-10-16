@@ -34,3 +34,9 @@
 - quand le livre est lu, on affiche 👍 et 👎 (windows + . pour ajouter un emoji) s'il n'est pas lu
 - Utiliser un pipe perso pour la gestion de l'emoji
 - Ajouter un bouton pour marquer un livre lu / pas lu
+
+## Exercice 5 :
+
+- Dans le composant librairie, Créer un fomulaire pour ajouter un livre
+- par défaut la valeur de isRead sera false
+- Ajouter le nouveau livre à la liste précédente
