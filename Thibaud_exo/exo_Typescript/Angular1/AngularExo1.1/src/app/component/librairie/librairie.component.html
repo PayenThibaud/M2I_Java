@@ -1,14 +1,16 @@
 <section>
   <div>
-    <p>Liste de livre :</p>
-
+    <p class="arc-en-ciel">Liste de livre :</p>
+    <hr>
     @for (livre of livres; track livre; let i = $index) {
       <li>
         {{ livre.titre }} de {{ livre.auteur }}
         <button (click)="toggleIsRead(livre)">
           {{ livre.isRead ? 'lu' : 'non lu' }}
         </button>
-        {{ livre.isRead | pouce}}
+        <button class="transparent-button" (click)="toggleIsRead(livre)">
+          {{ livre.isRead | pouce }}
+        </button>
       </li>
     }
   </div>

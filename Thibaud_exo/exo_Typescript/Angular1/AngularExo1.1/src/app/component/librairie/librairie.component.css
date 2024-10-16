@@ -109,3 +109,67 @@ button.red:hover {
 button:active {
   transform: scale(0.95);
 }
+
+.transparent-button {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  color: inherit;
+  cursor: pointer;
+/ padding: 0;
+}
+
+.transparent-button:hover {
+  opacity: 0.7;
+}
+
+.arc-en-ciel {
+  animation: couleurTourneText 5s infinite linear;
+}
+
+@keyframes couleurTourneText {
+  0% {
+    color: #ff5733;
+
+  }
+  25% {
+    color: #ffc107;
+
+  }
+  50% {
+    color: #28a745;
+
+  }
+  75% {
+    color: #33c1ff;
+
+  }
+  100% {
+    color: #ff5733;
+  }
+}
+
+@keyframes couleurTourneHr {
+  0% {
+    background-color: #ff5733;
+  }
+  25% {
+    background-color: #ffc107;
+  }
+  50% {
+    background-color: #28a745;
+  }
+  75% {
+    background-color: #33c1ff;
+  }
+  100% {
+    background-color: #ff5733;
+  }
+}
+
+hr {
+  height: 5px;
+  border: none;
+  animation: couleurTourneHr 5s infinite;
+}
+

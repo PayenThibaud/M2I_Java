@@ -1,6 +1,7 @@
 <section>
   <div>
-    <p>Liste de séries avec pipe tri avec bouton :</p>
+    <p class="arc-en-ciel">Liste de séries avec pipe tri avec bouton :</p>
+    <hr>
     <button (click)="toggleSortOrder()">{{ trie }}</button>
     @for (nom of listSeries | trie:trie; track nom; let i = $index) {
       <li>
