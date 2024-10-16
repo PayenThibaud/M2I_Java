@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {UppertalePipe} from '../../utils/pipes/uppertale.pipe';
 import {TriePipe} from '../../utils/pipes/trie.pipe';
 
@@ -10,11 +10,10 @@ import {TriePipe} from '../../utils/pipes/trie.pipe';
     TriePipe,
   ],
   templateUrl: './pipe.component.html',
-  styleUrl: './pipe.component.css'
+  styleUrls: ['./pipe.component.css']
 })
 export class PipeComponent {
-
-  tab: string[] = [
+  listSeries: string[] = [
     'Breaking Bad',
     'Stranger Things',
     'Game of Thrones',
@@ -22,10 +21,14 @@ export class PipeComponent {
     'Money Heist'
   ];
 
-  trie: "asc" | "desc" = "asc";
+  delete(i: number): void {
+    this.listSeries.splice(i, 1);
+  }
 
+  trie: "asc" | "desc" = "asc";
 
   toggleSortOrder() {
     this.trie = this.trie === "asc" ? "desc" : "asc";
   }
+
 }

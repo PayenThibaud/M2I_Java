@@ -1,37 +1,17 @@
 <section>
 
   <div>
-    <p>Liste de serie avec pipe maj :</p>
-
-    @for (nom of tab | uppertale; track nom; let i =$index){
-      <p> {{ nom }}</p>
-    }
-  </div>
-
-  <div>
-    <p>Liste de serie avec pipe trie asc :</p>
-
-    @for (nom of tab | trie:"asc"; track nom; let i =$index){
-      <p>{{ nom }}</p>
-    }
-  </div>
-
-  <div>
-    <p>Liste de serie avec pipe trie desc :</p>
-
-    @for (nom of tab | trie:"desc"; track nom; let i =$index){
-      <p>{{ nom }}</p>
-    }
-  </div>
-
-  <div>
     <p>Liste de séries avec pipe tri avec bouton :</p>
-
     <button (click)="toggleSortOrder()">{{ trie }}</button>
-
-    @for (nom of tab | trie:trie; track nom; let i = $index) {
-      <p>{{ nom }}</p>
+    @for (nom of listSeries | trie:trie; track nom; let i = $index) {
+      <li>
+        {{ nom }}
+        <button (click)="delete(i)">Supprimer</button>
+      </li>
+    } @empty {
+      <p>Pas de série ! 😥 </p>
     }
   </div>
 
 </section>
+
