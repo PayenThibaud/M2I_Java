@@ -1,0 +1,38 @@
+<h1>Les pipes</h1>
+
+<section>
+    <h2>Texte</h2>
+
+    <ul>
+        <li>{{message | uppercase}}</li>
+        <li>{{messageMaj | lowercase }}</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Les dates</h2>
+    <ul>
+        <li>{{today}}</li>
+        <li>{{today | date : "short"}}</li>
+        <li>{{today | date : "long"}}</li>
+        <li>{{today | date : "medium"}}</li>
+        <li>{{today | date : "d/M/y"}}</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Nombres</h2>
+    <ul>
+        <li>{{pi}}</li>
+        <li>{{pi | number : "1.0-2"}}</li>
+        <li>{{pi | number : "3.3-3"}}</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Pipe personnalisée</h2>
+
+    @for (name of tab | uppertable; track name; let i = $index){
+        <p>{{ name }}</p>
+    }
+</section>
