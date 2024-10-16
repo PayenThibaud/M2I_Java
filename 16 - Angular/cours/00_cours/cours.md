@@ -53,3 +53,8 @@ On peut ensuite créer des liens vers ces routes avec l'attribut `routerLink`
 ```angulat2html
 <a routerLink="/">Home</a>
 ```
+
+## Les pipes
+
+Les pipes sont des fonctions qui prennent en valeur une entrée, et qui retourne la valeur transformée.
+Il y a des pipes pour le texte `uppercase`, `lowercase`, `titlecase`
