@@ -1,17 +1,14 @@
 <section>
-
   <div>
     <p>Liste de séries avec pipe tri avec bouton :</p>
     <button (click)="toggleSortOrder()">{{ trie }}</button>
     @for (nom of listSeries | trie:trie; track nom; let i = $index) {
       <li>
         {{ nom }}
-        <button (click)="delete(i)">Supprimer</button>
+        <button (click)="delete(nom)">Supprimer</button>
       </li>
     } @empty {
       <p>Pas de série ! 😥 </p>
     }
   </div>
-
 </section>
-

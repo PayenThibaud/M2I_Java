@@ -21,9 +21,10 @@ export class PipeComponent {
     'Money Heist'
   ];
 
-  delete(i: number): void {
-    this.listSeries.splice(i, 1);
+  delete(name: string): void {
+    this.listSeries = this.listSeries.filter((serie) => serie !== name);
   }
+
 
   trie: "asc" | "desc" = "asc";
 

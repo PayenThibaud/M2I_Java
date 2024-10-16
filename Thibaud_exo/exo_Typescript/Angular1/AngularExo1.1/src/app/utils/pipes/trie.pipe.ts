@@ -1,16 +1,17 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
+type order = "asc" | "desc"
+
+
 @Pipe({
   name: 'trie',
   standalone: true
 })
 export class TriePipe implements PipeTransform {
 
-  transform(value: string[], order: 'asc' | 'desc'): string[] {
-    const sortedArray = [...value].sort((a, b) => {
-      return order === 'asc' ? a.localeCompare(b) : -a.localeCompare(b);
-    });
-    return sortedArray;
+
+  transform(value: string[], order: order): string[] {
+    return order === "asc" ? [...value].sort() : [...value].sort().reverse();
   }
 
 
