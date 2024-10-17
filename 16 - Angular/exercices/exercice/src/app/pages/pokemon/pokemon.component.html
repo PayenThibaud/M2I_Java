@@ -1,0 +1,54 @@
+<form [formGroup]="pokeForm" (ngSubmit)="onSubmit()" class="bg-slate-200 space-y-6 p-8 rounded-lg mx-auto">
+    <div>
+        <label for="name" class="block text-sm text-slate-700">Nom du pokemon</label>
+        <input type="text" id="name" formControlName="nom" class="mt-1 block w-full px-4 py-2 border border-slate-300 rounded-md">
+    </div>
+    <div>
+        <label for="description" class="block text-sm text-slate-700">Déscription du pokemon</label>
+        <textarea type="text" id="description" formControlName="description" class="mt-1 block w-full px-4 py-2 border border-slate-300 rounded-md"></textarea>
+    </div>
+
+    <fieldset formGroupName="zone">
+        <legend>Zone d'apparition</legend>
+        <div>
+            <label for="zoneName" class="block text-sm text-slate-700">Nom de la zone</label>
+            <input type="text" id="zoneName" formControlName="nom" class="mt-1 block w-full px-4 py-2 border border-slate-300 rounded-md">
+        </div>
+        <div>
+            <label for="region" class="block text-sm text-slate-700">Région</label>
+            <input type="text" id="region" formControlName="region" class="mt-1 block w-full px-4 py-2 border border-slate-300 rounded-md">
+        </div>
+    </fieldset>
+
+    <div>
+        <label for="type" class="block text-sm text-slate-700">Type</label>
+        <select name="type" id="type" multiple formControlName="types" class="mt-1 block w-full px-4 border border-slate-300 rounded-md">
+            @for (type of types; track type; let i = $index) {
+                <option [value]="type">{{type}}</option>
+            }
+        </select>
+    </div>
+
+    <fieldset formArrayName="attacks">
+        <legend>Attaques</legend>
+        @for (control of attacks.controls; track control; let i = $index){
+            <fieldset [formGroupName]="i">
+                <legend>Attaque n°{{i}}</legend>
+                <div>
+                    <label [for]="'nom' + i" class="block text-sm text-slate-700">Nom de l'attaque</label>
+                    <input type="text" [id]="'nom' + i" formControlName="nom" class="mt-1 block w-full px-4 py-2 border border-slate-300 rounded-md">
+                </div>
+                <div>
+                    <label [for]="'description' + i" class="block text-sm text-slate-700">Déscription de l'attaque</label>
+                    <input type="text" [id]="'description' + i" formControlName="description" class="mt-1 block w-full px-4 py-2 border border-slate-300 rounded-md">
+                </div>
+                <div>
+                    <label [for]="'attaque' + i" class="block text-sm text-slate-700">Dégats</label>
+                    <input type="number" [id]="'attaque' + i" formControlName="degats" class="mt-1 block w-full px-4 py-2 border border-slate-300 rounded-md">
+                </div>
+            </fieldset>
+        }
+        <button type="button" (click)="addAttack()" class="mt-2 w-full py-3 px-6 bg-slate-600 text-white hover:bg-slate-400 rounded">Ajouter une attaque</button>
+    </fieldset>
+    <button type="submit" class="mt-2 w-full py-3 px-6 bg-slate-600 text-white hover:bg-slate-400 rounded">Sauvegarder le pokemon</button>
+</form>

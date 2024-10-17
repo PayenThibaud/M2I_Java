@@ -1,0 +1,7 @@
+<!-- <app-enfant [message]="parentMessage" [user]="{nom: 'tata',age: 30}" />
+<app-enfant [message]="'Mon second message'" [user]="{nom: 'titi',age: 30}" />
+<app-enfant [message]="'Mon troisième message'" [user]="user" /> -->
+
+@for (user of listUser; track user; let i = $index) {
+    <app-enfant [user]="user" [message]="'mon message de : ' + user.nom" />
+}
