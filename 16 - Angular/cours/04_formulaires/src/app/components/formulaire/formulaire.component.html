@@ -40,3 +40,51 @@
         <button>S'inscrire</button>
     </form>
 </section>
+
+<section>
+    <h2>Reactive forms</h2>
+
+    <form (ngSubmit)="saveBook()">
+        <label for="book">Titre du livre</label>
+        <input type="text" id="book" [formControl]="book_control" >
+        @if (book_control.invalid && book_control.touched) {
+            @if(book_control.hasError('required')) {
+                <p>Champs obligatoire</p>
+            } @else if(book_control.hasError('minlength')) {
+                <p>Trop court</p>
+            }
+        }
+        <button>Sauvegarder</button>
+    </form>
+
+    <form [formGroup]="formation_form" (ngSubmit)="save_formation()" >
+        <div>
+            <label for="title">Titre</label>
+            <input type="text" id="Titre" formControlName="title">
+        </div>
+        <div>
+            <label for="duree">Durée</label>
+            <input type="number" id="duree" formControlName="duration">
+        </div>
+        <fieldset formGroupName="trainer">
+            <legend>Formateur</legend>
+            <div>
+                <label for="firstname">Prénom</label>
+                <input type="text" id="firstname" formControlName="firstname">
+            </div>
+            <div>
+                <label for="lastname">Nom</label>
+                <input type="text" id="lastname" formControlName="lastname">
+            </div>
+        </fieldset>
+        <fieldset formGroupName="modules">
+            <legend>modules</legend>
+            @for (control of modules.controls; track control; let i = $index){
+                <label [for]="'module' + $index">Module {{$index + 1}}</label>
+                <input type="text" [id]="'module' + $index" [formControlName]="$index">
+            }
+            <button (click)="addModule()">Ajouter un module</button>
+        </fieldset>
+        <button>Sauvegarder</button>
+    </form>
+</section>
