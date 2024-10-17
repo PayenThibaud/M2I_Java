@@ -10,10 +10,6 @@
   color: #ffc107;
 }
 
-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
 
 li {
   padding: 5px;
@@ -22,12 +18,19 @@ li {
   padding-left: 20px;
 }
 
+section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
 div {
-  grid-column: 2/3;
+  grid-column: 2 / 3;
   grid-row: 1;
   text-align: center;
   margin-top: 50px;
-  padding-bottom: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
   background-color: #d9d9d9;
   border-radius: 8px;
 
@@ -73,6 +76,7 @@ div {
   }
 }
 
+
 p {
   font-size: 24px;
   font-weight: bold;
@@ -116,7 +120,7 @@ button:active {
   box-shadow: none;
   color: inherit;
   cursor: pointer;
-/ padding: 0;
+  padding: 0;
 }
 
 .transparent-button:hover {

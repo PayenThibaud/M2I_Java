@@ -13,6 +13,23 @@
         </button>
       </li>
     }
+
+    <form (ngSubmit)="submitLivre()">
+      <div>
+        <label for="titre">Titre</label>
+        <input type="text" id="titre" name="titre" [(ngModel)]="livre.titre" />
+      </div>
+      <div>
+        <label for="auteur">Auteur</label>
+        <input type="text" id="auteur" name="auteur" [(ngModel)]="livre.auteur" />
+      </div>
+      <button type="submit">Ajouter le livre</button>
+    </form>
+
+    <img src="assets/img/arbre.jpg" alt="Image d'arbre" class="image-livre">
+
   </div>
+
+
 </section>
 
