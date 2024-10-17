@@ -55,3 +55,9 @@
     - zone
         - nom
         - region
+
+## Exercice 7 :
+
+- Reprendre les pokemons
+- Créer un composant pokemon-card, ce composant prendra un pokemon via les props et affichera une carte de ce pokemon.
+- Afficher ensuite grace à une boucle les pokemons de la liste.
