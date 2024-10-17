@@ -64,3 +64,17 @@ Il y a des pipes pour le texte `uppercase`, `lowercase`, `titlecase`
 2 types en Angular : 
     - Template Driven Form
     - Reactive Forms
+
+Les états de formControl :
+    - valid -> respecte tous les validators
+    - invalid -> ne respecte au moins un des validators
+    - touched -> le champs a déjà perdu le focus
+    - untouched -> le champs n'a jamais perdu le focus
+    - dirty -> le champs a déjà reçu une intéraction
+    - pristine -> le champs n'a jamais reçu d'intéraction.
+
+Dans le formulaire réactif, on peut retrouver 3 classes principales :
+
+- formControl : pour les données simples (boolean, string, number)
+- formGroup : pour manipuler les objets.
+- formArray : pour manipuler des tableaux
