@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 interface User {
   nom: string;
@@ -15,4 +15,10 @@ interface User {
 export class EnfantComponent {
   @Input() message!: string 
   @Input() user!: User;
+
+  @Output() dataEmitted = new EventEmitter<string>()
+
+  sendData() {
+    this.dataEmitted.emit('Hello depuis le composant enfant !')
+  }
 }
