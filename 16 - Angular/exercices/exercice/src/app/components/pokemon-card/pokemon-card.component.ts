@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Pokemon } from '../../utils/types/pokemon.type';
 import { CommonModule } from '@angular/common';
 
@@ -24,6 +24,12 @@ type PokemonType =
 })
 export class PokemonCardComponent {
   @Input() pokemon!: Pokemon
+
+  @Output() deleteEvent = new EventEmitter<Pokemon>()
+
+  deletePokemon() {
+    this.deleteEvent.emit(this.pokemon)
+  }
 
   getTypeColor(type: string) : string {
     console.log(type);
