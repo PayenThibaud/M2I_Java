@@ -1,0 +1,27 @@
+<article class="bg-gray-300 rounded-lg p-6 border-2 border-gray-400">
+    <div>
+        <h3 class="text-sm text-slate-700 text-center font-bold">{{ pokemon.nom }}</h3>
+        <p class="text-center text-gray-700 mb-4">{{ pokemon.description }}</p>
+        <h4 class="font-semibold">Types :</h4>
+        <div class="flex gap-2 mt-2 mb-4">
+            @for (type of pokemon.types; track type) {
+                <p [ngClass]="getTypeColor(type)" class="rounded px-3 py-1 text-white">{{ type }}</p>
+            }
+        </div>
+
+        <h4 class="font-semibold">Zone :</h4>
+        <p class="text-center text-gray-700 mb-4">{{ pokemon.zone.nom }} : {{ pokemon.zone.region }}</p>
+
+        <h4 class="font-semibold">Attaques :</h4>
+        <div>
+            <ul>                
+                @for (attack of pokemon.attacks; track attack){
+                    <li>
+                        {{attack.nom}} : {{attack.degats}}
+                        {{attack.description}}
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</article>

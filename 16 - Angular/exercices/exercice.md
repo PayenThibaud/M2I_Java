@@ -55,3 +55,15 @@
     - zone
         - nom
         - region
+
+## Exercice 7 :
+
+- Reprendre les pokemons
+- Créer un composant pokemon-card, ce composant prendra un pokemon via les props et affichera une carte de ce pokemon.
+- Afficher ensuite grace à une boucle les pokemons de la liste.
+
+## Exercice 8 :
+
+- Créer un bouton dans le pokemon-card permettant de supprimer un pokemon :
+    - Le bouton doit envoyer un événement au parent.
+    - Le parent doit récupérer cet événement pour supprimer le pokemon de la liste.

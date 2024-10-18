@@ -36,4 +36,10 @@ export class ParentComponent {
       age: 50
     }
   ]
+
+  receiveData: string = ""
+
+  handleData(data: string) {
+    this.receiveData = data
+  }
 }
