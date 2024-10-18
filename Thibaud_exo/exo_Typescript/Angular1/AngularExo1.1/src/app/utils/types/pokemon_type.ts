@@ -1,19 +1,18 @@
-
-export type ListeAttaqueType = {
-  nomAttaque: string;
-  descriptionAttaque: string;
-  degat: number;
+export type Pokemon = {
+  nom: string
+  description: string
+  types: string[],
+  zone: Zone,
+  attacks: Attack[]
 }
 
-export type ZoneType = {
-  nomZone: string;
-  region: string;
+export type Zone = {
+  nom: string
+  region: string
 }
 
-export type PokemonType = {
-  nom: string;
-  description: string;
-  listeDeTypes: string[];
-  listeAttaques: ListeAttaqueType[];
-  zones: ZoneType;
+export type Attack = {
+  nom: string
+  description: string
+  degats: number
 }

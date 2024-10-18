@@ -1,20 +1,28 @@
-<article>
+<article class="bg-gray-300 rounded-lg p-6 border-2 border-gray-400">
   <div>
-    <h3>{{ pokemon.nom }}</h3>
-    <p> {{ pokemon.description }}</p>
-    <h4>Types : </h4>
-    <div>
-      @for (type of pokemon.listeDeTypes; track pokemon; let i = $index){
-        <p>{{ type }}</p>
+    <h3 class="text-sm text-slate-700 text-center font-bold">{{ pokemon.nom }}</h3>
+    <p class="text-center text-gray-700 mb-4">{{ pokemon.description }}</p>
+    <h4 class="font-semibold">Types :</h4>
+    <div class="flex gap-2 mt-2 mb-4">
+      @for (type of pokemon.types; track type) {
+        <p [ngClass]="getTypeColor(type)" class="rounded px-3 py-1 text-white">{{ type }}</p>
       }
+    </div>
+
+    <h4 class="font-semibold">Zone :</h4>
+    <p class="text-center text-gray-700 mb-4">{{ pokemon.zone.nom }} : {{ pokemon.zone.region }}</p>
+
+    <h4 class="font-semibold">Attaques :</h4>
+    <div>
+      <ul>
+        @for (attack of pokemon.attacks; track attack){
+          <li>
+            {{attack.nom}} : {{attack.degats}}
+            {{attack.description}}
+          </li>
+        }
+      </ul>
+      <button class="bg-red-600 rounded py-1 px-4 text-white mt-4" (click)="deletePokemon()">Supprimer le pokemon</button>
     </div>
   </div>
 </article>
-
-<!--C est pas un html a afficher mais a afficher sur un heritage-->
-
-
-<div>
-  <h3>Message a envvoyer au composant parent</h3>
-  <button (click)="sendData()"> Envoyer </button>
-</div>

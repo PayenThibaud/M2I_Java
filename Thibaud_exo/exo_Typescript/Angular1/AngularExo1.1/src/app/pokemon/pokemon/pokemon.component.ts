@@ -1,127 +1,136 @@
 import { Component } from '@angular/core';
-import { FormArray, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Pokemon } from '../../utils/types/pokemon_type';
 import {PokemonCardComponent} from '../pokemon-card/pokemon-card.component';
-import {PokemonType} from '../../utils/types/pokemon_type';
 
-// interface IListeAttaque {
-//   nomAttaque: string;
-//   descriptionAttaque: string;
-//   degat: number;
-// }
-//
-// interface IZone {
-//   nomZone: string;
-//   region: string;
-// }
-//
-// interface IPokemon {
-//   nom: string;
-//   description: string;
-//   listeDeTypes: string[];
-//   listeAttaques: IListeAttaque[];
-//   zones: IZone;
-// }
 
 @Component({
   selector: 'app-pokemon',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, PokemonCardComponent],
+  imports: [ReactiveFormsModule, PokemonCardComponent],
   templateUrl: './pokemon.component.html',
-  styleUrls: ['./pokemon.component.css']
+  styleUrl: './pokemon.component.css'
 })
 export class PokemonComponent {
 
-  listePokemon: PokemonType[] = [
+  pokeForm = new FormGroup({
+    nom: new FormControl(""),
+    description: new FormControl(""),
+    types: new FormControl([]),
+    attacks: new FormArray([
+      new FormGroup({
+        nom: new FormControl(""),
+        description: new FormControl(""),
+        degats: new FormControl(0)
+      })
+    ]),
+    zone: new FormGroup({
+      nom: new FormControl(""),
+      region: new FormControl("")
+    })
+  })
+
+  get attacks() {
+    return this.pokeForm.controls.attacks;
+  }
+
+  addAttack() : void {
+    this.attacks.push(
+      new FormGroup({
+        nom: new FormControl(""),
+        description: new FormControl(""),
+        degats: new FormControl(0)
+      })
+    )
+  }
+
+  onSubmit(): void {
+    console.log(this.pokeForm.value);
+    this.pokeForm.reset()
+  }
+
+  types: string[] = [
+    "feu",
+    "vol",
+    "psy",
+    "poison",
+    "eau",
+    "roche",
+    "normal",
+    "plante",
+    "electrik",
+    "fee",
+    "dragon"
+  ]
+
+  pokemonList: Pokemon[] = [
     {
-      nom: 'Pikachu',
-      description: 'Un Pokémon de type Électrique très populaire.',
-      listeDeTypes: ['Électrique'],
-      listeAttaques: [
-        { nomAttaque: 'Éclair', descriptionAttaque: 'Un coup de foudre rapide.', degat: 40 },
-        { nomAttaque: 'Tonnerre', descriptionAttaque: 'Une attaque électrique puissante.', degat: 90 }
+      nom: "Dracaufeu",
+      description: "Un Pokémon volant et cracheur de feu.",
+      types: ["feu", "vol"],
+      attacks: [
+        {
+          nom: "Lance-Flammes",
+          description: "Projette des flammes intenses pour brûler l'ennemi.",
+          degats: 90
+        },
+        {
+          nom: "Danse Draco",
+          description: "Augmente l'attaque et la vitesse.",
+          degats: 0
+        }
       ],
-      zones: { nomZone: 'Forêt de Viridian', region: 'Kanto' }
+      zone: {
+        nom: "Mont Braise",
+        region: "Kanto"
+      }
     },
     {
-      nom: 'Bulbizarre',
-      description: 'Un Pokémon de type Plante/Poison, calme et résistant.',
-      listeDeTypes: ['Plante', 'Poison'],
-      listeAttaques: [
-        { nomAttaque: 'Fouet Lianes', descriptionAttaque: 'Attaque avec des lianes puissantes.', degat: 45 },
-        { nomAttaque: 'Canon Graine', descriptionAttaque: 'Projette des graines à grande vitesse.', degat: 50 }
+      nom: "Tortank",
+      description: "Un Pokémon tortue doté de canons à eau sur son dos.",
+      types: ["eau"],
+      attacks: [
+        {
+          nom: "Hydrocanon",
+          description: "Lance un puissant jet d'eau pour submerger l'adversaire.",
+          degats: 110
+        },
+        {
+          nom: "Ébullition",
+          description: "Inflige des brûlures tout en attaquant.",
+          degats: 80
+        }
       ],
-      zones: { nomZone: 'Forêt d’Azuria', region: 'Kanto' }
+      zone: {
+        nom: "Lac Courage",
+        region: "Sinnoh"
+      }
     },
     {
-      nom: 'Dracaufeu',
-      description: 'Un puissant Pokémon de type Feu/Vol.',
-      listeDeTypes: ['Feu', 'Vol'],
-      listeAttaques: [
-        { nomAttaque: 'Lance-Flammes', descriptionAttaque: 'Crache des flammes intenses.', degat: 85 },
-        { nomAttaque: 'Vol', descriptionAttaque: 'S’élève dans les airs et frappe à grande vitesse.', degat: 70 }
+      nom: "Gardevoir",
+      description: "Un Pokémon capable de voir l'avenir et de protéger son dresseur.",
+      types: ["psy", "fee"],
+      attacks: [
+        {
+          nom: "Choc Psy",
+          description: "Inflige des dégâts en utilisant la force mentale.",
+          degats: 80
+        },
+        {
+          nom: "Pouvoir Lunaire",
+          description: "Utilise la lumière de la lune pour infliger de gros dégâts.",
+          degats: 95
+        }
       ],
-      zones: { nomZone: 'Île de Cramois\'Île', region: 'Kanto' }
+      zone: {
+        nom: "Forêt de Jade",
+        region: "Hoenn"
+      }
     }
   ];
 
-
-  pokemon_form: FormGroup = new FormGroup({
-    nom: new FormControl("", [Validators.required]),
-    description: new FormControl("", [Validators.required]),
-    zones: new FormGroup({
-      nomZone: new FormControl("", [Validators.required]),
-      region: new FormControl("", [Validators.required]),
-    }),
-    listeDeTypes: new FormArray([new FormControl("")]),
-    listeAttaques: new FormArray([
-      new FormGroup({
-        nomAttaque: new FormControl("", [Validators.required]),
-        descriptionAttaque: new FormControl("", [Validators.required]),
-        degat: new FormControl("", [Validators.required]),
-      })
-    ])
-  });
-
-  get listeDeTypes() {
-    return this.pokemon_form.get('listeDeTypes') as FormArray;
+  deletePokemon(pokemon: Pokemon): void {
+    const index = this.pokemonList.indexOf(pokemon);
+    this.pokemonList.splice(index, 1);
   }
-
-  get listeAttaques() {
-    return this.pokemon_form.get('listeAttaques') as FormArray;
-  }
-
-  addType(): void {
-    this.listeDeTypes.push(new FormControl(""));
-  }
-
-  removeType(index: number): void {
-    this.listeDeTypes.removeAt(index);
-  }
-
-  addAttaque(): void {
-    this.listeAttaques.push(new FormGroup({
-      nomAttaque: new FormControl("", [Validators.required]),
-      descriptionAttaque: new FormControl("", [Validators.required]),
-      degat: new FormControl("", [Validators.required]),
-    }));
-  }
-
-  removeAttaque(index: number): void {
-    this.listeAttaques.removeAt(index);
-  }
-
-  save_pokemon(): void {
-    if (this.pokemon_form.valid) {
-      console.log('Sauvegarde du Pokémon', this.pokemon_form.value);
-      this.listePokemon.push(this.pokemon_form.value);
-      this.pokemon_form.reset();
-    }
-  }
-
-
-  receiveData: string = ""
-
-  handleData(data: string): void {
-    this.receiveData = data
-  }
- }
+}

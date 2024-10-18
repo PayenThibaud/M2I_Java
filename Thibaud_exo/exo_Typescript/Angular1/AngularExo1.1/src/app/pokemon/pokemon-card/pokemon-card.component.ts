@@ -1,39 +1,52 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {PokemonType} from '../../utils/types/pokemon_type';
+import { Pokemon } from '../../utils/types/pokemon_type';
+import { CommonModule } from '@angular/common';
 
-// interface IListeAttaque {
-//   nomAttaque: string;
-//   descriptionAttaque: string;
-//   degat: number;
-// }
-//
-// interface IZone {
-//   nomZone: string;
-//   region: string;
-// }
-//
-// interface IPokemon {
-//   nom: string;
-//   description: string;
-//   listeDeTypes: string[];
-//   listeAttaques: IListeAttaque[];
-//   zones: IZone;
-// }
+type PokemonType =
+  "feu" |
+  "vol"|
+  "psy"|
+  "poison"|
+  "eau"|
+  "roche"|
+  "normal"|
+  "plante"|
+  "electrik"|
+  "fee"|
+  "dragon"
 
 @Component({
   selector: 'app-pokemon-card',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './pokemon-card.component.html',
   styleUrl: './pokemon-card.component.css'
 })
 export class PokemonCardComponent {
-  @Input() pokemon!: PokemonType;
+  @Input() pokemon!: Pokemon
+  @Output() deleteEvent= new EventEmitter<Pokemon>()
 
-  @Output() dataEmited = new EventEmitter<string>();
-
-  sendData() {
-    this.dataEmited.emit("hello depuis pokemon card")
+  deletePokemon(){
+    this.deleteEvent.emit(this.pokemon);
   }
-}
 
+  getTypeColor(type: string) : string {
+    console.log(type);
+    const typeColors : Record<PokemonType, string> = {
+      feu: "bg-red-500",
+      vol: "bg-slate-500",
+      psy: "bg-pink-500",
+      poison: "bg-purple-500",
+      eau: "bg-blue-500",
+      roche: "bg-gray-500",
+      normal: "bg-neutral-500",
+      plante: "bg-green-500",
+      electrik: "bg-yellow-500",
+      fee: "bg-pink-300",
+      dragon: "bg-blue-950"
+    }
+
+    return typeColors[type as PokemonType] || 'bg-gray-300'
+  }
+
+}
