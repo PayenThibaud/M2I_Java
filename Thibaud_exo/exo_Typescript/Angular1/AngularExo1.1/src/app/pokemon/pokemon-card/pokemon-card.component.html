@@ -1,0 +1,20 @@
+<article>
+  <div>
+    <h3>{{ pokemon.nom }}</h3>
+    <p> {{ pokemon.description }}</p>
+    <h4>Types : </h4>
+    <div>
+      @for (type of pokemon.listeDeTypes; track pokemon; let i = $index){
+        <p>{{ type }}</p>
+      }
+    </div>
+  </div>
+</article>
+
+<!--C est pas un html a afficher mais a afficher sur un heritage-->
+
+
+<div>
+  <h3>Message a envvoyer au composant parent</h3>
+  <button (click)="sendData()"> Envoyer </button>
+</div>

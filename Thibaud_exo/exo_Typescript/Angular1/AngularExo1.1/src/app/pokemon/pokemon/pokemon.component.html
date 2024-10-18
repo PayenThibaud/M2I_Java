@@ -1,67 +1,79 @@
-<form [formGroup]="pokemon_form" (ngSubmit)="save_pokemon()">
+<section>
+  <form [formGroup]="pokemon_form" (ngSubmit)="save_pokemon()">
 
 
-
-  <div>
-    <label for="nom">Nom</label>
-    <input type="text" id="nom" formControlName="nom">
-  </div>
-
-
-  <div>
-    <label for="description">Description</label>
-    <input type="text" id="description" formControlName="description">
-  </div>
+    <div>
+      <label for="nom">Nom</label>
+      <input type="text" id="nom" formControlName="nom">
+    </div>
 
 
-  <fieldset formArrayName="listeDeTypes">
-    <legend>Types</legend>
-    @for (control of listeDeTypes.controls; track control; let i = $index){
-      <label [for]="'type' + i">Type {{ i + 1 }}</label>
-      <input type="text" [id]="'type' + i" [formControlName]="i">
-      <button type="button" (click)="removeType(i)">Supprimer</button>
-    }
-    <button type="button" (click)="addType()">Rajouter un type</button>
-  </fieldset>
+    <div>
+      <label for="description">Description</label>
+      <input type="text" id="description" formControlName="description">
+    </div>
 
 
+    <fieldset formArrayName="listeDeTypes">
+      <legend>Types</legend>
+      @for (control of listeDeTypes.controls; track control; let i = $index) {
+        <label [for]="'type' + i">Type {{ i + 1 }}</label>
+        <input type="text" [id]="'type' + i" [formControlName]="i">
+        <button type="button" (click)="removeType(i)">Supprimer</button>
+      }
+      <button type="button" (click)="addType()">Rajouter un type</button>
+    </fieldset>
 
 
-  <fieldset formArrayName="listeAttaques">
-    <legend>Attaques</legend>
-    @for (control of listeAttaques.controls; track control; let i = $index){
-      <div [formGroupName]="i">
-        <label for="nomAttaque{{i}}">Nom de l'attaque</label>
-        <input type="text" [id]="'nomAttaque' + i" formControlName="nomAttaque">
+    <fieldset formArrayName="listeAttaques">
+      <legend>Attaques</legend>
+      @for (control of listeAttaques.controls; track control; let i = $index) {
+        <div [formGroupName]="i">
+          <label for="nomAttaque{{i}}">Nom de l'attaque</label>
+          <input type="text" [id]="'nomAttaque' + i" formControlName="nomAttaque">
 
-        <label for="descriptionAttaque{{i}}">Description de l'attaque</label>
-        <input type="text" [id]="'descriptionAttaque' + i" formControlName="descriptionAttaque">
+          <label for="descriptionAttaque{{i}}">Description de l'attaque</label>
+          <input type="text" [id]="'descriptionAttaque' + i" formControlName="descriptionAttaque">
 
-        <label for="degat{{i}}">Dégâts</label>
-        <input type="text" [id]="'degat' + i" formControlName="degat">
+          <label for="degat{{i}}">Dégâts</label>
+          <input type="text" [id]="'degat' + i" formControlName="degat">
 
-        <button type="button" (click)="removeAttaque(i)">Supprimer</button>
+          <button type="button" (click)="removeAttaque(i)">Supprimer</button>
+        </div>
+      }
+      <button type="button" (click)="addAttaque()">Rajouter une attaque</button>
+    </fieldset>
+
+
+    <fieldset formGroupName="zones">
+      <legend>Zone</legend>
+      <div>
+        <label for="nomZone">Nom de la zone</label>
+        <input type="text" id="nomZone" formControlName="nomZone">
       </div>
-    }
-    <button type="button" (click)="addAttaque()">Rajouter une attaque</button>
-  </fieldset>
+      <div>
+        <label for="region">Région</label>
+        <input type="text" id="region" formControlName="region">
+      </div>
+    </fieldset>
 
 
+    <button type="submit">Sauvegarder</button>
+  </form>
 
+</section>
 
-  <fieldset formGroupName="zones">
-    <legend>Zone</legend>
-    <div>
-      <label for="nomZone">Nom de la zone</label>
-      <input type="text" id="nomZone" formControlName="nomZone">
-    </div>
-    <div>
-      <label for="region">Région</label>
-      <input type="text" id="region" formControlName="region">
-    </div>
-  </fieldset>
+<!--<section>-->
+<!--  @for (pokemon of listePokemon; track pokemon; let i = $index) {-->
+<!--    <app-pokemon-card [pokemon]="pokemon"> </app-pokemon-card>-->
+<!--      }-->
+<!--</section>-->
 
+<section>
+  @for (pokemon of listePokemon; track pokemon){
+    <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
+    <app-pokemon-card (dataEmited)="handleData($event)"></app-pokemon-card>
+    <p> {{ receiveData }}</p>
+  }
+</section>
 
-
-  <button type="submit">Sauvegarder</button>
-</form>
