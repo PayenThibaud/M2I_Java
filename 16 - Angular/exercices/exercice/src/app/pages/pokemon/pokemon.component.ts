@@ -127,4 +127,9 @@ export class PokemonComponent {
       }
     }
   ];
+
+  deletePokemon(pokemon : Pokemon): void {
+    const index = this.pokemonList.indexOf(pokemon)
+    this.pokemonList.splice(index, 1)
+  }
 }

@@ -1,0 +1,14 @@
+
+<!-- <button (click)="refresh()">Rafraichir</button> -->
+<button (click)="addForm()">Ajouter une formation</button>
+
+<section>
+    @for (form of formations; track form) {
+        <h3>{{form.title}}</h3>
+    } @empty {
+        <p>Aucune formation</p>
+    }
+</section>
+
+<app-lifecycle [data]="'Ma valeur 1'"/>
+<app-lifecycle [data]="'Ma valeur 2'"/>

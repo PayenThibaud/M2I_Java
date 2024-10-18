@@ -67,3 +67,11 @@
 - Créer un bouton dans le pokemon-card permettant de supprimer un pokemon :
     - Le bouton doit envoyer un événement au parent.
     - Le parent doit récupérer cet événement pour supprimer le pokemon de la liste.
+
+## Exercice 9 :
+
+- Créer un nouveau projet de site e-commerce
+    - Gérer des marchandises: ajouter, supprimer, voir dans un tableau d'admin
+    - Page d'accueil avec une entête, footer, une grille de mes marchandises
+    - On peut ajouter des marchandises dans un panier
+    - Une page pour voir le panier

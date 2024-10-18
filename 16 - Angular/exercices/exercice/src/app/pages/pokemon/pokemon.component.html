@@ -55,8 +55,10 @@
     </form>
 </section>
 
-<section class="flex gap-2">
+<section class="flex gap-4 mt-4 justify-center">
     @for (pokemon of pokemonList; track pokemon) {
-        <app-pokemon-card [pokemon]="pokemon" />
+        <app-pokemon-card [pokemon]="pokemon" (deleteEvent)="deletePokemon($event)" />
+    } @empty {
+        <p>Aucun pokemon pour le moment ...</p>
     }
 </section>

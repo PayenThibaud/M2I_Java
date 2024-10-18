@@ -78,3 +78,19 @@ Dans le formulaire réactif, on peut retrouver 3 classes principales :
 - formControl : pour les données simples (boolean, string, number)
 - formGroup : pour manipuler les objets.
 - formArray : pour manipuler des tableaux
+
+## Les cycles de vie
+
+Il y a trois hooks principaux pour le cycle de vie :
+
+- OnChange :
+    - Se lance quand l'@Input change. Ne se lance pas si pas d'inputs
+    - Pour réagir aux modifications d'un input
+    - On reçoit la valeur précédente, la nouvelle valeur, et si c'est le premier changement.
+- OnInit :
+    - Se lance quand tous les input ont été chargés. Se lance même si pas d'input
+    - Pour agir quand le composant est prêt -> faire des requêtes HTTP
+    - Récupérer des données
+- OnDestroy : 
+    - Se lance quand on quitte le composant.
+    - Pour couper les souscriptions, web sockets ect...
