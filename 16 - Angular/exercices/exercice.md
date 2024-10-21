@@ -73,5 +73,8 @@
 - Créer un nouveau projet de site e-commerce
     - Gérer des marchandises: ajouter, supprimer, voir dans un tableau d'admin
     - Page d'accueil avec une entête, footer, une grille de mes marchandises
-    - On peut ajouter des marchandises dans un panier
+    - On peut ajouter et supprimer des marchandises dans un panier
     - Une page pour voir le panier
+
+bonus : 
+    - Ajouter la gestion des quantités.
