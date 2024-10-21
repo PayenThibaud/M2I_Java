@@ -84,4 +84,4 @@ bonus :
 Créer un nouveau composant, ChuckNorris
 - Utiliser l'api Chuck Norris fact dans un service pour afficher une fact en random
 - Ajouter un bouton pour recharger la blague
-- https://api.chucknorris.io/
+- https://api.chucknorris.io/ (ou https://chuckn.neant.be/api/)
