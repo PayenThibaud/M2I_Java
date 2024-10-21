@@ -20,6 +20,10 @@ export class BooklistComponent implements OnInit {
       // Mise à jour du tableau avec les données reçues.
       this.books = data
     })
+
+    this.bookService.getSpringApi().subscribe((data: string) => {
+      console.log(data);
+    })
   }
 
   addBook(): void {

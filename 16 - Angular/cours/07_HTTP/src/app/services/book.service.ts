@@ -9,8 +9,13 @@ import { Book } from '../types/book.model';
 export class BookService {
 
   private apiUrl = 'http://localhost:3000/books'
+  private springApi = "http://localhost:8080/api/hello"
 
   constructor(private http: HttpClient) { }
+
+  getSpringApi(): Observable<string> {
+    return this.http.get<string>(this.springApi)
+  }
 
   getBooks(): Observable<Book[]> {
     return this.http.get<Book[]>(this.apiUrl)
