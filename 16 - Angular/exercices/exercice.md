@@ -73,5 +73,15 @@
 - Créer un nouveau projet de site e-commerce
     - Gérer des marchandises: ajouter, supprimer, voir dans un tableau d'admin
     - Page d'accueil avec une entête, footer, une grille de mes marchandises
-    - On peut ajouter des marchandises dans un panier
+    - On peut ajouter et supprimer des marchandises dans un panier
     - Une page pour voir le panier
+
+bonus : 
+    - Ajouter la gestion des quantités.
+
+## Exercice 10 :
+
+Créer un nouveau composant, ChuckNorris
+- Utiliser l'api Chuck Norris fact dans un service pour afficher une fact en random
+- Ajouter un bouton pour recharger la blague
+- https://api.chucknorris.io/ (ou https://chuckn.neant.be/api/)

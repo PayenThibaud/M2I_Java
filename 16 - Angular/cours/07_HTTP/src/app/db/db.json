@@ -1,0 +1,14 @@
+{
+  "books": [
+    {
+      "id": "2",
+      "title": "Un titre",
+      "author": "Un auteur"
+    },
+    {
+      "id": "3",
+      "title": "Un titre",
+      "author": "Un auteur"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "email": "test@email.fr",
+      "password": "$2a$10$G0CxvNO1dzmZcUL7UWe.qOLwFfhGymdGfTujkBmOIiYCueV6MBdYi",
+      "firstname": "test",
+      "lastname": "test",
+      "id": 1
+    }
+  ],
+  "books": []
+}

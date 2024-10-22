@@ -1,0 +1,10 @@
+<ul>
+    @for (book of books; track book) {
+        <li>
+            {{book.title}} - {{book.author}}
+            <button (click)="deleteBook(book.id)">Supprimer</button>
+        </li>
+    }
+</ul>
+
+<button (click)="addBook()">Ajouter un livre</button>
