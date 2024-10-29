@@ -13,9 +13,9 @@ export class LifecycleComponent implements OnChanges, OnInit, OnDestroy {
   ngOnChanges(changes: SimpleChanges): void {
     console.log("On change :", changes);
     const previous = changes['data'].previousValue
-    console.log(previous);
+    console.log("previous = " + previous);
     const newValue = changes['data'].currentValue
-    console.log(newValue);
+    console.log("newvalue = " + newValue);
     const isFirstChange = changes['data'].isFirstChange()
     console.log(isFirstChange);
   }
